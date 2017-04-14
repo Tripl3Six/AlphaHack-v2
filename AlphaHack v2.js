@@ -4217,19 +4217,19 @@ exit.setTextColor(android.graphics.Color.RED);
                 onClick: function(viewarg){
                 jresult.dismiss();
 		for(var t = 0; t < 5; t++){
-		if(t==1){
 		if(isIpJson){
 		var daurl1 = "http://ip-api.com/json/" + text.query;
 var dajson1 = ModPE.getFromUrl(daurl1);
 var iperesult = ModPE.JSON.parse(dajson1);
+isIpJson = true;
 jresultView(iperesult);
 		}
 		if(isServerJson){
-		var daurl2 = "http://mcapi.ca/query/"+text.hostname+":"+text.port+"/list";
+		var daurl2 = "http://mcapi.ca/query/'+text.hostname+':'+text.port+'/list";
 var dajson2 = ModPE.getFromUrl(daurl2);
 var servresult = ModPE.JSON.parse(dajson2);
+isServerJson = true;
 jresultView(servresult);
-		}
 		}
 		}
                 }
@@ -14840,7 +14840,8 @@ Dialog.dismiss();
 var daurl1 = "http://ip-api.com/json/" + ip;
 var dajson1 = ModPE.getFromUrl(daurl1);
 var iperesult = ModPE.JSON.parse(dajson1);
-showIpResult(iperesult);
+isIpJson = true;
+jresultView(iperesult);
 }
 });
 
@@ -14851,11 +14852,6 @@ ipluD.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0
 print("trace dialog:"+e);
 }
 }});
-}
-
-function showIpResult(json){
-isIpJson = true;
-jresultView(json);
 }
 
       function ip2()
@@ -14903,10 +14899,11 @@ onClick: function(view){
 ply =ddip.getText();
 poy =ddip2.getText();
 Dialog.dismiss();
-var daurl2 = "http://mcapi.ca/query/"+ply+":"+poy+"/list";
+var daurl2 = "http://mcapi.ca/query/'+ply+':'+poy+'/list";
 var dajson2 = ModPE.getFromUrl(daurl2);
 var servresult = ModPE.JSON.parse(dajson2);
-showServerResult(servresult);
+isServerJson = true;
+jresultView(servresult);
 }
 });
 
@@ -14917,11 +14914,6 @@ pipD.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0,
 print("query Dialog:"+e);
 }
 }});
-}
-
-function showServerResult(json){
-isServerJson = true;
-jresultView(json);
 }
 
 function goto()
