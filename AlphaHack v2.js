@@ -14840,7 +14840,7 @@ Dialog.dismiss();
 var daurl1 = "http://ip-api.com/json/" + ip;
 var dajson1 = ModPE.getFromUrl(daurl1);
 var iperesult = ModPE.JSON.parse(dajson1);
-showIpResult();
+showIpResult(iperesult);
 }
 });
 
@@ -14853,9 +14853,9 @@ print("trace dialog:"+e);
 }});
 }
 
-function showIpResult(){
+function showIpResult(json){
 isIpJson = true;
-jresultView(iperesult);
+jresultView(json);
 }
 
       function ip2()
@@ -14906,7 +14906,7 @@ Dialog.dismiss();
 var daurl2 = "http://mcapi.ca/query/"+ply+":"+poy+"/list";
 var dajson2 = ModPE.getFromUrl(daurl2);
 var servresult = ModPE.JSON.parse(dajson2);
-showServerResult();
+showServerResult(servresult);
 }
 });
 
@@ -14919,9 +14919,9 @@ print("query Dialog:"+e);
 }});
 }
 
-function showServerResult(){
+function showServerResult(json){
 isServerJson = true;
-jresultView(servresult);
+jresultView(json);
 }
 
 function goto()
