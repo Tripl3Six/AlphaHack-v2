@@ -28,6 +28,7 @@ var getVersion = ModPE.getMinecraftVersion();
 /*Thanks to billbeds for hindi translate*/
 /*Thanks to anton for swedish translate*/
 /*Thanks to peacestorm(AgameR) for dutch translate*/
+/*Thanks to nsitf mcpe for chinese translate*/
 var GUI;
 var menu;
 var vidd = true;
@@ -1143,6 +1144,7 @@ function keybind() {
 				var open = new styleButton();
 				var killaura = new styleButton();
 				var hitbox = new styleButton();
+				var gamec = new styleButton();
 				open.setText("α");
 				open.setTextColor(android.graphics.Color.WHITE);
 				open.setTextSize(10);
@@ -1204,6 +1206,35 @@ function keybind() {
 					}
 				}));
 				toggleLayout.addView(hitbox);
+				if(Level.getGameMode() == 0)gamec.setText("GMS");
+				if(Level.getGameMode() == 1)gamec.setText("GMC");
+				gamec.setTextColor(android.graphics.Color.WHITE);
+				if (gmkeybind == true) gamec.setTextColor(android.graphics.Color.GREEN);
+				gamec.setTextSize(7);
+				gamec.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						gmkeybind ? gmkeybind = false : gmkeybind = true;
+						if(Level.getGameMode() == 0)gamec.setText("GMS");
+						if(Level.getGameMode() == 1)gamec.setText("GMC");
+						if (gmkeybind == true) {
+						if(Level.getGameMode() == 0)gamec.setText("GMS");
+						if(Level.getGameMode() == 1)gamec.setText("GMC");
+							gamec.setTextColor(android.graphics.Color.GREEN);
+							clientMessage(client + "Gamemode changed.");
+							if(Level.getGameMode() == 0 || Level.getGameMode() == 2)Level.setGameMode(1);
+							gmkeybind = true;
+						}
+						if (gmkeybind == false) {
+						if(Level.getGameMode() == 0)gamec.setText("GMS");
+						if(Level.getGameMode() == 1)gamec.setText("GMC");
+							gamec.setTextColor(android.graphics.Color.RED);
+							clientMessage(client + "Gamemode changed.");
+							if(Level.getGameMode() == 1 || Level.getGameMode() == 3)Level.setGameMode(0);
+							gmkeybind = false;
+						}
+					}
+				}));
+				toggleLayout.addView(gamec);
 				toggle = new android.widget.PopupWindow(toggleLayout1, dip2px(55), MainActivity.getWindowManager()
 					.getDefaultDisplay()
 					.getHeight() / 3);
@@ -17979,7 +18010,7 @@ function rptask() {
 						}
 						if (ridenear) {
 							var ent = getNearestEntity3(aimrange);
-							if (ent != getPlayerEnt()) {
+							if (ent != getPlayerEnt() && ent != null) {
 								rideAnimal(getPlayerEnt(), ent);
 							}
 						}
