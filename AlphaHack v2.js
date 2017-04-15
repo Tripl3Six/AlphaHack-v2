@@ -215,6 +215,8 @@ var useFire = false;
 var useNether = false;
 var isIpJson = false;
 var isServerJson = false;
+var gmkeybind = false;
+var speedbind = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -7366,36 +7368,6 @@ Level.setTile(getPlayerX() +2, getPlayerY(), getPlayerZ() -8, 83, 0);
 Level.setTile(getPlayerX() -2, getPlayerY(), getPlayerZ() -8, 83, 0);
 Level.setTile(getPlayerX() +3, getPlayerY(), getPlayerZ() -8, 83, 0);
 Level.setTile(getPlayerX() -3, getPlayerY(), getPlayerZ() -8, 83, 0);
-
-Level.setTile(getPlayerX(), getPlayerY() +1 +1, getPlayerZ() -4, 83, 0);
-Level.setTile(getPlayerX() +1, getPlayerY() +1, getPlayerZ() -4, 83, 0);
-Level.setTile(getPlayerX() -1, getPlayerY() +1, getPlayerZ() -4, 83, 0);
-Level.setTile(getPlayerX() +2, getPlayerY() +1, getPlayerZ() -4, 83, 0);
-Level.setTile(getPlayerX() -2, getPlayerY() +1, getPlayerZ() -4, 83, 0);
-Level.setTile(getPlayerX() +3, getPlayerY() +1, getPlayerZ() -4, 83, 0);
-Level.setTile(getPlayerX() -3, getPlayerY() +1, getPlayerZ() -4, 83, 0);
-Level.setTile(getPlayerX(), getPlayerY() +1, getPlayerZ() -5, 83, 0);
-Level.setTile(getPlayerX() +1, getPlayerY() +1, getPlayerZ() -5, 83, 0);
-Level.setTile(getPlayerX() -1, getPlayerY() +1, getPlayerZ() -5, 83, 0);
-Level.setTile(getPlayerX() +2, getPlayerY() +1, getPlayerZ() -5, 83, 0);
-Level.setTile(getPlayerX() -2, getPlayerY() +1, getPlayerZ() -5, 83, 0);
-Level.setTile(getPlayerX() +3, getPlayerY() +1, getPlayerZ() -5, 83, 0);
-Level.setTile(getPlayerX() -3, getPlayerY() +1, getPlayerZ() -5, 83, 0);
-
-Level.setTile(getPlayerX(), getPlayerY() +1, getPlayerZ() -7, 83, 0);
-Level.setTile(getPlayerX() +1, getPlayerY() +1, getPlayerZ() -7, 83, 0);
-Level.setTile(getPlayerX() -1, getPlayerY() +1, getPlayerZ() -7, 83, 0);
-Level.setTile(getPlayerX() +2, getPlayerY() +1, getPlayerZ() -7, 83, 0);
-Level.setTile(getPlayerX() -2, getPlayerY() +1, getPlayerZ() -7, 83, 0);
-Level.setTile(getPlayerX() +3, getPlayerY() +1, getPlayerZ() -7, 83, 0);
-Level.setTile(getPlayerX() -3, getPlayerY() +1, getPlayerZ() -7, 83, 0);
-Level.setTile(getPlayerX(), getPlayerY() +1, getPlayerZ() -8, 83, 0);
-Level.setTile(getPlayerX() +1, getPlayerY() +1, getPlayerZ() -8, 83, 0);
-Level.setTile(getPlayerX() -1, getPlayerY() +1, getPlayerZ() -8, 83, 0);
-Level.setTile(getPlayerX() +2, getPlayerY() +1, getPlayerZ() -8, 83, 0);
-Level.setTile(getPlayerX() -2, getPlayerY() +1, getPlayerZ() -8, 83, 0);
-Level.setTile(getPlayerX() +3, getPlayerY() +1, getPlayerZ() -8, 83, 0);
-Level.setTile(getPlayerX() -3, getPlayerY() +1, getPlayerZ() -8, 83, 0);
 //bottom
 Level.setTile(getPlayerX(), getPlayerY() -2, getPlayerZ() -3, 2, 0);
 Level.setTile(getPlayerX() +1, getPlayerY() -2, getPlayerZ() -3, 2, 0);
@@ -8959,7 +8931,7 @@ getage = false;
 									Entity.addEffect(getPlayerEnt(), MobEffect.jump, s * l, 0, false, true);
 								}
 								var e17 = new styleButton();
-								e17.setText("harm");
+								e17.setText("Harm");
 								e17.setOnClickListener(new android.view.View.OnClickListener({
 									onClick: function (viewarg) {
 										eq();
@@ -9016,7 +8988,7 @@ getage = false;
 									Entity.addEffect(getPlayerEnt(), MobEffect.harm, s * l, 0, false, true);
 								}
 								var e18 = new styleButton();
-								e18.setText("heal");
+								e18.setText("Heal");
 								e18.setOnClickListener(new android.view.View.OnClickListener({
 									onClick: function (viewarg) {
 										er();
@@ -17316,7 +17288,7 @@ function modTick() {
 	if (fasteat == true) fastEat();
 	if (xray == true) xrayRepeat();
 	if (spider && Utils.Player.isCollidedHorizontally()) {
-		if (getTile(Player.getX() + 1, Player.getY(), Player.getZ()) > 0 || getTile(Player.getX() - 1, Player.getY(), Player.getZ()) > 0 || getTile(Player.getX(), Player.getY(), Player.getZ() + 1) > 0 || getTile(Player.getX(), Player.getY(), Player.getZ() - 1) > 0 || getTile(Player.getX() + 1, Player.getY(), Player.getZ() - 1) > 0 || getTile(Player.getX() - 1, Player.getY(), Player.getZ() + 1) > 0) {
+		if (getTile(Player.getX() + 1, Player.getY(), Player.getZ()) > 0 || getTile(Player.getX() -1, Player.getY(), Player.getZ()) > 0 || getTile(Player.getX(), Player.getY(), Player.getZ() +1) > 0 || getTile(Player.getX(), Player.getY(), Player.getZ() -1) > 0 || getTile(Player.getX() + 1, Player.getY(), Player.getZ() - 1) > 0 || getTile(Player.getX() - 1, Player.getY(), Player.getZ() + 1) > 0 || getTile(Player.getX() -1, Player.getY(), Player.getZ() -1) > 0 || getTile(Player.getX() +1, Player.getY(), Player.getZ() +1) > 0) {
 			setVelY(Player.getEntity(), 0.6);
 		}
 	}
@@ -17430,8 +17402,8 @@ function modTick() {
 					bestsword[0] = dmg;
 					bestsword[1] = i;
 				}
+				if (bestsword[1] != -1) Player.setSelectedSlotId(bestsword[1]);
 			}
-			if (bestsword[1] != -1) Player.setSelectedSlotId(bestsword[1]);
 		}
 	}
 	if (noknock) {
