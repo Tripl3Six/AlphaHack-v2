@@ -73,7 +73,7 @@ var jumpheight = '5';
 var aimrange = '7';
 var rainId = '';
 var shadow1X = '30';
-var shadow1Y = '2';
+var shadow1Y = '0';
 var keybind1 = false;
 var haxMode = false;
 var newtime = '';
@@ -218,6 +218,9 @@ var isIpJson = false;
 var isServerJson = false;
 var gmkeybind = false;
 var speedbind = false;
+var airjump = false;
+var yhitbox = false;
+var hnsaimbot = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -1252,6 +1255,35 @@ function keybind() {
 			}
 		}
 	}));
+}
+
+var jumpBtn = new styleButton();
+jumpBtn.setVisibility(android.view.View.GONE);
+function showJumpButton() {
+		MainActivity.runOnUiThread(new java.lang.Runnable({
+			run: function () {
+				try {
+					var jumpLayout = new android.widget.LinearLayout(MainActivity);
+					jumpLayout.setOrientation(1);
+					jumpBtn.setVisibility(android.view.View.VISIBLE);
+					jumpBtn.setText("Jump");
+					jumpBtn.setTextSize(7);
+					jumpBtn.setOnClickListener(new android.view.View.OnClickListener({
+						onClick: function (viewarg) {
+						Entity.setVelY(Player.getEntity(), 0.4);
+						}
+					}));
+					jumpLayout.addView(jumpBtn);
+					jumpGui = new android.widget.PopupWindow(jumpLayout, dip2px(45), dip2px(45));
+					jumpGui.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
+					jumpGui.showAtLocation(MainActivity.getWindow()
+						.getDecorView(), btnPos | android.view.Gravity.BOTTOM, 0, 120);
+				} catch (err) {
+					android.widget.Toast.makeText(MainActivity, "An error occured: " + err, 1)
+						.show();
+				}
+			}
+		}));
 }
 
 function haxMenu() {
@@ -4669,6 +4701,27 @@ tracers1 = false;
 								textviewBg.setColor(android.graphics.Color.WHITE);
 								hacks1.setBackgroundDrawable(textviewBg);
 								cheatLayout.addView(hacks1);
+								var datjump = new styleButton();
+								datjump.setText("Limitless jump");
+								datjump.setTextColor(android.graphics.Color.RED);
+								if (airjump == true) datjump.setTextColor(android.graphics.Color.GREEN);
+								datjump.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										airjump ? airjump = false : airjump = true;
+										datjump.setText("Limitless jump");
+										if (airjump == true) {
+											datjump.setTextColor(android.graphics.Color.GREEN);
+											showJumpBtn();
+											airjump = true;
+										}
+										if (airjump == false) {
+											datjump.setTextColor(android.graphics.Color.RED);
+											jumpBtn.setVisibility(android.view.View.GONE);
+											airjump = false;
+										}
+									}
+								}));
+								cheatLayout.addView(datjump);
 								var liquidhack = new styleButton();
 								liquidhack.setText("Walk on liquid");
 								liquidhack.setTextColor(android.graphics.Color.RED);
