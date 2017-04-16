@@ -387,6 +387,13 @@ function ping() {
 	aLoop = bLoop;
 	return aLoop;
 }
+function checkHoliday(){
+var currentDate = new Date;
+if(currentDate.getMonth() == 12 && currentDate.getDay() == 25)android.widget.Toast.makeText(MainActivity, "Marry christmas.", 1).show();
+if(currentDate.getMonth() == 1 && currentDate.getDay() == 1)android.widget.Toast.makeText(MainActivity, "Happy new year!", 1).show();
+if(currentDate.getMonth() == 10 && currentDate.getDay() == 31)android.widget.Toast.makeText(MainActivity, "Happy halloween.", 1).show();
+}
+AlphaHackPE.dailyEvent();
 var AlphaHackPE = {
 	returnAddress: function () {
 		/*godsofts json to js ip viewer, do not copy! this will only work in this mod!*/
@@ -405,6 +412,9 @@ var AlphaHackPE = {
 	},
 	checkUpdate: function () {
 		return getUpdate();
+	},
+	dailyEvent: function(){
+	return checkHoliday();
 	}
 }
 /*
