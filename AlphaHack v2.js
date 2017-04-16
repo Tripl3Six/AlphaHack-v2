@@ -4711,7 +4711,7 @@ tracers1 = false;
 										datjump.setText("Limitless jump");
 										if (airjump == true) {
 											datjump.setTextColor(android.graphics.Color.GREEN);
-											showJumpBtn();
+											showJumpButton();
 											airjump = true;
 										}
 										if (airjump == false) {
