@@ -2079,6 +2079,27 @@ function settings_menu() {
 					}
 				}));
 				settingsLayout.addView(checkslap);
+				var allowY = new styleButton();
+				allowY.setText("Hitbox: Edit Y axel");
+				allowY.setTextColor(android.graphics.Color.RED);
+				if (yhitbox == true) allowY.setTextColor(android.graphics.Color.GREEN);
+				allowY.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						yhitbox ? yhitbox = false : yhitbox = true;
+						allowY.setText("Hitbox: Edit Y axel");
+						if (yhitbox == true) {
+							allowY.setTextColor(android.graphics.Color.GREEN);
+							clientMessage(client + "Hitbox: Edit Y axel on\nYou will now be allowed to edit the Y axel in hitbox settings.");
+							yhitbox = true;
+						}
+						if (yhitbox == false) {
+							allowY.setTextColor(android.graphics.Color.RED);
+							clientMessage(client + "Hitbox: Edit Y axel off");
+							yhitbox = false;
+						}
+					}
+				}));
+				settingsLayout.addView(allowY);
 				/*
 	* todo fix base64
 	*
@@ -16154,7 +16175,7 @@ function shadowset() {
 				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
 				Dialog.show();
 				Layer.addView(shadowX);
-				Layer.addView(shadowY);
+				if(yhitbox)Layer.addView(shadowY);
 				Layer.addView(Exit);
 				shadowX.setText("");
 				shadowX.setHint("Width/X/range");
@@ -16164,7 +16185,7 @@ function shadowset() {
 				Exit.setOnClickListener(new android.view.View.OnClickListener() {
 					onClick: function (view) {
 						shadow1X = shadowX.getText();
-						shadow1Y = shadowY.getText();
+						if(yhitbox)shadow1Y = shadowY.getText();
 						Dialog.dismiss();
 					}
 				});
