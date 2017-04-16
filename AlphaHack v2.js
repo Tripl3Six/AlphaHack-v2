@@ -35,7 +35,7 @@ var vidd = true;
 var viddd = '§9';
 var text = 'AlphαHαck!';
 var space = ' ';
-var version = '0.8.5.1';
+var version = '0.8.5.2';
 var chestTracersRange = 10;
 var chestTracersGroundMode = "on";
 var chestTracersParticle = "on";
@@ -2225,6 +2225,7 @@ GUIText = android.graphics.Color.BLACK;
 					}
 				}));
 				settingsLayout.addView(g3);
+				//todo add keybind settings here
 				var cat2 = new android.widget.TextView(MainActivity);
 				cat2.setText("Menu Sizes");
 				cat2.setTextColor(android.graphics.Color.BLACK);
