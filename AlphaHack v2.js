@@ -13998,6 +13998,7 @@ getage = false;
 								d22.setOnClickListener(new android.view.View.OnClickListener({
 									onClick: function (viewarg) {
 										newspeed();
+										speed.dismiss();
 									}
 								}));
 								speedLayout.addView(d22);
