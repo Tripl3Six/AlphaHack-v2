@@ -2081,21 +2081,21 @@ function settings_menu() {
 				}));
 				settingsLayout.addView(checkslap);
 				var allowY = new styleButton();
-				allowY.setText("Hitbox: Edit Y axel");
+				allowY.setText("Hitbox: Edit Y axis");
 				allowY.setTextColor(android.graphics.Color.RED);
 				if (yhitbox == true) allowY.setTextColor(android.graphics.Color.GREEN);
 				allowY.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						yhitbox ? yhitbox = false : yhitbox = true;
-						allowY.setText("Hitbox: Edit Y axel");
+						allowY.setText("Hitbox: Edit Y axis");
 						if (yhitbox == true) {
 							allowY.setTextColor(android.graphics.Color.GREEN);
-							clientMessage(client + "Hitbox: Edit Y axel on\nYou will now be allowed to edit the Y axel in hitbox settings.");
+							clientMessage(client + "Hitbox: Edit Y axis on\nYou will now be allowed to edit the Y axis in hitbox settings.");
 							yhitbox = true;
 						}
 						if (yhitbox == false) {
 							allowY.setTextColor(android.graphics.Color.RED);
-							clientMessage(client + "Hitbox: Edit Y axel off");
+							clientMessage(client + "Hitbox: Edit Y axis off");
 							yhitbox = false;
 						}
 					}
