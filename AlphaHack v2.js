@@ -5333,6 +5333,27 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(taura2);
+								var taura3 = new styleButton();
+								taura3.setText("TP Aura 3");
+								taura3.setTextColor(android.graphics.Color.RED);
+								if (tpaura3 == true) taura3.setTextColor(android.graphics.Color.GREEN);
+								taura3.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										tpaura3 ? tpaura3 = false : tpaura3 = true;
+										taura3.setText("TP Aura 3");
+										if (tpaura3 == true) {
+											taura3.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "TP Aura 3 on");
+											tpaura3 = true;
+										}
+										if (tpaura3 == false) {
+											taura3.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "TP Aura 3 off");
+											tpaura3 = false;
+										}
+									}
+								}));
+								cheatLayout.addView(taura3);
 								var butfuon2 = new styleButton();
 								butfuon2.setText("Bunny hop");
 								butfuon2.setTextColor(android.graphics.Color.RED);
@@ -16334,6 +16355,9 @@ function entityAddedHook(entity) {
 				if (i == 2) i = 0;
 			}
 		}
+	}
+	if(tpaura3){
+	if (entity != null && entity != getPlayerEnt() && Entity.getX(entity) != 0 || Entity.getZ(entity) != 0) Entity.setPosition(Player.getEntity(), Entity.getX(entity), Entity.getY(entity) + 2.62, Entity.getZ(entity));
 	}
 }
 
