@@ -221,6 +221,7 @@ var speedbind = false;
 var airjump = false;
 var yhitbox = false;
 var hnsaimbot = false;
+var tpaura2 = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -5311,6 +5312,27 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(taura);
+								var taura2 = new styleButton();
+								taura2.setText("TP Aura 2");
+								taura2.setTextColor(android.graphics.Color.RED);
+								if (tpaura2 == true) taura2.setTextColor(android.graphics.Color.GREEN);
+								taura2.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										tpaura2 ? tpaura2 = false : tpaura2 = true;
+										taura2.setText("TP Aura 2");
+										if (tpaura2 == true) {
+											taura2.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "TP Aura 2 on");
+											tpaura2 = true;
+										}
+										if (tpaura2 == false) {
+											taura2.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "TP Aura 2 off");
+											tpaura2 = false;
+										}
+									}
+								}));
+								cheatLayout.addView(taura2);
 								var butfuon2 = new styleButton();
 								butfuon2.setText("Bunny hop");
 								butfuon2.setTextColor(android.graphics.Color.RED);
@@ -18098,6 +18120,10 @@ function rptask() {
 							if (ent != getPlayerEnt() && ent != null) {
 								rideAnimal(getPlayerEnt(), ent);
 							}
+						}
+						if (tpaura2){
+						var ent = getNearestEntity(aimrange);
+						if (ent != null && ent != getPlayerEnt() && Entity.getX(ent) != 0 || Entity.getZ(ent) != 0) Entity.setPosition(Player.getEntity(), Entity.getX(ent), Entity.getY(ent) + 2.62, Entity.getZ(ent));
 						}
 						if (twerk) twerking();
 						nx = getPlayerX();
