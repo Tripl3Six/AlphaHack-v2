@@ -222,6 +222,7 @@ var airjump = false;
 var yhitbox = false;
 var hnsaimbot = false;
 var tpaura2 = false;
+var tpaura3 = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
