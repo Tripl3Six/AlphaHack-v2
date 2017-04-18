@@ -4728,6 +4728,27 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(nknock);
+								var taura2 = new styleButton();
+								taura2.setText("TP Aura");
+								taura2.setTextColor(android.graphics.Color.RED);
+								if (tpaura2 == true) taura2.setTextColor(android.graphics.Color.GREEN);
+								taura2.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										tpaura2 ? tpaura2 = false : tpaura2 = true;
+										taura2.setText("TP Aura");
+										if (tpaura2 == true) {
+											taura2.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "TP Aura on");
+											tpaura2 = true;
+										}
+										if (tpaura2 == false) {
+											taura2.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "TP Aura off");
+											tpaura2 = false;
+										}
+									}
+								}));
+								cheatLayout.addView(taura2);
 								var hacks1 = new android.widget.TextView(MainActivity);
 								hacks1.setText("Hacks");
 								hacks1.setTextColor(android.graphics.Color.BLACK);
@@ -5290,6 +5311,9 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(twek);
+								/*
+								* This doesnt work use TP aura 2
+								*
 								var taura = new styleButton();
 								taura.setText("TP Aura");
 								taura.setTextColor(android.graphics.Color.RED);
@@ -5312,28 +5336,10 @@ tracers1 = false;
 										}
 									}
 								}));
-								cheatLayout.addView(taura);
-								var taura2 = new styleButton();
-								taura2.setText("TP Aura 2");
-								taura2.setTextColor(android.graphics.Color.RED);
-								if (tpaura2 == true) taura2.setTextColor(android.graphics.Color.GREEN);
-								taura2.setOnClickListener(new android.view.View.OnClickListener({
-									onClick: function (viewarg) {
-										tpaura2 ? tpaura2 = false : tpaura2 = true;
-										taura2.setText("TP Aura 2");
-										if (tpaura2 == true) {
-											taura2.setTextColor(android.graphics.Color.GREEN);
-											clientMessage(client + "TP Aura 2 on");
-											tpaura2 = true;
-										}
-										if (tpaura2 == false) {
-											taura2.setTextColor(android.graphics.Color.RED);
-											clientMessage(client + "TP Aura 2 off");
-											tpaura2 = false;
-										}
-									}
-								}));
-								cheatLayout.addView(taura2);
+								cheatLayout.addView(taura);*/
+								/*
+								* This doesnt work well use TP aura 2
+								*
 								var taura3 = new styleButton();
 								taura3.setText("TP Aura 3");
 								taura3.setTextColor(android.graphics.Color.RED);
@@ -5354,7 +5360,7 @@ tracers1 = false;
 										}
 									}
 								}));
-								cheatLayout.addView(taura3);
+								cheatLayout.addView(taura3);*/
 								var butfuon2 = new styleButton();
 								butfuon2.setText("Bunny hop");
 								butfuon2.setTextColor(android.graphics.Color.RED);
