@@ -1260,7 +1260,7 @@ function keybind() {
 				//toggleLayout1.setPadding(20,0,20,0);
 				toggle.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
 				toggle.showAtLocation(MainActivity.getWindow()
-					.getDecorView(), android.view.Gravity.RIGHT | android.view.Gravity.TOP, 0, 130);
+					.getDecorView(), btnPos | android.view.Gravity.TOP, 0, 130);
 			} catch (error) {
 				android.widget.Toast.makeText(MainActivity, "Error! : " + error, 1)
 					.show();
