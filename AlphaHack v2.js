@@ -9,10 +9,10 @@ releasing without permission; will be confronted &
 will be asked to change or delete their mistakes by the creator of this program.
 <>--------------------<>
 [Pleαse contαct the developers of eαch code for permission to copy.];
-http://imgur.com/6xCQAyT
-http://imgur.com/xpEHET3
-https://github.com/ArceusMatt/AlphaHack-v2/pull/2
-http://imgur.com/1Vkl3q2
+My permission to use dragop code 1 http://imgur.com/6xCQAyT
+My permission to use dragop code 2 http://imgur.com/xpEHET3
+My permission to use vertex chest esp http://imgur.com/a/qm43v
+My permission to use maximus glide http://imgur.com/1Vkl3q2
 <>--------------------<>
 [contributors: Godsoft029, Johnmαcrocrαft, αJ170, Peαcestorm(αgαmeR), αPRIC0CKS, Vertex client teαm];
 Contributor means they have decided to make a commit to the mod.
@@ -21,14 +21,16 @@ Contributor means they have decided to make a commit to the mod.
 var MainActivity = ctx;
 var getLanguage = ModPE.getLanguage();
 var getVersion = ModPE.getMinecraftVersion();
-/*Thanks to godsoft029 and many others for german translate*/
-/*Thanks to MasterProGame & TheNewHEROBRINE for italian translate*/
-/*Thanks to walpo for spanish translate*/
-/*Thanks to johnmacrocraft for korean translate*/
-/*Thanks to billbeds for hindi translate*/
-/*Thanks to anton for swedish translate*/
-/*Thanks to peacestorm(AgameR) for dutch translate*/
-/*Thanks to nsitf mcpe for chinese translate*/
+/*
+Thanks to godsoft029 and many others for german translate
+Thanks to MasterProGame & TheNewHEROBRINE for italian translate
+Thanks to walpo for spanish translate
+Thanks to johnmacrocraft for korean translate
+Thanks to billbeds for hindi translate
+Thanks to anton for swedish translate
+Thanks to peacestorm(AgameR) for dutch translate
+Thanks to nsitf mcpe for chinese translate
+*/
 var GUI;
 var menu;
 var vidd = true;
@@ -44,7 +46,7 @@ var seconds = '1000';
 var numhack = 0;
 var client = '§f<§9AlphαHαck§f> ';
 var copyright = '©';
-var trademark = 'AlphaHackPE ™';
+var trademark = 'AlphαHαckPE™';
 var modpeFolder = ctx.getDir('ModPE', 0);
 var modpeFile = new java.io.File(modpeFolder, 'AlphaHack v2.js');
 var perm = '*';
@@ -223,6 +225,8 @@ var yhitbox = false;
 var hnsaimbot = false;
 var tpaura2 = false;
 var tpaura3 = false;
+var sneakaura1 = false;
+var freeze1 = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -1221,30 +1225,30 @@ function keybind() {
 					}
 				}));
 				toggleLayout.addView(hitbox);
-				if(Level.getGameMode() == 0)gamec.setText("GMS");
-				if(Level.getGameMode() == 1)gamec.setText("GMC");
+				if(Level.getGameMode() == 0) gamec.setText("GMS");
+				if(Level.getGameMode() == 1) gamec.setText("GMC");
 				gamec.setTextColor(android.graphics.Color.WHITE);
 				if (gmkeybind == true) gamec.setTextColor(android.graphics.Color.GREEN);
 				gamec.setTextSize(7);
 				gamec.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						gmkeybind ? gmkeybind = false : gmkeybind = true;
-						if(Level.getGameMode() == 0)gamec.setText("GMS");
-						if(Level.getGameMode() == 1)gamec.setText("GMC");
+						if(Level.getGameMode() == 0) gamec.setText("GMS");
+						if(Level.getGameMode() == 1) gamec.setText("GMC");
 						if (gmkeybind == true) {
-						if(Level.getGameMode() == 0)gamec.setText("GMS");
-						if(Level.getGameMode() == 1)gamec.setText("GMC");
+						if(Level.getGameMode() == 0) gamec.setText("GMS");
+						if(Level.getGameMode() == 1) gamec.setText("GMC");
 							gamec.setTextColor(android.graphics.Color.GREEN);
 							clientMessage(client + "Gamemode changed.");
-							if(Level.getGameMode() == 0 || Level.getGameMode() == 2)Level.setGameMode(1);
+							if(Level.getGameMode() == 0 || Level.getGameMode() == 2) Level.setGameMode(1);
 							gmkeybind = true;
 						}
 						if (gmkeybind == false) {
-						if(Level.getGameMode() == 0)gamec.setText("GMS");
-						if(Level.getGameMode() == 1)gamec.setText("GMC");
+						if(Level.getGameMode() == 0) gamec.setText("GMS");
+						if(Level.getGameMode() == 1) gamec.setText("GMC");
 							gamec.setTextColor(android.graphics.Color.RED);
 							clientMessage(client + "Gamemode changed.");
-							if(Level.getGameMode() == 1 || Level.getGameMode() == 3)Level.setGameMode(0);
+							if(Level.getGameMode() == 1 || Level.getGameMode() == 3) Level.setGameMode(0);
 							gmkeybind = false;
 						}
 					}
@@ -2043,7 +2047,7 @@ function settings_menu() {
 				}));
 				settingsLayout.addView(heset);
 				var rangset = new styleButton();
-				rangset.setText("Range for aimaura");
+				rangset.setText("Range for aura");
 				rangset.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						rangeset();
@@ -4370,7 +4374,7 @@ function mainMenu() {
 				menuLayout1.addView(menuScroll);
 				var title = new android.widget.TextView(MainActivity);
 				title.setTextSize(20);
-				title.setText(" AlphαHαck v2 (Beta)");
+				title.setText(trademark + " " + copyright + " (Beta)");
 				title.setGravity(android.view.Gravity.CENTER);
 				title.setTextColor(GUIName);
 				menuLayout.addView(title);
@@ -4749,6 +4753,48 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(taura2);
+								var nosneak = new styleButton();
+								nosneak.setText("No sneak aura");
+								nosneak.setTextColor(android.graphics.Color.RED);
+								if (sneakaura1 == true) nosneak.setTextColor(android.graphics.Color.GREEN);
+								nosneak.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										sneakaura1 ? sneakaura1 = false : sneakaura1 = true;
+										nosneak.setText("No sneak aura");
+										if (sneakaura1 == true) {
+											nosneak.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "No sneak aura on");
+											sneakaura1 = true;
+										}
+										if (sneakaura1 == false) {
+											nosneak.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "No sneak aura off");
+											sneakaura1 = false;
+										}
+									}
+								}));
+								cheatLayout.addView(nosneak);
+								var frezy = new styleButton();
+								frezy.setText("Freeze aura");
+								frezy.setTextColor(android.graphics.Color.RED);
+								if (freeze1 == true) frezy.setTextColor(android.graphics.Color.GREEN);
+								frezy.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										freeze1 ? freeze1 = false : freeze1 = true;
+										frezy.setText("Freeze aura");
+										if (freeze1 == true) {
+											frezy.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "Freeze aura on");
+											freeze1 = true;
+										}
+										if (freeze1 == false) {
+											frezy.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "Freeze aura off");
+											freeze1 = false;
+										}
+									}
+								}));
+								cheatLayout.addView(frezy);
 								var hacks1 = new android.widget.TextView(MainActivity);
 								hacks1.setText("Hacks");
 								hacks1.setTextColor(android.graphics.Color.BLACK);
@@ -16097,7 +16143,7 @@ function rangeset() {
 				var Dialog = new android.app.Dialog(MainActivity);
 				var Exit = new styleButton();
 				showMenuBtn();
-				Dialog.setTitle("Aimaura range");
+				Dialog.setTitle("Aura range");
 				Dialog.setContentView(Layer);
 				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
 				Dialog.show();
@@ -17396,7 +17442,7 @@ function modTick() {
 		Math.round(getPlayerY());
 		if (Math.round(getPlayerY()) == "-3") {
 			clientMessage(client + "You were at void!");
-			Entity.setPosition(Player.getEntity(), getPlayerX(), 70, getPlayerZ() + 5);
+			Entity.setPosition(Player.getEntity(), getPlayerX(), 75, getPlayerZ() + 5);
 		}
 	}
 	if (glide) {
@@ -17408,7 +17454,7 @@ function modTick() {
 	if (armor) ModPE.showTipMessage(client + "\nHead: " + Entity.getArmorDamage(getPlayerEnt(), 0) + " Chest: " + Entity.getArmorDamage(getPlayerEnt(), 1) + " Legs: " + Entity.getArmorDamage(getPlayerEnt(), 2) + " Feet: " + Entity.getArmorDamage(getPlayerEnt(), 3));
 	if (autonuke) explode(getPlayerX(), getPlayerY(), getPlayerZ(), 5);
 	if (grief) Level.setTile(Player.getPointedBlockX(), Player.getPointedBlockY(), Player.getPointedBlockZ(), vid, 0);
-	if (getvel) ModPE.showTipMessage("VelX: " + Math.round(Entity.getVelX(getPlayerEnt())) + " VelY " + Math.round(Entity.getVelY(getPlayerEnt())) + " VelZ " + Math.round(Entity.getVelZ(getPlayerEnt())));
+	if (getvel) ModPE.showTipMessage("VelX: " + Entity.getVelX(getPlayerEnt()) + " VelY " + Entity.getVelY(getPlayerEnt()) + " VelZ " + Entity.getVelZ(getPlayerEnt()));
 	if (yawpitch) ModPE.showTipMessage("pitch: " + Math.round(getPitch(getPlayerEnt())) + " \nYaw: " + Math.round(getYaw(getPlayerEnt())) + " ");
 	if (airwalk) {
 		if (Level.getTile(getPlayerX(), getPlayerY() - 1, getPlayerZ()) == "0" || Level.getTile(getPlayerX(), getPlayerY() - 1, getPlayerZ()) == "95") {
@@ -18153,9 +18199,17 @@ function rptask() {
 								rideAnimal(getPlayerEnt(), ent);
 							}
 						}
-						if (tpaura2){
+						if (tpaura2) {
 						var ent = getNearestEntity(aimrange);
-						if (ent != null && ent != getPlayerEnt() && Entity.getX(ent) != 0 || Entity.getZ(ent) != 0) Entity.setPosition(Player.getEntity(), Entity.getX(ent), Entity.getY(ent) + 2.62, Entity.getZ(ent));
+						if (ent != null && ent != getPlayerEnt() && Entity.getX(ent) != 0 || Entity.getZ(ent) != 0) Entity.setPosition(Player.getEntity(), Entity.getX(ent), Entity.getY(ent) + 1.62, Entity.getZ(ent));
+						}
+						if (sneakaura1) {
+						var ent = getNearestEntity(aimrange);
+						if (ent != null && ent != getPlayerEnt()) Entity.setSneaking(ent, false);
+						}
+						if (freeze1) {
+						var ent = getNearestEntity(aimrange);
+						if (ent != null && ent != getPlayerEnt()) Entity.setImmobile(ent, true);
 						}
 						if (twerk) twerking();
 						nx = getPlayerX();
