@@ -227,6 +227,7 @@ var tpaura2 = false;
 var tpaura3 = false;
 var sneakaura1 = false;
 var freeze1 = false;
+var spinaura = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -4795,6 +4796,27 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(frezy);
+								var spinaround = new styleButton();
+								spinaround.setText("Spin aura");
+								spinaround.setTextColor(android.graphics.Color.RED);
+								if (spinaura == true) spinaround.setTextColor(android.graphics.Color.GREEN);
+								spinaround.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										spinaura ? spinaura = false : spinaura = true;
+										spinaround.setText("Spin aura");
+										if (spinaura == true) {
+											spinaround.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "Spin aura on\nWhen you're near a player you'll spin around them... Use speed it's very fun! :D");
+											spinaura = true;
+										}
+										if (spinaura == false) {
+											spinaround.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "Spin aura off");
+											spinaura = false;
+										}
+									}
+								}));
+								cheatLayout.addView(spinaround);
 								var hacks1 = new android.widget.TextView(MainActivity);
 								hacks1.setText("Hacks");
 								hacks1.setTextColor(android.graphics.Color.BLACK);
@@ -18210,6 +18232,10 @@ function rptask() {
 						if (freeze1) {
 						var ent = getNearestEntity(aimrange);
 						if (ent != null && ent != getPlayerEnt()) Entity.setImmobile(ent, true);
+						}
+						if (spinaura) {
+						var ent = getNearestEntity(aimrange);
+						if (ent != null && ent != getPlayerEnt()) Entity.setVelX(getPlayerEnt(), -0.00005);
 						}
 						if (twerk) twerking();
 						nx = getPlayerX();
