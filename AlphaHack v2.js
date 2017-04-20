@@ -37,7 +37,7 @@ var vidd = true;
 var viddd = '§9';
 var text = 'AlphαHαck!';
 var space = ' ';
-var version = '0.8.5.2';
+var version = '0.8.6';
 var chestTracersRange = 10;
 var chestTracersGroundMode = "on";
 var chestTracersParticle = "on";
@@ -4125,6 +4125,7 @@ function betterWebview(url) {
 	MainActivity.runOnUiThread(new java.lang.Runnable({
 		run: function () {
 			try {
+			showMenuBtn();
 				var wvLayout = new android.widget.LinearLayout(MainActivity);
 				var wvScroll = new android.widget.ScrollView(MainActivity);
 				var wvLayout1 = new android.widget.LinearLayout(MainActivity);
@@ -4163,7 +4164,6 @@ function betterWebview(url) {
 				exit.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						wv.dismiss();
-						showMenuBtn();
 						webs.clearCache(true);
 						webs.clearFormData();
 						webs.clearHistory();
@@ -4375,7 +4375,7 @@ function mainMenu() {
 				menuLayout1.addView(menuScroll);
 				var title = new android.widget.TextView(MainActivity);
 				title.setTextSize(20);
-				title.setText(trademark + " " + copyright + " (Beta)");
+				title.setText(trademark + " " + copyright + " v2" + "("+version+")");
 				title.setGravity(android.view.Gravity.CENTER);
 				title.setTextColor(GUIName);
 				menuLayout.addView(title);
@@ -4387,8 +4387,6 @@ function mainMenu() {
 				menuLayout.addView(title2);
 				var exit = new styleButton();
 				exit.setText("Exit AlphαHαck");
-				if (mcpetheme == true) exit.setBackgroundDrawable(new android.graphics.drawable.BitmapDrawable(android.graphics.BitmapFactory.decodeByteArray(android.util.Base64.decode(buttonBg, 0), 0, android.util.Base64.decode(buttonBg, 0)
-					.length)));
 				exit.setTextColor(android.graphics.Color.RED);
 				exit.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
@@ -4754,7 +4752,7 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(taura2);
-								var nosneak = new styleButton();
+								/*var nosneak = new styleButton();
 								nosneak.setText("No sneak aura");
 								nosneak.setTextColor(android.graphics.Color.RED);
 								if (sneakaura1 == true) nosneak.setTextColor(android.graphics.Color.GREEN);
@@ -4816,7 +4814,7 @@ tracers1 = false;
 										}
 									}
 								}));
-								cheatLayout.addView(spinaround);
+								cheatLayout.addView(spinaround);*/
 								var hacks1 = new android.widget.TextView(MainActivity);
 								hacks1.setText("Hacks");
 								hacks1.setTextColor(android.graphics.Color.BLACK);
@@ -4845,7 +4843,7 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(datjump);
-								var liquidhack = new styleButton();
+								/*var liquidhack = new styleButton();
 								liquidhack.setText("Walk on liquid");
 								liquidhack.setTextColor(android.graphics.Color.RED);
 								if (liquidwalk == true) liquidhack.setTextColor(android.graphics.Color.GREEN);
@@ -4862,15 +4860,10 @@ tracers1 = false;
 											Block.setShape(9, 0, 0, 0, 1, 1, 1);
 											Block.setShape(10, 0, 0, 0, 1, 1, 1);
 											Block.setShape(11, 0, 0, 0, 1, 1, 1);
-											/*
-											*
-											* RIP Godsoft029's method
-											*
 											Block.defineBlock(8, "Water", [["still_water", 0]], 8, false, 4);
 											Block.defineBlock(9, "Stationary Water", [["still_water", 0]], 9, false, 4);
 											Block.defineBlock(10, "Lava", [["still_lava", 0]], 10, false, 4);
 											Block.defineBlock(11, "Stationary Lava", [["still_lava", 0]], 11, false, 4);
-											*/
 											liquidwalk = true;
 										}
 										if (liquidwalk == false) {
@@ -4884,7 +4877,7 @@ tracers1 = false;
 										}
 									}
 								}));
-								cheatLayout.addView(liquidhack);
+								cheatLayout.addView(liquidhack);*/
 								var creative = new styleButton();
 								creative.setText("Creative");
 								creative.setOnClickListener(new android.view.View.OnClickListener({
@@ -7865,7 +7858,7 @@ Level.setTile(getPlayerX() -3, getPlayerY() -2, getPlayerZ() -8, 2, 0);
 										zmm.setText("Ride mobs");
 										if (saddle == true) {
 											zmm.setTextColor(android.graphics.Color.GREEN);
-											clientMessage(client + "Ride mobs on");
+											clientMessage(client + "Ride mobs on\nHit the mob to ride it.");
 											saddle = true;
 										}
 										if (saddle == false) {
@@ -7932,6 +7925,7 @@ Level.setTile(getPlayerX() -3, getPlayerY() -2, getPlayerZ() -8, 2, 0);
 											grif.setTextColor(android.graphics.Color.GREEN);
 											clientMessage(client + "Grief on");
 											new2();
+											mod.dismiss();
 											grief = true;
 										}
 										if (grief == false) {
@@ -11697,30 +11691,8 @@ getage = false;
 								button90.setText("Block ID list");
 								button90.setOnClickListener(new android.view.View.OnClickListener({
 									onClick: function (viewarg) {
-										/*betterWebview('https://arceusmatt.github.io/minecraftid.html');*/
-										var alert = new android.app.AlertDialog.Builder(MainActivity);
-										var scroll = new android.widget.ScrollView(MainActivity);
-										var layout = new android.widget.LinearLayout(MainActivity);
-										layout.setOrientation(1);
-										alert.setTitle("MCPE " + getVer + " blocks");
-										var ids = Block.getAllBlockIds();
-										for (var i = 0; i < ids.length; i++) {
-											alert.setMessage(ids.join("\n"));
-										}
-										alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
-											onClick: function (viewarg) {
-												dialog.dismiss();
-												give.dismiss();
-												showMenuBtn();
-											}
-										});
-										alert.setNegativeButton("Back to menu", new android.content.DialogInterface.OnClickListener() {
-											onClick: function (viewarg) {
-												dialog.dismiss();
-											}
-										});
-										var dialog = alert.create();
-										dialog.show();
+										betterWebview('https://arceusmatt.github.io/minecraftid.html');
+										give.dismiss();
 									}
 								}));
 								giveLayout.addView(button90);
@@ -15624,7 +15596,6 @@ function new4() {
 					onClick: function (viewarg) {
 						newage = "-2000";
 						Dialog.dismiss();
-						showMenuBtn();
 					}
 				}));
 				select2.setText("Adult");
@@ -15632,7 +15603,6 @@ function new4() {
 					onClick: function (viewarg) {
 						newage = "0";
 						Dialog.dismiss();
-						showMenuBtn();
 					}
 				}));
 				Exit.setText("done");
@@ -16084,7 +16054,6 @@ function fov() {
 					onClick: function (view) {
 						ModPE.resetFov();
 						Dialog.dismiss();
-						showMenuBtn();
 					}
 				});
 				Exit.setOnClickListener(new android.view.View.OnClickListener() {
@@ -16460,7 +16429,7 @@ function entityRemovedHook(entity) {
 }
 
 function screenChangeHook(screenName) {
-	if (screenind) android.widget.Toast.makeText(ctx, screenName, 1)
+	if (screenind) android.widget.Toast.makeText(ctx, ""+screenName, 1)
 		.show();
 }
 
@@ -17942,40 +17911,6 @@ function changeSpeedOnBlock() {
 	var x = getPlayerX();
 	var y = getPlayerY();
 	var z = getPlayerZ();
-	var myArray = new Array("30", "79", "88", "174");
-	for (var i = 0; i < myArray.length; i++) {
-		/*is*/
-		if (getTile(x, y - 1, z) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x, y - 2, z) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x + 1, y, z) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x, y, z + 1) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x - 1, y, z) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x, y, z - 1) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x + 1, y - 1, z) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x, y - 1, z + 1) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x - 1, y - 1, z) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x, y - 1, z - 1) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x + 1, y - 2, z) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x, y - 2, z + 1) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x - 1, y - 2, z) == myArray[i]) ModPE.setGameSpeed(100);
-		if (getTile(x, y - 2, z - 1) == myArray[i]) ModPE.setGameSpeed(100);
-		/*not*/
-		if (getTile(x, y - 1, z) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x, y - 2, z) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x + 1, y, z) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x, y, z + 1) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x - 1, y, z) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x, y, z - 1) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x + 1, y - 1, z) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x, y - 1, z + 1) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x - 1, y - 1, z) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x, y - 1, z - 1) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x + 1, y - 2, z) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x, y - 2, z + 1) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x - 1, y - 2, z) != myArray[i]) ModPE.setGameSpeed(20);
-		if (getTile(x, y - 2, z - 1) != myArray[i]) ModPE.setGameSpeed(20);
-	}
-	/*other*/
 	Block.setFriction(79, 0.6000000238418579);
 	Block.setFriction(174, 0.6000000238418579);
 	Block.setFriction(88, 0.6000000238418579);
@@ -17983,10 +17918,10 @@ function changeSpeedOnBlock() {
 }
 
 function replaceAll(search, replacement, str) {
+/*Thanks to godsoft029 !*/
 	var target = str;
 	return target.replace(new RegExp(search, 'g'), replacement);
 };
-/*Thanks to godsoft029 !*/
 function toAlphaSpeak(text) {
 	var end = text.toLowerCase();
 	var normal = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
@@ -18038,7 +17973,7 @@ function toSwearSpeak(text) {
 }
 
 function chatHook(str) {
-	if (str.charAt(0) != "." && str.charAt(1) != "/" || str.charAt(0) != "/") {
+	if (str.charAt(0) != "." && str.charAt(0) != "/") {
 		if (alphatext) {
 			preventDefault();
 			com.mojang.minecraftpe.MainActivity.currentMainActivity.get()
