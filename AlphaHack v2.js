@@ -5,8 +5,9 @@ var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 <>--------------------<>
 [Free to use mod menu for MCPE under MIT license];
 Anyone modifying, gaining money, copying without permission,
-releasing without permission; will be confronted &
-will be asked to change or delete their mistakes by the creator of this program.
+will be confronted & will be asked to change
+or delete their mistakes by the creator of this program.
+To share it the link most be https://arceusmatt.github.io/alphahack
 <>--------------------<>
 [Pleαse contαct the developers of eαch code for permission to copy.];
 My permission to use dragop code 1 http://imgur.com/6xCQAyT
@@ -183,10 +184,27 @@ var dropind = false;
 var autoply1 = false;
 var expind = false;
 var ccolors = false;
+var entselect = false;
 var lightning = false;
+//EntityType.LIGHTNING_BOLT;
 var primedtnt = false;
+//EntityType.PRIMED_TNT;
 var arrow = false;
+//EntityType.ARROW;
 var exporb = false;
+//EntityType.EXPERIENCE_ORB;
+var fireball = false;
+//EntityType.FIREBALL;
+var egg = false;
+//EntityType.EGG;
+var endersignal = false;
+//70
+var shulkerbullet = false;
+//76
+var snowball = false;
+//81
+var witherskull = false;
+//89
 var hackk = false;
 var showp = false;
 var fch = false;
@@ -2001,7 +2019,7 @@ function settings_menu() {
 					onClick: function (viewarg) {
 						var urls3 = new android.content.Intent(MainActivity);
 						urls3.setAction(android.content.Intent.ACTION_VIEW);
-						urls3.setData(android.net.Uri.parse("https://arceusmatt.github.io/AlphaHack"));
+						urls3.setData(android.net.Uri.parse("https://arceusmatt.github.io/alphahack"));
 						MainActivity.startActivity(urls3);
 					}
 				}));
@@ -3575,6 +3593,34 @@ function misc_menu() {
 					}
 				}));
 				miscLayout.addView(panicall);
+				var colorlist = new styleButton();
+				colorlist.setText("PE Chat color list");
+				colorlist.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						var alert = new android.app.AlertDialog.Builder(MainActivity);
+						/*alert.setTitle(""); */
+						var scroll = new android.widget.ScrollView(MainActivity);
+						var layout = new android.widget.LinearLayout(MainActivity);
+						layout.setOrientation(1);
+						alert.setTitle("PE Chat color list");
+						alert.setMessage("§b = aqua\n§0 = black\n§9 = blue\n§l = bold\n§3 = dark aqua\n§2 = dark blue\n§8 = dark gray\n§1 = dark green\n§5 = dark purple\n§4 = dark red\n§6 = gold\n§7 = gray\n§a = green\n§d = purple\n§c = red\n§r = reset\n§f = white\n§e = yellow\n§o = italic\n§k = cryption");
+						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+								misc.dismiss();
+								showMenuBtn();
+							}
+						});
+						alert.setNegativeButton("Back to menu", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+							}
+						});
+						var dialog = alert.create();
+						dialog.show();
+					}
+				});
+				miscLayout.addView(colorlist);
 				var exit2Layout = new android.widget.LinearLayout(MainActivity);
 				exit2Layout.setOrientation(0);
 				var params = new android.widget.LinearLayout.LayoutParams(android.widget.LinearLayout.LayoutParams.MATCH_PARENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, 1);
@@ -3754,12 +3800,34 @@ function selectView() {
 				selectScroll.addView(selectLayout);
 				selectLayout1.addView(selectScroll);
 				var exit = new styleButton();
-				exit.setText("Exit");
+				if(ccolors)exit.setText("Exit");
+				if(entselect)exit.setText("Turn off");
 				exit.setTextColor(android.graphics.Color.RED);
 				exit.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						select.dismiss();
 						showMenuBtn();
+lightning = false;
+//EntityType.LIGHTNING_BOLT;
+primedtnt = false;
+//EntityType.PRIMED_TNT;
+arrow = false;
+//EntityType.ARROW;
+exporb = false;
+//EntityType.EXPERIENCE_ORB;
+fireball = false;
+//EntityType.FIREBALL;
+egg = false;
+//EntityType.EGG;
+endersignal = false;
+//70
+shulkerbullet = false;
+//76
+snowball = false;
+//81
+witherskull = false;
+//89
+
 					}
 				}));
 				selectLayout.addView(exit);
@@ -3784,6 +3852,99 @@ function selectView() {
 				var co18 = new styleButton(); //yellow §e
 				var co19 = new styleButton(); //italic §o
 				var co20 = new styleButton(); //crypt §k
+				var enti1 = new styleButton(); //lightning
+				var enti2 = new styleButton(); //tnt
+				var enti3 = new styleButton(); //arrow
+				var enti4 = new styleButton(); //exp
+				var enti5 = new styleButton(); //fireball
+				var enti6 = new styleButton(); //egg
+				var enti7 = new styleButton(); //endereye
+				var enti8 = new styleButton(); //shulker
+				var enti9 = new styleButton(); //snowball
+				var enti10 = new styleButton(); //witherskull
+				if(entselect){
+				enti1.setText("Lightning");
+				enti1.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					lightning = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti1);
+				enti2.setText("Primed tnt");
+				enti2.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					primedtnt = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti2);
+				enti3.setText("Arrow");
+				enti3.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					arrow = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti3);
+				enti4.setText("Exp orb");
+				enti4.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					exporb = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti4);
+				enti5.setText("Fireball");
+				enti5.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					fireball = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti5);
+				enti6.setText("Egg");
+				enti6.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					egg = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti6);
+				enti7.setText("Ender eye");
+				enti7.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					endersignal = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti7);
+				enti8.setText("Shulker bullet");
+				enti8.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					shulkerbullet = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti8);
+				enti9.setText("Snowball");
+				enti9.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					snowball = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti9);
+				enti10.setText("Wither skull");
+				enti10.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					witherskull = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti10);
+				}
+				if(ccolors){
 				co1.setText("Aqua");
 				co1.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
@@ -3964,6 +4125,7 @@ function selectView() {
 					}
 				}));
 				selectLayout.addView(co20);
+				}
 				select = new android.widget.PopupWindow(selectLayout1, dip2px(500), dip2px(500));
 				select = new android.widget.PopupWindow(selectLayout1, MainActivity.getWindowManager()
 					.getDefaultDisplay()
@@ -7710,8 +7872,9 @@ Level.setTile(getPlayerX() -3, getPlayerY() -2, getPlayerZ() -8, 2, 0);
 								es.setText("Entity spawner");
 								es.setOnClickListener(new android.view.View.OnClickListener({
 									onClick: function (viewarg) {
-										new3();
+										selectView();
 										mod.dismiss();
+										if(entselect == false)var entselect = true;
 									}
 								}));
 								modLayout.addView(es);
@@ -17310,6 +17473,24 @@ function useItem(x, y, z, itemId, blockId, side, itemDamage, blockDamage) {
 	}
 	if (exporb) {
 		Level.spawnMob(x, y + 1, z, EntityType.EXPERIENCE_ORB);
+	}
+	if(fireball){
+	Level.spawnMob(x, y + 1, z, EntityType.FIREBALL);
+	}
+	if(egg){
+	Level.spawnMob(x, y + 1, z, EntityType.EGG);
+	}
+	if(endersignal){
+	Level.spawnMob(x, y + 1, z, 70);
+	}
+	if(shulkerbullet){
+	Level.spawnMob(x, y + 1, z, 76);
+	}
+	if(snowball){
+	Level.spawnMob(x, y + 1, z, 81);
+	}
+	if(witherskull){
+	Level.spawnMob(x, y + 1, z, 89);
 	}
 	if (tapspam) {
 		Server.sendChat(text);
