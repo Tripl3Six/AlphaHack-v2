@@ -1,11 +1,12 @@
 
---- Bug fixes ---
+--- Bugs ---
 bl server enabler on pro
 fix hit & tap particles
 fix walk on liquid
 delete air and ice blocks behind player
 check if target is not at Y 0 in tp aura
 fix no knockback jumping
+fix entity spawner dialog
 
 --- TODO ---
 anti iron door
@@ -29,3 +30,4 @@ ore esp
 player esp
 find a way to reset build id
 randomized pass hack
+reveal server voting exploit
