@@ -956,6 +956,344 @@ function betterWebview(url) {
 		}
 	}));
 }
+
+function selectView() {
+	MainActivity.runOnUiThread(new java.lang.Runnable({
+		run: function () {
+			try {
+				var selectLayout = new android.widget.LinearLayout(MainActivity);
+				var selectScroll = new android.widget.ScrollView(MainActivity);
+				var selectLayout1 = new android.widget.LinearLayout(MainActivity);
+				selectLayout.setOrientation(1);
+				selectLayout1.setOrientation(1);
+				selectScroll.addView(selectLayout);
+				selectLayout1.addView(selectScroll);
+				var exit = new styleButton();
+				if(ccolors)exit.setText("Exit");
+				exit.setTextColor(android.graphics.Color.RED);
+				exit.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						select.dismiss();
+						showMenuBtn();
+					}
+				}));
+				if(ccolors)selectLayout.addView(exit);
+				var co1 = new styleButton(); //aqua §b
+				var co0 = new styleButton(); //begin §
+				var co2 = new styleButton(); //black §0
+				var co3 = new styleButton(); //blue §9
+				var co4 = new styleButton(); //bold §l
+				var co5 = new styleButton(); //dark_aqua §3
+				var co6 = new styleButton(); //dark_blue §2
+				var co7 = new styleButton(); //dark_gray §8
+				var co8 = new styleButton(); //dark_green §1
+				var co9 = new styleButton(); //dark_purple §5
+				var co10 = new styleButton(); //dark_red §4
+				var co11 = new styleButton(); //gold §6
+				var co12 = new styleButton(); //gray §7
+				var co13 = new styleButton(); //green §a
+				var co14 = new styleButton(); //light_purple §d
+				var co15 = new styleButton(); //red §c
+				var co16 = new styleButton(); //reset §r
+				var co17 = new styleButton(); //white §f
+				var co18 = new styleButton(); //yellow §e
+				var co19 = new styleButton(); //italic §o
+				var co20 = new styleButton(); //crypt §k
+				var enti1 = new styleButton(); //lightning
+				var enti2 = new styleButton(); //tnt
+				var enti3 = new styleButton(); //arrow
+				var enti4 = new styleButton(); //exp
+				var enti5 = new styleButton(); //fireball
+				var enti6 = new styleButton(); //egg
+				var enti7 = new styleButton(); //endereye
+				var enti8 = new styleButton(); //shulker
+				var enti9 = new styleButton(); //snowball
+				var enti10 = new styleButton(); //witherskull
+				if(entselect){
+				enti1.setText("Lightning");
+				enti1.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					lightning = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti1);
+				enti2.setText("Primed tnt");
+				enti2.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					primedtnt = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti2);
+				enti3.setText("Arrow");
+				enti3.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					arrow = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti3);
+				enti4.setText("Exp orb");
+				enti4.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					exporb = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti4);
+				enti5.setText("Fireball");
+				enti5.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					fireball = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti5);
+				enti6.setText("Egg");
+				enti6.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					egg = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti6);
+				enti7.setText("Ender eye");
+				enti7.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					endersignal = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti7);
+				enti8.setText("Shulker bullet");
+				enti8.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					shulkerbullet = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti8);
+				enti9.setText("Snowball");
+				enti9.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					snowball = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti9);
+				enti10.setText("Wither skull");
+				enti10.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					witherskull = true;
+					select.dismiss();
+					}
+				}));
+				selectLayout.addView(enti10);
+				}
+				if(ccolors){
+				co1.setText("Aqua");
+				co1.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors1;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co1);
+				co2.setText("Black");
+				co2.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors2;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co2);
+				co3.setText("Blue");
+				co3.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors3;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co3);
+				co4.setText("Bold");
+				co4.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors4;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co4);
+				co5.setText("Dark aqua");
+				co5.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors5;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co5);
+				co6.setText("Dark blue");
+				co6.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors6;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co6);
+				co7.setText("Dark gray");
+				co7.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors7;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co7);
+				co8.setText("Dark green");
+				co8.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors8;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co8);
+				co9.setText("Dark purple");
+				co9.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors9;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co9);
+				co10.setText("Dark red");
+				co10.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors10;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co10);
+				co11.setText("Gold");
+				co11.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors11;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co11);
+				co12.setText("Gray");
+				co12.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors12;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co12);
+				co13.setText("Green");
+				co13.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors13;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co13);
+				co14.setText("Light purple");
+				co14.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors14;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co14);
+				co15.setText("Red");
+				co15.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors15;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co15);
+				co16.setText("Reset");
+				co16.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors16;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co16);
+				co17.setText("White");
+				co17.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors17;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co17);
+				co18.setText("Yellow");
+				co18.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors18;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co18);
+				co19.setText("Italic");
+				co19.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors19;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co19);
+				co20.setText("Crypted");
+				co20.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						chatColors = chatColors20;
+						android.widget.Toast.makeText(MainActivity, "Message color set.", 1)
+							.show();
+					}
+				}));
+				selectLayout.addView(co20);
+				}
+				select = new android.widget.PopupWindow(selectLayout1, dip2px(500), dip2px(500));
+				select = new android.widget.PopupWindow(selectLayout1, MainActivity.getWindowManager()
+					.getDefaultDisplay()
+					.getWidth() / 2, MainActivity.getWindowManager()
+					.getDefaultDisplay()
+					.getHeight() / 1);
+				var bg = new android.graphics.drawable.GradientDrawable();
+				bg.setColor(android.graphics.Color.TRANSPARENT);
+				bg.setStroke(10, GUIStroke);
+				selectLayout1.setBackgroundDrawable(bg);
+				selectLayout1.setPadding(20, 0, 20, 0);
+				select.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
+				select.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.CENTER | android.view.Gravity.TOP, 0, 0);
+			} catch (error) {
+				android.widget.Toast.makeText(MainActivity, "Error! : " + error, 1)
+					.show();
+			}
+		}
+	}));
+}
 /*M~?`??????¨????~???????????a???????¯?¯???????????????i??????????_?n`"????????????_??_???????? ?¯`°?`?????????????????m???`????????e´?????????^?????"??????????????????n?????????^????????¯??????u???^?????????????????*/
 function mainMenu() {
 	MainActivity.runOnUiThread(new java.lang.Runnable({
@@ -1055,6 +1393,100 @@ function mainMenu() {
 					}
 				});
 				menuLayout.addView(idfk);
+                                var ht10 = new styleButton();
+				ht10.setText("How to vote more daily");
+				ht10.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						var alert = new android.app.AlertDialog.Builder(MainActivity);
+						/*alert.setTitle(""); */
+						var scroll = new android.widget.ScrollView(MainActivity);
+						var layout = new android.widget.LinearLayout(MainActivity);
+						layout.setOrientation(1);
+						alert.setTitle("How to vote more daily");
+						alert.setMessage("Step 1: Enable a vpn\nStep 2: vote as you or anyone\nStep 3: Turn off vpn\nStep 4: choose another ip\nStep 5: Change devices date\nNow you can vote again.-ArceusMatt.\nThis was last checked on 4/23/2017");
+						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+								menu.dismiss();
+								showMenuBtn();
+							}
+						});
+						alert.setNegativeButton("Back to menu", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+							}
+						});
+						var dialog = alert.create();
+						dialog.show();
+					}
+				});
+				menuLayout.addView(ht10);
+								var es = new styleButton();
+								es.setText("Entity spawner");
+								es.setTextColor(android.graphics.Color.RED);
+								if (entselect == true) es.setTextColor(android.graphics.Color.GREEN);
+								es.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										entselect ? entselect = false : entselect = true;
+										es.setText("Entity spawner");
+										if (entselect == true) {
+											es.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "Entity spawner on");
+											menu.dismiss();
+											selectView();
+											entselect = true;
+										}
+										if (entselect == false) {
+											es.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "Entity spawner off");
+											lightning = false;
+											//EntityType.LIGHTNING_BOLT;
+											primedtnt = false;
+											//EntityType.PRIMED_TNT;
+											arrow = false;
+											//EntityType.ARROW;
+											exporb = false;
+											//EntityType.EXPERIENCE_ORB;
+											fireball = false;
+											//EntityType.FIREBALL;
+											egg = false;
+											//EntityType.EGG;
+											endersignal = false;
+											//70
+											shulkerbullet = false;
+											//76
+											snowball = false;
+											//81
+											witherskull = false;
+											//89
+											entselect = false;
+										}
+									}
+								}));
+								menuLayout.addView(es);
+								var grif = new styleButton();
+								grif.setText("Grief");
+								grif.setTextColor(android.graphics.Color.RED);
+								if (grief == true) grif.setTextColor(android.graphics.Color.GREEN);
+								grif.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										grief ? grief = false : grief = true;
+										grif.setText("Grief");
+										if (grief == true) {
+											grif.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "Grief on");
+											new2();
+											menu.dismiss();
+											grief = true;
+										}
+										if (grief == false) {
+											grif.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "Grief off");
+											grief = false;
+										}
+									}
+								}));
+								menuLayout.addView(grif);
 				menu = new android.widget.PopupWindow(menuLayout1, MainActivity.getWindowManager()
 					.getDefaultDisplay()
 					.getWidth() / GUISize, MainActivity.getWindowManager()
@@ -1178,6 +1610,424 @@ function assetEditor() {
 			}
 		}
 	});
+}
+
+function new2() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				griefD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(MainActivity);
+				var select1 = new styleButton();
+				var select2 = new styleButton();
+				var select3 = new styleButton();
+				var ddf = new styleInput();
+				showMenuBtn();
+				ddf.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				Dialog.setTitle("Select");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(select1);
+				Layer.addView(select2);
+				//Layer.addView(select3);
+				Layer.addView(ddf);
+				Layer.addView(Exit);
+				select1.setText("Use lava?");
+				select1.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						clientMessage(client + "§7Face a block to see!");
+						vid = 11;
+						grief = true;
+					}
+				}));
+				select2.setText("Use water?");
+				select2.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						clientMessage(client + "§7Face a block to see!");
+						vid = 8;
+						grief = true;
+					}
+				}));
+				ddf.setText("");
+				ddf.setHint("Pick item ID");
+				Exit.setText("done");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						vid = ddf.getText();
+						grief = true;
+						Dialog.dismiss();
+					}
+				});
+				griefD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				griefD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				griefD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("grief dialog :" + e);
+			}
+		}
+	});
+}
+
+function useItem(x, y, z, itemId, blockId, side, itemDamage, blockDamage) {
+	if (deadchat) {
+		if (blockId == 63 || blockId == 68) {
+			var notex = x;
+			var notey = y;
+			var notez = z;
+			signEditor();
+		}
+	}
+	if (lightning) {
+		Level.spawnMob(x, y, z, EntityType.LIGHTNING_BOLT);
+	}
+	if (primedtnt) {
+		Level.spawnMob(x, y + 2, z, EntityType.PRIMED_TNT);
+	}
+	if (arrow) {
+		Level.spawnMob(x, y + 1, z, EntityType.ARROW);
+	}
+	if (exporb) {
+		Level.spawnMob(x, y + 1, z, EntityType.EXPERIENCE_ORB);
+	}
+	if(fireball){
+	Level.spawnMob(x, y + 1, z, EntityType.FIREBALL);
+	}
+	if(egg){
+	Level.spawnMob(x, y + 1, z, EntityType.EGG);
+	}
+	if(endersignal){
+	Level.spawnMob(x, y + 1, z, 70);
+	}
+	if(shulkerbullet){
+	Level.spawnMob(x, y + 1, z, 76);
+	}
+	if(snowball){
+	Level.spawnMob(x, y + 1, z, 81);
+	}
+	if(witherskull){
+	Level.spawnMob(x, y + 1, z, 89);
+	}
+	if (tapspam) {
+		Server.sendChat(text);
+		Server.getPort();
+		if (Server.getPort() == "0") clientMessage(text);
+	}
+	if (block == true) preventDefault();
+	if (tapdestroy) {
+		Level.destroyBlock(x + 1, y, z + 1, vidd);
+		Level.destroyBlock(x + 2, y, z + 2, vidd);
+		Level.destroyBlock(x + 3, y, z + 3, vidd);
+		Level.destroyBlock(x + 4, y, z + 4, vidd);
+		Level.destroyBlock(x, y, z, vidd);
+		Level.destroyBlock(x - 1, y, z - 1, vidd);
+		Level.destroyBlock(x - 2, y, z - 2, vidd);
+		Level.destroyBlock(x - 3, y, z - 3, vidd);
+		Level.destroyBlock(x - 4, y, z - 4, vidd);
+	}
+	if (taptp) {
+		Entity.setPosition(Player.getEntity(), x, y + 2.62, z);
+	}
+	if (tapnuke) explode(x, y, z, 5);
+	if (tapid) clientMessage(client + "Block ID: " + blockId + "\nTapped with: " + itemId + "\n" + " X: " + x + " Y: " + y + " Z: " + z + "\nFriction: " + Block.getFriction(blockId) + "\nSide: " + side + "\nBlock damage: " + blockDamage + "\nItem damage: " + itemDamage);
+	if (tapjump) setVelY(getPlayerEnt(), 0.5);
+	if (tapParti) {
+		if (tapParti) {
+			if (particle1) Level.addParticle(ParticleType.angryVillager, x, y + 1, z, 0, 0, 0, 5);
+			if (particle2) Level.addParticle(ParticleType.bubble, x, y + 1, z, 0, 0, 0, 150);
+			if (particle3) Level.addParticle(ParticleType.cloud, x, y + 1, z, 0, 0, 0, 150);
+			if (particle4) Level.addParticle(ParticleType.crit, x, y + 1, z, 0, 0, 0, 50);
+			if (particle5) Level.addParticle(ParticleType.dripLava, x, y + 1, z, 0, 0, 0, 150);
+			if (particle6) Level.addParticle(ParticleType.dripWater, x, y + 1, z, 0, 0, 0, 150);
+			if (particle7) Level.addParticle(ParticleType.enchantmenttable, x, y + 1, z, 0, 0, 0, 150);
+			if (particle8) Level.addParticle(ParticleType.fallingDust, x, y + 1, z, 0, 0, 0, 150);
+			if (particle9) Level.addParticle(ParticleType.flame, x, y + 1, z, 0, 0, 0, 150);
+			if (particle10) Level.addParticle(ParticleType.happyVillager, x, y + 1, z, 0, 0, 0, 50);
+			if (particle11) Level.addParticle(ParticleType.heart, x, y + 1, z, 0, 0, 0, 5);
+			if (particle12) Level.addParticle(ParticleType.hugeexplosion, x, y + 1, z, 0, 0, 0, 150);
+			if (particle13) Level.addParticle(ParticleType.hugeexplosionSeed, x, y + 1, z, 0, 0, 0, 10);
+			if (particle14) Level.addParticle(ParticleType.ink, x, y + 1, z, 0, 0, 0, 150);
+			if (particle15) Level.addParticle(ParticleType.itemBreak, x, y + 1, z, 0, 0, 0, 150);
+			if (particle16) Level.addParticle(ParticleType.lava, x, y + 1, z, 0, 0, 0, 150);
+			if (particle17) Level.addParticle(ParticleType.mobFlame, x, y + 1, z, 0, 0, 0, 150);
+			if (particle18) Level.addParticle(ParticleType.note, x, y + 1, z, 0, 0, 0, 150);
+			if (particle19) Level.addParticle(ParticleType.portal, x, y + 1, z, 0, 0, 0, 150);
+			if (particle20) Level.addParticle(ParticleType.rainSplash, x, y + 1, z, 0, 0, 0, 150);
+			if (particle21) Level.addParticle(ParticleType.redstone, x, y + 1, z, 0, 0, 0, 10);
+			if (particle22) Level.addParticle(ParticleType.slime, x, y + 1, z, 0, 0, 0, 150);
+			if (particle23) Level.addParticle(ParticleType.smoke, x, y + 1, z, 0, 0, 0, 150);
+			if (particle24) Level.addParticle(ParticleType.snowballpoof, x, y + 1, z, 0, 0, 0, 150);
+			if (particle25) Level.addParticle(ParticleType.spell, x, y + 1, z, 0, 0, 0, 150);
+			if (particle26) Level.addParticle(ParticleType.splash, x, y + 1, z, 0, 0, 0, 150);
+			if (particle27) Level.addParticle(ParticleType.suspendedTown, x, y + 1, z, 0, 0, 0, 150);
+			if (particle28) Level.addParticle(ParticleType.terrain, x, y + 1, z, 0, 0, 0, 150);
+			if (particle29) Level.addParticle(ParticleType.waterWake, x, y + 1, z, 0, 0, 0, 150);
+			if (particle30) Level.addParticle(ParticleType.largeexplode, x, y + 1, z, 0, 0, 0, 150);
+			if (particle31) Level.addParticle(ParticleType.spell2, x, y + 1, z, 0, 0, 0, 150);
+			if (particle32) Level.addParticle(ParticleType.spell3, x, y + 1, z, 0, 0, 0, 150);
+			if (particle33) Level.addParticle(ParticleType.carrotboost, x, y + 1, z, 0, 0, 0, 150);
+			if (particle34) Level.addParticle(ParticleType.witchspell, x, y + 1, z, 0, 0, 0, 150);
+		}
+	}
+}
+
+function modTick() {
+	if (stackheart) {
+		Player.setHealth(20);
+	}
+	if (infhun) {
+		Player.setHunger(20);
+	}
+	if (killaura) {
+		killing();
+	}
+	if (killfaura) {
+		killingf();
+	}
+	if (killdaura) {
+		killingd();
+	}
+	if (nametags) {
+		namedem();
+	}
+	if (particle1) Level.addParticle(ParticleType.angryVillager, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 5);
+	if (particle2) Level.addParticle(ParticleType.bubble, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle3) Level.addParticle(ParticleType.cloud, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle4) Level.addParticle(ParticleType.crit, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 50);
+	if (particle5) Level.addParticle(ParticleType.dripLava, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle6) Level.addParticle(ParticleType.dripWater, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle7) Level.addParticle(ParticleType.enchantmenttable, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle8) Level.addParticle(ParticleType.fallingDust, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle9) Level.addParticle(ParticleType.flame, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle10) Level.addParticle(ParticleType.happyVillager, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 50);
+	if (particle11) Level.addParticle(ParticleType.heart, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 5);
+	if (particle12) Level.addParticle(ParticleType.hugeexplosion, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle13) Level.addParticle(ParticleType.hugeexplosionSeed, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 10);
+	if (particle14) Level.addParticle(ParticleType.ink, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle15) Level.addParticle(ParticleType.itemBreak, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle16) Level.addParticle(ParticleType.lava, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle17) Level.addParticle(ParticleType.mobFlame, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle18) Level.addParticle(ParticleType.note, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle19) Level.addParticle(ParticleType.portal, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle20) Level.addParticle(ParticleType.rainSplash, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle21) Level.addParticle(ParticleType.redstone, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 10);
+	if (particle22) Level.addParticle(ParticleType.slime, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle23) Level.addParticle(ParticleType.smoke, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle24) Level.addParticle(ParticleType.snowballpoof, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle25) Level.addParticle(ParticleType.spell, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle26) Level.addParticle(ParticleType.splash, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle27) Level.addParticle(ParticleType.suspendedTown, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle28) Level.addParticle(ParticleType.terrain, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle29) Level.addParticle(ParticleType.waterWake, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle30) Level.addParticle(ParticleType.largeexplode, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle31) Level.addParticle(ParticleType.spell2, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle32) Level.addParticle(ParticleType.spell3, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle33) Level.addParticle(ParticleType.carrotboost, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle34) Level.addParticle(ParticleType.witchspell, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (onlynight) Level.setTime(15000);
+	if (onlyday) Level.setTime(0);
+	if (antivoid) {
+		Math.round(getPlayerY());
+		if (Math.round(getPlayerY()) == "-3") {
+			clientMessage(client + "You were at void!");
+			Entity.setPosition(Player.getEntity(), getPlayerX(), 75, getPlayerZ() + 5);
+		}
+	}
+	if (glide) {
+		if (Entity.getVelY(Player.getEntity()) <= 0) {
+			setVelY(Player.getEntity(), -0.05)
+		}
+	}
+	if (coords) ModPE.showTipMessage(client + "\nX " + Math.round(getPlayerX()) + ", Y " + Math.round(getPlayerY()) + ", Z " + Math.round(getPlayerZ()));
+	if (armor) ModPE.showTipMessage(client + "\nHead: " + Entity.getArmorDamage(getPlayerEnt(), 0) + " Chest: " + Entity.getArmorDamage(getPlayerEnt(), 1) + " Legs: " + Entity.getArmorDamage(getPlayerEnt(), 2) + " Feet: " + Entity.getArmorDamage(getPlayerEnt(), 3));
+	if (autonuke) explode(getPlayerX(), getPlayerY(), getPlayerZ(), 5);
+	if (grief) Level.setTile(Player.getPointedBlockX(), Player.getPointedBlockY(), Player.getPointedBlockZ(), vid, 0);
+	if (getvel) ModPE.showTipMessage("VelX: " + Entity.getVelX(getPlayerEnt()) + " VelY " + Entity.getVelY(getPlayerEnt()) + " VelZ " + Entity.getVelZ(getPlayerEnt()));
+	if (yawpitch) ModPE.showTipMessage("pitch: " + Math.round(getPitch(getPlayerEnt())) + " \nYaw: " + Math.round(getYaw(getPlayerEnt())) + " ");
+	if (airwalk) {
+		if (Level.getTile(getPlayerX(), getPlayerY() - 1, getPlayerZ()) == "0" || Level.getTile(getPlayerX(), getPlayerY() - 1, getPlayerZ()) == "95") {
+			Level.setTile(getPlayerX() + 1, getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX() + 2, getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX() + 3, getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX() + 4, getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX() - 1, getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX() - 2, getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX() - 3, getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX() - 4, getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ(), 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() + 1, 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() + 2, 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() + 3, 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() + 4, 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() - 1, 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() - 2, 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() - 3, 95, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() - 4, 95, 0);
+		}
+	}
+	if (icewalk) {
+		if (Level.getTile(getPlayerX(), getPlayerY() - 1, getPlayerZ()) == "0" || Level.getTile(getPlayerX(), getPlayerY() - 1, getPlayerZ()) != "79") {
+			Level.setTile(getPlayerX() + 1, getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX() + 2, getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX() + 3, getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX() + 4, getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX() - 1, getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX() - 2, getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX() - 3, getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX() - 4, getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ(), 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() + 1, 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() + 2, 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() + 3, 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() + 4, 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() - 1, 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() - 2, 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() - 3, 79, 0);
+			Level.setTile(getPlayerX(), getPlayerY() - 2, getPlayerZ() - 4, 79, 0);
+		}
+	}
+	if (changeSpeed == true) changeSpeedOnBlock();
+	if (brightness == true) bright();
+	if (lowhealth == true) spawnIfLowHealth();
+	if (fasteat == true) fastEat();
+	if (xray == true) xrayRepeat();
+	if (spider && Utils.Player.isCollidedHorizontally()) {
+		if (getTile(Player.getX() + 1, Player.getY(), Player.getZ()) > 0 || getTile(Player.getX() -1, Player.getY(), Player.getZ()) > 0 || getTile(Player.getX(), Player.getY(), Player.getZ() +1) > 0 || getTile(Player.getX(), Player.getY(), Player.getZ() -1) > 0 || getTile(Player.getX() + 1, Player.getY(), Player.getZ() - 1) > 0 || getTile(Player.getX() - 1, Player.getY(), Player.getZ() + 1) > 0 || getTile(Player.getX() -1, Player.getY(), Player.getZ() -1) > 0 || getTile(Player.getX() +1, Player.getY(), Player.getZ() +1) > 0) {
+			setVelY(Player.getEntity(), 0.6);
+		}
+	}
+	if (jump) {
+		if (Entity.getVelY(getPlayerEnt()) < -0.1) {
+			setVelY(getPlayerEnt(), '-' + 0 + '.' + jumpheight);
+		}
+		if (Entity.getVelY(getPlayerEnt()) < 0.35 && Entity.getVelY(getPlayerEnt()) > 0.2 && can == 1 && canGetHP == 1) {
+			setVelY(getPlayerEnt(), 0 + '.' + jumpheight);
+			can = 2;
+			HP = Entity.getHealth(getPlayerEnt());
+			canGetHP = 0;
+		}
+		if (Entity.getVelY(getPlayerEnt()) > gravity && can == 2) {
+			Player.setHealth(HP);
+			canGetHP = 1;
+			can = 0;
+		}
+		if (Entity.getVelY(getPlayerEnt()) == gravity && can == 0) {
+			Player.setHealth(HP);
+			canGetHP = 1;
+			can = 1;
+		}
+	}
+	if (autowalk) {
+		toDirectionalVector(playerDir, (getYaw() + 90) * DEG_TO_RAD, getPitch() * DEG_TO_RAD * -1);
+		setVelX(getPlayerEnt(), 0.22 * playerDir[0]);
+		setVelZ(getPlayerEnt(), 0.22 * playerDir[2]);
+	}
+	if (tpAura) {
+		var players = Server.getAllPlayers();
+		var names = Server.getAllPlayerNames();
+		for (var i = 0; i < 4; i++) {
+			var x = Entity.getX(players[i]) - getPlayerX();
+			var y = Entity.getY(players[i]) - getPlayerY();
+			var z = Entity.getZ(players[i]) - getPlayerZ();
+			if (y != 0) Entity.setPosition(Player.getEntity(), x, y + 2.62, z);
+		}
+	}
+	if (keepHotbar) {
+		Player.setSelectedSlotId(Player.getSelectedSlotId());
+		Player.getCarriedItem();
+		Player.setSelectedSlotId(Player.getCarriedItem());
+	}
+	if (itemIndi) ModPE.showTipMessage(client + "\nHeld: " + Player.getCarriedItem() + ":" + Player.getCarriedItemData() + ", Amount: " + Player.getCarriedItemCount());
+	if (bhop) {
+		var x = getPlayerX();
+		var y = getPlayerY();
+		var z = getPlayerZ();
+		if (Entity.getVelX(Player.getEntity()) > 0.1 && getTile(x, y + 2, z) == 0) {
+			if (getTile(Player.getX(), Player.getY() - 2, Player.getZ()) > 0) {
+				Entity.setVelY(Player.getEntity(), 0.4);
+			}
+		}
+		if (Entity.getVelX(Player.getEntity()) < -0.1 && getTile(x, y + 2, z) == 0) {
+			if (getTile(Player.getX(), Player.getY() - 2, Player.getZ()) > 0) {
+				Entity.setVelY(Player.getEntity(), 0.4);
+			}
+		}
+		if (Entity.getVelZ(Player.getEntity()) > 0.1 && getTile(x, y + 2, z) == 0) {
+			if (getTile(Player.getX(), Player.getY() - 2, Player.getZ()) > 0) {
+				Entity.setVelY(Player.getEntity(), 0.4);
+			}
+		}
+		if (Entity.getVelZ(Player.getEntity()) < -0.1 && getTile(x, y + 2, z) == 0) {
+			if (getTile(Player.getX(), Player.getY() - 2, Player.getZ()) > 0) {
+				Entity.setVelY(Player.getEntity(), 0.4);
+			}
+		}
+	}
+	if (facedInfo) {
+		if (Entity.getEntityTypeId(Player.getPointedEntity()) == 63 && Entity.getArmorDamage(Player.getPointedEntity(), 0) != 0 || Entity.getArmorDamage(Player.getPointedEntity(), 1) != 0 || Entity.getArmorDamage(Player.getPointedEntity(), 2) != 0 || Entity.getArmorDamage(Player.getPointedEntity(), 3) != 0) {
+			ModPE.showTipMessage(client + "\nName: " + Player.getName(Player.getPointedEntity()) + ", RenderType: " + Entity.getRenderType(Player.getPointedEntity()) + ", Health: " + Entity.getHealth(Player.getPointedEntity()) + "/" + Entity.getMaxHealth(Player.getPointedEntity()) + "\nHead: " + Entity.getArmorDamage(Player.getPointedEntity(), 0) + ", Chest: " + Entity.getArmorDamage(Player.getPointedEntity(), 1) + ", Leggings: " + Entity.getArmorDamage(Player.getPointedEntity(), 2) + ", Boots: " + Entity.getArmorDamage(Player.getPointedEntity(), 3));
+		} else {
+			ModPE.showTipMessage(client + "\nName: " + Player.getName(Player.getPointedEntity()) + ", RenderType: " + Entity.getRenderType(Player.getPointedEntity()) + ", Health: " + Entity.getHealth(Player.getPointedEntity()) + "/" + Entity.getMaxHealth(Player.getPointedEntity()) + "");
+		}
+	}
+	if (facedInfo2) {
+		if (Entity.getEntityTypeId(Player.getPointedEntity()) <= 63) {
+			ModPE.showTipMessage(client + "\nName: " + Player.getName(Player.getPointedEntity()) + ", RenderType: " + Entity.getRenderType(Player.getPointedEntity()) + ", Health: " + Entity.getHealth(Player.getPointedEntity()) + "/" + Entity.getMaxHealth(Player.getPointedEntity()) + "");
+		}
+	}
+	if (onfriction) {
+		Block.setFriction(79, 0.6000000238418579);
+		Block.setFriction(174, 0.6000000238418579);
+		Block.setFriction(88, 0.6000000238418579);
+		for (var i = 0; i < 100; i++) {
+			Block.setFriction(i, 2); /**2 is very fast, looking for a smoother speed later on.*/
+		}
+	}
+	if (rainitem == true) {
+		Level.dropItem(getPlayerX() + 3, getPlayerY() + 11, getPlayerZ(), 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 7, getPlayerY() + 11, getPlayerZ(), 0, rainId, 1);
+		Level.dropItem(getPlayerX(), getPlayerY() + 11, getPlayerZ() + 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX(), getPlayerY() + 11, getPlayerZ() + 7, 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 3, getPlayerY() + 11, getPlayerZ() + 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 7, getPlayerY() + 11, getPlayerZ() + 7, 0, rainId, 1);
+		Level.dropItem(getPlayerX() - 3, getPlayerY() + 11, getPlayerZ() - 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX() - 7, getPlayerY() + 11, getPlayerZ() - 7, 0, rainId, 1);
+		Level.dropItem(getPlayerX() - 3, getPlayerY() + 11, getPlayerZ() + 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX() - 7, getPlayerY() + 11, getPlayerZ() + 7, 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 3, getPlayerY() + 11, getPlayerZ() - 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 7, getPlayerY() + 11, getPlayerZ() - 7, 0, rainId, 1);
+	}
+	if (autosword) {
+		if (getNearestEntity3(aimrange) != null) {
+			let bestsword = [-1, -1];
+			for (let i = 0; i < 10; i++) {
+				let dmg = Utils.Item.getDamage(Player.getInventorySlot(i));
+				if (dmg > bestsword[0]) {
+					bestsword[0] = dmg;
+					bestsword[1] = i;
+				}
+				if (bestsword[1] != -1) Player.setSelectedSlotId(bestsword[1]);
+			}
+		}
+	}
+	if (noknock) {
+		if (Entity.getVelY(Player.getEntity()) > 0.1 && getTile(x - 1, y - 1, z) == 0 || getTile(x, y - 1, z - 1) == 0 || getTile(x + 1, y - 1, z) == 0 || getTile(x, y - 1, z + 1) == 0) {
+			Entity.setVelY(Player.getEntity(), -0.5);
+		}
+	}
+	if (checkping) {
+		var ping = AlphaHackPE.ping();
+		ModPE.showTipMessage(ping + " ms.");
+	}
+}
+
+function toDirectionalVector(dir, a, b) {
+	dir[0] = Math["cos"](a) * Math["cos"](b);
+	dir[1] = Math["sin"](b);
+	dir[2] = Math["sin"](a) * Math["cos"](b);
 }
 
 function getNearestEntity(maxrange) {
