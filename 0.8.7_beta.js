@@ -1015,6 +1015,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					lightning = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti1);
@@ -1023,6 +1024,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					primedtnt = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti2);
@@ -1031,6 +1033,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					arrow = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti3);
@@ -1039,6 +1042,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					exporb = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti4);
@@ -1047,6 +1051,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					fireball = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti5);
@@ -1055,6 +1060,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					egg = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti6);
@@ -1063,6 +1069,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					endersignal = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti7);
@@ -1071,6 +1078,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					shulkerbullet = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti8);
@@ -1079,6 +1087,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					snowball = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti9);
@@ -1087,6 +1096,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					witherskull = true;
 					select.dismiss();
+						showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti10);
