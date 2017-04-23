@@ -1,0 +1,34 @@
+# Bugs
+- [ ] bl server enabler on pro
+- [ ] fix hit & tap particles
+- [ ] fix walk on liquid
+- [ ] delete air and ice blocks behind player
+- [ ] check if target is not at Y 0 in tp aura
+- [ ] fix no knockback jumping
+- [ ] fix entity spawner dialog
+
+# TODO
+- [ ] anti iron door
+- [ ] economy S hack
+- [ ] auto armor, auto food
+- [ ] anti cactus & fire
+- [ ] fast eat
+- [ ] auto log
+- [ ] spinaura with setVelX or setVelZ + autowalk + speed + aimaura
+- [ ] add dos feature back
+- [ ] ride aura
+- [ ] auto sneak
+- [ ] maybe update single player auras
+- [ ] block restore with custom time
+- [ ] fly bypasses
+- [ ] spam bypasses
+- [ ] bypass anti cheats
+- [ ] break particles
+- [ ] ore esp
+- [ ] player esp
+- [ ] find a way to reset build id
+- [ ] randomized pass hack
+- [ ] reveal server voting exploit
+- [ ] UpGlide
+- [ ] Limitless elytra
+- [ ] F2, F3, F5
