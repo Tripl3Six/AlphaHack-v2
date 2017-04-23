@@ -5,8 +5,9 @@
 - [ ] delete air and ice blocks behind player
 - [ ] check if target is not at Y 0 in tp aura
 - [ ] fix no knockback jumping
-- [ ] fix entity spawner dialog
+- [x] fix entity spawner dialog
 - [x] Hitbox not allowing to hit players
+- [x] fix main button disappear after grief
 
 # TODO
 - [ ] anti iron door
@@ -16,7 +17,7 @@
 - [ ] fast eat
 - [ ] auto log
 - [ ] spinaura with setVelX or setVelZ + autowalk + speed + aimaura
-- [ ] add dos feature back
+- [x] add dos feature back
 - [ ] ride aura
 - [ ] auto sneak
 - [ ] maybe update single player auras
@@ -29,7 +30,7 @@
 - [ ] player esp
 - [ ] find a way to reset build id
 - [ ] randomized pass hack
-- [ ] reveal server voting exploit
+- [x] reveal server voting exploit
 - [ ] UpGlide
 - [ ] Limitless elytra
 - [ ] F2, F3, F5
