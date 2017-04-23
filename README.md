@@ -9,14 +9,15 @@ ALPHAHack v2 is a remake of AlphaHack 0.8.1
 --------------------<br>
 [Free to use mod menu for MCPE under MIT license];<br>
 Anyone modifying, gaining money, copying without permission,<br>
-releasing without permission; will be confronted &<br>
-will be asked to change or delete their mistakes by the creator of this program.<br>
+will be confronted & will be asked to change<br>
+or delete their mistakes by the creator of this program.<br>
+To share it the link most be https://arceusmatt.github.io/alphahack<br>
 --------------------<br>
 [Pleαse contαct the developers of eαch code for permission to copy.];<br>
-http://imgur.com/6xCQAyT<br>
-http://imgur.com/xpEHET3<br>
-https://github.com/ArceusMatt/AlphaHack-v2/pull/2<br>
-http://imgur.com/1Vkl3q2<br>
+My permission to use dragop code 1 http://imgur.com/6xCQAyT<br>
+My permission to use dragop code 2 http://imgur.com/xpEHET3<br>
+My permission to use vertex chest esp http://imgur.com/a/qm43v<br>
+My permission to use maximus glide http://imgur.com/1Vkl3q2<br>
 --------------------<br>
 [contributors: Godsoft029, Johnmαcrocrαft, αJ170, Peαcestorm(αgαmeR), αPRIC0CKS, Vertex client teαm];<br>
 Contributor means they have decided to make a commit to the mod.<br>
@@ -42,10 +43,7 @@ Contributor means they have decided to make a commit to the mod.<br>
 - [x] Speed hax
 - [x] Storage esp / chest esp
 - [x] Hitbox / reach
-- [ ] Walk on liquid WIP
 - [x] Glide
-- [ ] UpGlide WIP
-- [ ] Limitless elytra WIP
 - [x] Brightness
 - [x] Instant break
 - [x] Spider
@@ -57,7 +55,4 @@ Contributor means they have decided to make a commit to the mod.<br>
 - [x] Player/client mods
 - [x] Chat fonts
 - [x] No knockback
-- [ ] Player tracers WIP
-- [ ] AutoSword, AutoArmor, AutoFood WIP
-- [ ] F2, F3, F5 WIP
 - [x] Unban features
