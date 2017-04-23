@@ -727,6 +727,7 @@ function betterWebview(url) {
 				wvLayout1.setOrientation(1);
 				wvScroll.addView(wvLayout);
 				wvLayout1.addView(wvScroll);
+				showMenuBtn();
 				var webs = new android.webkit.WebView(MainActivity);
 				webs.setWebChromeClient(new android.webkit.WebChromeClient());
 				webs.setWebViewClient(new android.webkit.WebViewClient());
@@ -758,7 +759,6 @@ function betterWebview(url) {
 				exit.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						wv.dismiss();
-						showMenuBtn();
 						webs.clearCache(true);
 						webs.clearFormData();
 						webs.clearHistory();
@@ -1035,6 +1035,16 @@ function mainMenu() {
 									}
 								}));
 								menuLayout.addView(hitbutton);
+				var wbtest = new styleButton();
+				wbtest.setText("Load assets");
+				wbtest.setTextColor(GUIText);
+				wbtest.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+					menu.dismiss();
+					assetEditor();
+					}
+				});
+				menuLayout.addView(wbtest);
 
 				menu = new android.widget.PopupWindow(menuLayout1, MainActivity.getWindowManager()
 					.getDefaultDisplay()
@@ -1057,6 +1067,43 @@ function mainMenu() {
 			}
 		}
 	}));
+}
+
+function assetEditor() {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				assetD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(ctx);
+				var texty = new styleInput();
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				Dialog.setTitle("Enter asset path");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(texty);
+				Layer.addView(Exit);
+				texty.setText("");
+				texty.setHint("Asset");
+				Exit.setText("Load");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						daurl = texty.getText();
+						var site = "file:///android_asset/"+daurl;
+						betterWebview(site);
+						Dialog.dismiss();
+					}
+				});
+				assetD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				assetD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				assetD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("asset dialog:" + e);
+			}
+		}
+	});
 }
 
 function getNearestEntity(maxrange) {
