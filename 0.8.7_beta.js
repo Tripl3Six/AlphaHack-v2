@@ -1497,6 +1497,27 @@ function mainMenu() {
 									}
 								}));
 								menuLayout.addView(grif);
+								var nknock = new styleButton();
+								nknock.setText("No knockback");
+								nknock.setTextColor(android.graphics.Color.RED);
+								if (noknock == true) nknock.setTextColor(android.graphics.Color.GREEN);
+								nknock.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										noknock ? noknock = false : noknock = true;
+										nknock.setText("No knockback");
+										if (noknock == true) {
+											nknock.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "No knockback on");
+											noknock = true;
+										}
+										if (noknock == false) {
+											nknock.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "No knockback off");
+											noknock = false;
+										}
+									}
+								}));
+								menuLayout.addView(nknock);
 				menu = new android.widget.PopupWindow(menuLayout1, MainActivity.getWindowManager()
 					.getDefaultDisplay()
 					.getWidth() / GUISize, MainActivity.getWindowManager()
