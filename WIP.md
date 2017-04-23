@@ -6,6 +6,7 @@
 - [ ] check if target is not at Y 0 in tp aura
 - [ ] fix no knockback jumping
 - [ ] fix entity spawner dialog
+- [x] Hitbox not allowing to hit players
 
 # TODO
 - [ ] anti iron door
