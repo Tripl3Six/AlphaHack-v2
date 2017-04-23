@@ -73,7 +73,7 @@ var jumpheight = '5';
 var aimrange = '7';
 var rainId = '';
 var shadow1X = '30';
-var shadow1Y = '0';
+var shadow1Y = '1';
 var keybind1 = false;
 var haxMode = false;
 var newtime = '';
@@ -181,10 +181,27 @@ var dropind = false;
 var autoply1 = false;
 var expind = false;
 var ccolors = false;
+var entselect = false;
 var lightning = false;
+//EntityType.LIGHTNING_BOLT;
 var primedtnt = false;
+//EntityType.PRIMED_TNT;
 var arrow = false;
+//EntityType.ARROW;
 var exporb = false;
+//EntityType.EXPERIENCE_ORB;
+var fireball = false;
+//EntityType.FIREBALL;
+var egg = false;
+//EntityType.EGG;
+var endersignal = false;
+//70
+var shulkerbullet = false;
+//76
+var snowball = false;
+//81
+var witherskull = false;
+//89
 var hackk = false;
 var showp = false;
 var fch = false;
@@ -222,6 +239,10 @@ var airjump = false;
 var yhitbox = false;
 var hnsaimbot = false;
 var tpaura2 = false;
+var tpaura3 = false;
+var sneakaura1 = false;
+var freeze1 = false;
+var spinaura = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -986,6 +1007,34 @@ function mainMenu() {
 					}
 				});
 				menuLayout.addView(group);
+			
+								var hitbutton = new styleButton();
+								hitbutton.setText("Hitbox increase");
+								hitbutton.setTextColor(android.graphics.Color.RED);
+								if (hitbox1 == true) hitbutton.setTextColor(android.graphics.Color.GREEN);
+								hitbutton.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										hitbox1 ? hitbox1 = false : hitbox1 = true;
+										hitbutton.setText("Hitbox increase");
+										if (hitbox1 == true) {
+											hitbutton.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "Hitbox increase on");
+											hitbox1 = true;
+										}
+										if (hitbox1 == false) {
+											hitbutton.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "Hitbox increase off");
+											for (var i = 0; i < 5; i++) {
+												var ent = getNearestEntity3(aimrange + 2);
+												if (ent != getPlayerEnt()) {
+													Entity.setCollisionSize(ent, 2, 1);
+												}
+											}
+											hitbox1 = false;
+										}
+									}
+								}));
+								menuLayout.addView(hitbutton);
 
 				menu = new android.widget.PopupWindow(menuLayout1, MainActivity.getWindowManager()
 					.getDefaultDisplay()
@@ -1009,3 +1058,180 @@ function mainMenu() {
 		}
 	}));
 }
+
+function getNearestEntity(maxrange) {
+	var players = Server.getAllPlayers();
+	var small = maxrange;
+	var ent = null;
+	if (players != null) {
+		for (var i = 0; i < players.length; i++) {
+			var x = Entity.getX(players[i]) - getPlayerX();
+			var y = Entity.getY(players[i]) - getPlayerY();
+			var z = Entity.getZ(players[i]) - getPlayerZ();
+			var dist = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+			if (dist < small && dist > 0 && Entity.getHealth(players[i]) >= 1) {
+				small = dist;
+				ent = players[i];
+			}
+		}
+		return ent;
+	}
+}
+
+function getNearestEntity2(maxrange) {
+	var mobs = Entity.getAll();
+	var small = maxrange;
+	var ent = null;
+	if (mobs != null) {
+		for (var i = 0; i < mobs.length; i++) {
+			var x = Entity.getX(mobs[i]) - getPlayerX();
+			var y = Entity.getY(mobs[i]) - getPlayerY();
+			var z = Entity.getZ(mobs[i]) - getPlayerZ();
+			var dist = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+			if (dist < small && dist > 0 && Entity.getEntityTypeId(mobs[i]) <= 63 && Entity.getHealth(mobs[i]) >= 1) {
+				small = dist;
+				ent = mobs[i];
+			}
+		}
+		return ent;
+	}
+}
+
+function getNearestEntity3(maxrange) {
+	var mobs = Entity.getAll();
+	var players = Server.getAllPlayers();
+	var small = maxrange;
+	var ent = null;
+	if (mobs != null && players != null) {
+		for (var i = 0; i < mobs.length; i++) {
+			var x = Entity.getX(mobs[i]) - getPlayerX();
+			var y = Entity.getY(mobs[i]) - getPlayerY();
+			var z = Entity.getZ(mobs[i]) - getPlayerZ();
+			var dist = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+			if (dist < small && dist > 0 && Entity.getEntityTypeId(mobs[i]) <= 63 && Entity.getHealth(mobs[i]) >= 1) {
+				small = dist;
+				ent = mobs[i];
+			}
+		}
+		for (var i = 0; i < players.length; i++) {
+			var x = Entity.getX(players[i]) - getPlayerX();
+			var y = Entity.getY(players[i]) - getPlayerY();
+			var z = Entity.getZ(players[i]) - getPlayerZ();
+			var dist = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+			if (dist < small && dist > 0 && Entity.getHealth(players[i]) >= 1) {
+				small = dist;
+				ent = players[i];
+			}
+		}
+		return ent;
+	}
+}
+
+function crosshairAimAt(ent, pos) {
+	if (ent != null) {
+		var x = Entity.getX(ent) - getPlayerX();
+		var y = Entity.getY(ent) - getPlayerY();
+		var z = Entity.getZ(ent) - getPlayerZ();
+		if (pos != null && pos instanceof Array) {
+			x = Entity.getX(ent) - pos[0];
+			y = Entity.getY(ent) - pos[1];
+			z = Entity.getZ(ent) - pos[2];
+		}
+		if (Entity.getEntityTypeId(ent) != 63) y += 0.5;
+		var a = 0.5 + Entity.getX(ent);
+		var b = Entity.getY(ent);
+		var c = 0.5 + Entity.getZ(ent);
+		var len = Math.sqrt(x * x + y * y + z * z);
+		var y = y / len;
+		var pitch = Math.asin(y);
+		pitch = pitch * 180.0 / Math.PI;
+		pitch = -pitch;
+		var yaw = -Math.atan2(a - (Player.getX() + 0.5), c - (Player.getZ() + 0.5)) * (180 / Math.PI);
+		if (pitch < 89 && pitch > -89) {
+			Entity.setRot(Player.getEntity(), yaw, pitch);
+		}
+	}
+}
+
+function rptask() {
+	ctx.runOnUiThread(new java.lang.Runnable({
+		run: function () {
+			new android.os.Handler()
+				.postDelayed(new java.lang.Runnable({
+					run: function () {
+						if (Debug == null || Debug.isShowing() == false) {
+							net.zhuoweizhang.mcpelauncher.ScriptManager.isRemote = true;
+							net.zhuoweizhang.mcpelauncher.ScriptManager.setLevelFakeCallback(true, false);
+							enableMod();
+							showMenuBtn();
+						}
+						if (autospam) {
+							Server.sendChat("" + text + "");
+						}
+						if (hackk) {
+							numhack++
+							Server.sendChat("./login " + numhack);
+							clientMessage("./login " + numhack);
+						}
+						if (hackk2) {
+							numhack2++
+							Server.sendChat("./login " + numhack2 + "' or '" + numhack2 + "' = '" + numhack2);
+							clientMessage("./login " + numhack2 + "' or '" + numhack2 + "' = '" + numhack2);
+						}
+						if (autodestroy) {
+							Level.destroyBlock(Player.getPointedBlockX(), Player.getPointedBlockY(), Player.getPointedBlockZ(), vidd);
+						}
+						if (extraj) {
+							Level.destroyBlock(Player.getPointedBlockX() + 1, Player.getPointedBlockY(), Player.getPointedBlockZ() + 1, vidd);
+							Level.destroyBlock(Player.getPointedBlockX() + 2, Player.getPointedBlockY(), Player.getPointedBlockZ() + 2, vidd);
+							Level.destroyBlock(Player.getPointedBlockX() + 3, Player.getPointedBlockY(), Player.getPointedBlockZ() + 3, vidd);
+							Level.destroyBlock(Player.getPointedBlockX() + 4, Player.getPointedBlockY(), Player.getPointedBlockZ() + 4, vidd);
+							Level.destroyBlock(Player.getPointedBlockX(), Player.getPointedBlockY(), Player.getPointedBlockZ(), vidd);
+							Level.destroyBlock(Player.getPointedBlockX() - 1, Player.getPointedBlockY(), Player.getPointedBlockZ() - 1, vidd);
+							Level.destroyBlock(Player.getPointedBlockX() - 2, Player.getPointedBlockY(), Player.getPointedBlockZ() - 2, vidd);
+							Level.destroyBlock(Player.getPointedBlockX() - 3, Player.getPointedBlockY(), Player.getPointedBlockZ() - 3, vidd);
+							Level.destroyBlock(Player.getPointedBlockX() - 4, Player.getPointedBlockY(), Player.getPointedBlockZ() - 4, vidd);
+						}
+						if (aimbot) {
+							var ent = getNearestEntity(aimrange);
+							var name = Entity.getNameTag(ent);
+							if (ent != null && checkslapper == false) crosshairAimAt(ent);
+							if (ent != null && checkslapper == true) {
+								if (!name.match(' ')) crosshairAimAt(ent);
+							}
+						}
+						if (aimbot2) {
+							var ent = getNearestEntity2(aimrange);
+							if (ent != null) crosshairAimAt(ent);
+						}
+						if (bowaura) {
+							if (getCarriedItem() == '261') {
+								var ent = getNearestEntity3(aimrange);
+								if (ent != null) crosshairAimAt(ent);
+							}
+						}
+						if (hitbox1) {
+							var ent = getNearestEntity3(aimrange + 2);
+							if (ent != getPlayerEnt()) {
+								Entity.setCollisionSize(ent, shadow1X, shadow1Y);
+							}
+						}
+						if (ridenear) {
+							var ent = getNearestEntity3(aimrange);
+							if (ent != null && ent != getPlayerEnt()) rideAnimal(getPlayerEnt(), ent);
+						}
+						if (tpaura2) {
+						var ent = getNearestEntity(aimrange);
+						if (ent != null && ent != getPlayerEnt() && Entity.getX(ent) != 0 || Entity.getZ(ent) != 0) Entity.setPosition(Player.getEntity(), Entity.getX(ent), Entity.getY(ent) + 1.62, Entity.getZ(ent));
+						}
+						if (twerk) twerking();
+						nx = getPlayerX();
+						ny = getPlayerY();
+						nz = getPlayerZ();
+						eval(rptask())
+					}
+				}), 1000 / 70)
+		}
+	}))
+}
+rptask()
