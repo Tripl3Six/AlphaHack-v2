@@ -2045,14 +2045,15 @@ function modTick() {
 		}
 	}
 	if (noknock) {
-		if (Entity.getVelY(Player.getEntity()) > 0.1 && getTile(x - 1, y - 2, z) == 0 || getTile(x, y - 2, z - 1) == 0 || getTile(x + 1, y - 2, z) == 0 || getTile(x, y - 2, z + 1) == 0 || getTile(x +1, y -2, z -1) == 0 || getTile(x -1, y -2, z +1) == 0 || getTile(x +1, y -2, z +1) == 0 || getTile(x -1, y -2, z -1) == 0) {
-			Entity.setVelY(Player.getEntity(), -0.5);
-		}
+		if(getTile(x - 1, y - 2, z) == 0 || getTile(x, y - 2, z - 1) == 0 || getTile(x + 1, y - 2, z) == 0 || getTile(x, y - 2, z + 1) == 0 || getTile(x +1, y -2, z -1) == 0 || getTile(x -1, y -2, z +1) == 0 || getTile(x +1, y -2, z +1) == 0 || getTile(x -1, y -2, z -1) == 0) {
+		if (Entity.getVelY(Player.getEntity()) > 0.1) Entity.setVelY(Player.getEntity(), -0.5);
+	}
 	}
 	if (checkping) {
 		var ping = AlphaHackPE.ping();
 		ModPE.showTipMessage(ping + " ms.");
 	}
+	ModPE.showTipMessage(getTile(x, y -1, z) + " - " + getTile(x, y -2, z));
 }
 
 function toDirectionalVector(dir, a, b) {
