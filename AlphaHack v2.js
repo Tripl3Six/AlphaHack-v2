@@ -15095,10 +15095,8 @@ function spa2() {
 				end1.setText("Start spam");
 				end1.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
-						sec = select3.getText();
+						seconds = select3.getText();
 						text = m1.getText();
-						var sec2 = new Date(sec);
-						seconds = sec2.getMilliseconds();
 						antispam = true;
 						Dialog.dismiss();
 					}
