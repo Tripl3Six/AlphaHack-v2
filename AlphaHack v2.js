@@ -15542,6 +15542,7 @@ function new2() {
 				var select2 = new styleButton();
 				var select3 = new styleButton();
 				var ddf = new styleInput();
+				showMenuBtn();
 				ddf.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
 				var Dialog = new android.app.Dialog(MainActivity);
 				var Exit = new styleButton();
