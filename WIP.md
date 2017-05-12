@@ -4,7 +4,7 @@
 - [ ] fix walk on liquid
 - [ ] delete air and ice blocks behind player
 - [ ] check if target is not at Y 0 in tp aura
-- [ ] fix no knockback jumping
+- [x] fix no knockback jumping
 - [x] fix entity spawner dialog
 - [x] Hitbox not allowing to hit players
 - [x] fix main button disappear after grief
@@ -15,7 +15,7 @@
 - [ ] auto armor, auto food
 - [ ] anti cactus & fire
 - [ ] fast eat
-- [ ] auto log
+- [x] auto log
 - [ ] spinaura with setVelX or setVelZ + autowalk + speed + aimaura
 - [x] add dos feature back
 - [ ] ride aura
