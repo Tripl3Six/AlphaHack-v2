@@ -15797,10 +15797,10 @@ function enterAgeK() {
 }
 
 function checkLeAge(){
-						if(fp9x1){
+						if(fp9x1_){
 						if(89 / 5 < resultty)fp9x1a();
 						}
-						if(fp9x2){
+						if(fp9x2_){
 						if(89 / 5 < resultty)fp9x2b();
 						}
 }
