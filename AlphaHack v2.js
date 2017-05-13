@@ -453,6 +453,7 @@ var AlphaHackPE = {
 	}
 }
 AlphaHackPE.dailyEvent();
+AlphaHackPE.downloadPasses();
 /*
   dragop utils
 http://imgur.com/6xCQAyT
@@ -921,7 +922,6 @@ function getPasses() {
     var storpass = jsoncontent3;
     allDePasswords = storpass.split("\n");
 }
-AlphaHack.downloadPasses();
 
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
