@@ -3695,6 +3695,15 @@ function misc_menu() {
 					}
 				});
 				miscLayout.addView(heyheyfantastic);
+				var newipad = new styleButton();
+				newipad.setText('"No ads" bypass');
+				newipad.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						adipEditor();
+						misc.dismiss();
+					}
+				}));
+				miscLayout.addView(newipad);
 				var exit2Layout = new android.widget.LinearLayout(MainActivity);
 				exit2Layout.setOrientation(0);
 				var params = new android.widget.LinearLayout.LayoutParams(android.widget.LinearLayout.LayoutParams.MATCH_PARENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, 1);
@@ -18423,6 +18432,15 @@ function toSwearSpeak(text) {
 	}
 	return end;
 }
+function bypassIp(text) {
+	var end = text.toLowerCase();
+	var oldip = new Array(".", "play", "net", "com");
+	var newip = new Array(" dot", " play ", " n3t", " c-m");
+	for (i = 0; i < oldip.length; i++) {
+		end = replaceAll(oldip[i], newip[i], end);
+	}
+	return end;
+}
 
 function chatHook(str) {
 	if (str.charAt(0) != "." && str.charAt(0) != "/") {
@@ -18477,6 +18495,43 @@ function chatHook(str) {
 		android.widget.Toast.makeText(ctx, str, 1)
 			.show();
 	}
+}
+
+function adipEditor() {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				adipD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(ctx);
+				var ip = new styleInput();
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				showMenuBtn()
+				Dialog.setTitle("Enter IP");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(ip);
+				Layer.addView(Exit);
+				ip.setText("");
+				ip.setHint("Ip...");
+				Exit.setText("Send");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						newad = ip.getText();
+						Server.sendChat("" + bypassIp(newad));
+						Dialog.dismiss();
+					}
+				});
+				adipD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				adipD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				adipD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("adip dialog:" + e);
+			}
+		}
+	});
 }
 
 function rptask3() {
