@@ -34,5 +34,5 @@
 - [ ] UpGlide
 - [ ] Limitless elytra
 - [ ] F2, F3, F5
-- [ ] No ads bypass
+- [x] No ads bypass
 - [ ] Grief tutorial
