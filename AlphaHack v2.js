@@ -873,6 +873,15 @@ AlphaHack.drawTracer = function (x, y, z, groundMode, particleName) {
 		Level.addParticle(ParticleType.flame, x, y, z, (getPlayerX() - x) / count, groundMode ? 0 : ((getPlayerY() - y) / count), (getPlayerZ() - z) / count, 2);
 	}
 }
+
+//Copyright Godsoft029 2016-2017
+/*servicehack & dragop passhack ported to alphahack by arceusmatt*/
+function getPasses() {
+    var jsoncontent3 = ModPE.getFromUrl(passurl);
+    var storpass = jsoncontent3;
+    allDePasswords = storpass.split("\n");
+}
+
 /*
  * http://github.edroidthedev.com/?repo=ModPEAddon/ModPE/getFromUrl.js
  */
@@ -914,14 +923,6 @@ function getUpdate() {
 	if (version != newupdate) startUp(newupdate);
 }
 AlphaHackPE.checkUpdate();
-
-//Copyright Godsoft029 2016-2017
-/*servicehack & dragop passhack ported to alphahack by arceusmatt*/
-function getPasses() {
-    var jsoncontent3 = ModPE.getFromUrl(passurl);
-    var storpass = jsoncontent3;
-    allDePasswords = storpass.split("\n");
-}
 
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
