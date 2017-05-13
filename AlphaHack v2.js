@@ -18597,7 +18597,7 @@ function rptask3() {
 							numhack3++
 							let passwords = allDePasswords[numhack3];
 							Server.sendChat("./login "+passwords);
-							clientMessage(client + "/login "+passwords);
+							clientMessage(client + "(" + numhack3 + ") "+passwords);
 						}
 						nx = getPlayerX();
 						ny = getPlayerY();
