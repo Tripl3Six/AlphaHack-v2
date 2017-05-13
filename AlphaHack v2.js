@@ -18446,7 +18446,6 @@ function toSwearSpeak(text) {
 	return end;
 }
 function bypassIp(text) {
-	var end = text.toLowerCase();
 	var oldip = new Array(".", "play", "net", "com");
 	var newip = new Array(" dot", " play ", " n3t", " c-m");
 	for (i = 0; i < oldip.length; i++) {
