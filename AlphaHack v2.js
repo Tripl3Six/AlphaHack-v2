@@ -3704,6 +3704,19 @@ function misc_menu() {
 					}
 				}));
 				miscLayout.addView(newipad);
+				var copyip = new styleButton();
+				copyip.setText("Copy IP:port");
+				copyip.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						 var ClipboardManager = android.content.ClipboardManager;
+						var clipboard = ctx.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
+						var copy1 = android.content.ClipData.newPlainText("AlphaHack "+Math.random(12 * 7), Server.getAddress()+":"+Server.getPort());
+						clipboard.setPrimaryClip(copy1);
+						android.widget.Toast.makeText(MainActivity, "Copied to clipboard.", 1)
+							.show();
+					}
+				}));
+				miscLayout.addView(copyip);
 				var exit2Layout = new android.widget.LinearLayout(MainActivity);
 				exit2Layout.setOrientation(0);
 				var params = new android.widget.LinearLayout.LayoutParams(android.widget.LinearLayout.LayoutParams.MATCH_PARENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, 1);
