@@ -11,16 +11,13 @@
 
 # TODO
 - [ ] anti iron door
-- [ ] economy S hack
 - [ ] auto armor, auto food
 - [ ] anti cactus & fire
 - [ ] fast eat
 - [x] auto log
 - [ ] spinaura with setVelX or setVelZ + autowalk + speed + aimaura
 - [x] add dos feature back
-- [ ] ride aura
 - [ ] auto sneak
-- [ ] maybe update single player auras
 - [ ] block restore with custom time
 - [ ] fly bypasses
 - [ ] spam bypasses
@@ -28,11 +25,10 @@
 - [ ] break particles
 - [ ] ore esp
 - [ ] player esp
-- [ ] find a way to reset build id
+- [ ] find a way to reset new client id
 - [ ] randomized pass hack
 - [x] reveal server voting exploit
 - [ ] UpGlide
 - [ ] Limitless elytra
 - [ ] F2, F3, F5
 - [x] No ads bypass
-- [ ] Grief tutorial
