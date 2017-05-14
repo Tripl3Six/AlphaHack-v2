@@ -253,6 +253,10 @@ var fp9x2_ = false;
 var spinaura = false;
 var autolog = false;
 var newpasshack = false;
+var sneakspeed1 = false;
+var alwayssneak1 = false;
+var hittp = false;
+var sneakaura2 = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -5054,6 +5058,44 @@ tracers1 = false;
 									}
 								}));
 								cheatLayout.addView(taura2);
+				var yohittp = new styleButton();
+				yohittp.setText("Hit TP (1 block away)");
+				yohittp.setTextColor(android.graphics.Color.RED);
+				if (hittp == true) yohittp.setTextColor(android.graphics.Color.GREEN);
+				yohittp.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						hittp ? hittp = false : hittp = true;
+						yohittp.setText("Hit TP (1 block away)");
+						if (hittp == true) {
+							yohittp.setTextColor(android.graphics.Color.GREEN);
+							hittp = true;
+						}
+						if (hittp == false) {
+							yohittp.setTextColor(android.graphics.Color.RED);
+							hittp = false;
+						}
+					}
+				});
+				cheatLayout.addView(yohittp);
+				var mysneakaura = new styleButton();
+				mysneakaura.setText("Auto sneak aura");
+				mysneakaura.setTextColor(android.graphics.Color.RED);
+				if (sneakaura2 == true) mysneakaura.setTextColor(android.graphics.Color.GREEN);
+				mysneakaura.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						sneakaura2 ? sneakaura2 = false : sneakaura2 = true;
+						mysneakaura.setText("Auto sneak aura");
+						if (sneakaura2 == true) {
+							mysneakaura.setTextColor(android.graphics.Color.GREEN);
+							sneakaura2 = true;
+						}
+						if (sneakaura2 == false) {
+							mysneakaura.setTextColor(android.graphics.Color.RED);
+							sneakaura2 = false;
+						}
+					}
+				});
+				cheatLayout.addView(mysneakaura);
 								/*var nosneak = new styleButton();
 								nosneak.setText("No sneak aura");
 								nosneak.setTextColor(android.graphics.Color.RED);
@@ -5124,6 +5166,44 @@ tracers1 = false;
 								textviewBg.setColor(android.graphics.Color.WHITE);
 								hacks1.setBackgroundDrawable(textviewBg);
 								cheatLayout.addView(hacks1);
+				var dwsneak = new styleButton();
+				dwsneak.setText("Always sneak");
+				dwsneak.setTextColor(android.graphics.Color.RED);
+				if (alwayssneak1 == true) dwsneak.setTextColor(android.graphics.Color.GREEN);
+				dwsneak.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						alwayssneak1 ? alwayssneak1 = false : alwayssneak1 = true;
+						dwsneak.setText("Always sneak");
+						if (alwayssneak1 == true) {
+							dwsneak.setTextColor(android.graphics.Color.GREEN);
+							alwayssneak1 = true;
+						}
+						if (alwayssneak1 == false) {
+							dwsneak.setTextColor(android.graphics.Color.RED);
+							alwayssneak1 = false;
+						}
+					}
+				});
+				cheatLayout.addView(dwsneak);
+				var dsneakyp = new styleButton();
+				dsneakyp.setText("Sneak speed");
+				dsneakyp.setTextColor(android.graphics.Color.RED);
+				if (sneakspeed1 == true) dsneakyp.setTextColor(android.graphics.Color.GREEN);
+				dsneakyp.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						sneakspeed1 ? sneakspeed1 = false : sneakspeed1 = true;
+						dsneakyp.setText("Sneak speed");
+						if (sneakspeed1 == true) {
+							dsneakyp.setTextColor(android.graphics.Color.GREEN);
+							sneakspeed1 = true;
+						}
+						if (sneakspeed1 == false) {
+							dsneakyp.setTextColor(android.graphics.Color.RED);
+							sneakspeed1 = false;
+						}
+					}
+				});
+				cheatLayout.addView(dsneakyp);
 								var datjump = new styleButton();
 								datjump.setText("Limitless jump");
 								datjump.setTextColor(android.graphics.Color.RED);
@@ -17006,6 +17086,9 @@ function attackHook(attacker, victim) {
 	}
 	if (hitmorph) Entity.setRenderType(Player.getEntity(), Entity.getRenderType(victim));
 	if (hitrmef) Entity.removeAllEffects(victim);
+	if(hittp){
+		if(victim)Entity.setPosition(getPlayerEnt(), Entity.getX(victim) -1, Entity.getY(victim), Entity.getZ(victim));
+	}
 }
 
 function instaDestroy() {
@@ -18131,6 +18214,12 @@ function modTick() {
 		var ping = AlphaHackPE.ping();
 		ModPE.showTipMessage(ping + " ms.");
 	}
+if(sneakspeed1){
+if(Entity.isSneaking(getPlayerEnt())ModPE.setGameSpeed(100);
+}
+if(alwayssneak1){
+if(Entity.isSneaking(getPlayerEnt()) == false)Entity.setSneaking(getPlayerEnt(), true);
+}
 }
 
 function toDirectionalVector(dir, a, b) {
@@ -18720,7 +18809,7 @@ function rptask() {
 						var ent = getNearestEntity(aimrange);
 						if (ent != null && ent != getPlayerEnt() && Entity.getX(ent) != 0 || Entity.getZ(ent) != 0) Entity.setPosition(Player.getEntity(), Entity.getX(ent), Entity.getY(ent) + 1.62, Entity.getZ(ent));
 						}
-						if (sneakaura1) {
+						/*if (sneakaura1) {
 						var ent = getNearestEntity(aimrange);
 						if (ent != null && ent != getPlayerEnt()) Entity.setSneaking(ent, false);
 						}
@@ -18731,10 +18820,14 @@ function rptask() {
 						if (spinaura) {
 						var ent = getNearestEntity(aimrange);
 						if (ent != null && ent != getPlayerEnt()) Entity.setVelX(getPlayerEnt(), -0.00005);
-						}
+						}*/
 						if (autolog) {
 						var ent = getNearestEntity(aimrange);
 						if (ent != null && ent != getPlayerEnt()) ModPE.leaveGame();
+						}
+						if(sneakaura2){
+							var ent = getNearestEntity(aimrange);
+							if(ent != null && ent != getPlayerEnt())Entity.setSneaking(getPlayerEnt(), true);
 						}
 						if (twerk) twerking();
 						nx = getPlayerX();
