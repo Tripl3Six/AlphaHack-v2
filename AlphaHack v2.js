@@ -18241,7 +18241,7 @@ function modTick() {
 		ModPE.showTipMessage(ping + " ms.");
 	}
 if(sneakspeed1){
-if(Entity.isSneaking(getPlayerEnt())ModPE.setGameSpeed(100);
+if(Entity.isSneaking(getPlayerEnt()))ModPE.setGameSpeed(100);
 }
 if(alwayssneak1){
 if(Entity.isSneaking(getPlayerEnt()) == false)Entity.setSneaking(getPlayerEnt(), true);
