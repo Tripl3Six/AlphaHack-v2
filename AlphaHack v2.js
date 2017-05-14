@@ -931,10 +931,24 @@ var passurl = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/
 getPasses();
 
 function getPasses2(){
-var passurll = "https://www.dropbox.com/s/3cz9w5boq8kmrcp/the_list.txt?raw=1";
-    var jsonconten = ModPE.getFromUrl(passurll);
-    var savedepass = jsonconten;
-    fuckDePasswords = savedepass.split("\n");
+try {
+        var url = new java.net.URL("https://www.dropbox.com/s/3cz9w5boq8kmrcp/the_list.txt?raw=1");
+        var connection = url.openConnection();
+        var inputStream = connection.getInputStream();
+        
+        var bufferedReader = new java.io.BufferedReader(new java.io.InputStreamReader(inputStream));
+        fuckDePasswords = [];
+        while ((line = bufferedReader.readLine()) != null && fuckDePasswords.length < 100000) {
+            fuckDePasswords.push(line);
+        }
+        
+        bufferedReader.close();
+        
+    } catch (err) {
+        
+        print("Error at getting passwords: " + err);
+    } 
+   
 }
 getPasses2();
 
