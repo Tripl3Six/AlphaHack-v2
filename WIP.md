@@ -17,7 +17,7 @@
 - [x] auto log
 - [ ] spinaura with setVelX or setVelZ + autowalk + speed + aimaura
 - [x] add dos feature back
-- [ ] auto sneak
+- [x] auto sneak
 - [ ] block restore with custom time
 - [ ] fly bypasses
 - [ ] spam bypasses
@@ -26,7 +26,7 @@
 - [ ] ore esp
 - [ ] player esp
 - [ ] find a way to reset new client id
-- [ ] randomized pass hack
+- [x] randomized pass hack
 - [x] reveal server voting exploit
 - [ ] UpGlide
 - [ ] Limitless elytra
