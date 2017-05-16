@@ -38,7 +38,7 @@ var vidd = true;
 var viddd = '§9';
 var text = 'AlphαHαck!';
 var space = ' ';
-var version = '0.8.7';
+var version = '0.8.7.1';
 var chestTracersRange = 10;
 var chestTracersGroundMode = "on";
 var chestTracersParticle = "on";
@@ -932,7 +932,7 @@ getPasses();
 
 function getPasses2(){
 try {
-        var url = new java.net.URL("https://www.dropbox.com/s/3cz9w5boq8kmrcp/the_list.txt?raw=1");
+        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_1.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
