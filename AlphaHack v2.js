@@ -388,11 +388,14 @@ var GUIText9 = android.graphics.Color.CYAN;
 var GUIText10 = android.graphics.Color.DKGRAY;
 var GUIText11 = android.graphics.Color.GREEN;
 var GUIText12 = android.graphics.Color.MAGENTA;
-//fixed color changing menus making on/off buttons look weird;
+
+/*fixed color changing menus making on/off buttons look weird;*/
 var extraBtns = android.graphics.Color.RED;
 var extraBtns2 = android.graphics.Color.GREEN;
 var extraBtns3 = android.graphics.Color.BLACK;
 var extraBtns4 = android.graphics.Color.BLUE;
+/*yeah... not really. these are useless :/ (for now)*/
+
 var chatColors = ChatColor.BEGIN;
 var chatColors1 = ChatColor.AQUA;
 var chatColors2 = ChatColor.BLACK;
@@ -1190,7 +1193,7 @@ function showMenuBtn() {
 					menuBtn.setVisibility(android.view.View.VISIBLE);
 					if (hide == false) menuBtn.setBackgroundDrawable(new android.graphics.drawable.BitmapDrawable(android.graphics.BitmapFactory.decodeByteArray(android.util.Base64.decode(bg64, 0), 0, android.util.Base64.decode(bg64, 0)
 						.length)));
-					if (hide == true) menuBtn.setText("α");
+					if (hide == true) menuBtn.setText("");
 					menuBtn.setOnClickListener(new android.view.View.OnClickListener({
 						onClick: function (viewarg) {
 							if (haxMode == false) mainMenu();
@@ -15779,7 +15782,7 @@ var r = new java.lang.Runnable({
 	try{
 for(var i = 0;i<=howmuch;i++){
 var socket = new java.net.DatagramSocket();
-var buf = new byte[2024];
+//var buf = new byte[2024];
 buf = ""+Math.round(Math.random(194 * 82))+"".toString().getBytes("UTF8");
 socket.send(new java.net.DatagramPacket(buf, buf.length, java.net.InetAddress.getByName(ip), port));
 socket.close();
@@ -18724,7 +18727,7 @@ function rptask3() {
 							offtime++
 							Server.sendChat(offtime + " " + text + " " + offtime);
 							Server.getPort();
-							if (Server.getPort() == "0") clientMessage(offtime + " " + text + " " + offtime);
+							if (Server.getPort() == 0) clientMessage(offtime + " " + text + " " + offtime);
 						}
 						if (newpasshack){
 							numhack3++
