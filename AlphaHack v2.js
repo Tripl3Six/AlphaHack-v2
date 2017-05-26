@@ -190,6 +190,7 @@ var autoply1 = false;
 var expind = false;
 var ccolors = false;
 var entselect = false;
+var dbselect1 = false;
 var lightning = false;
 //EntityType.LIGHTNING_BOLT;
 var primedtnt = false;
@@ -848,7 +849,7 @@ function styleButton() {
 	button.setFocusableInTouchMode(false);
 	button.setTransformationMethod(null);
 	button.setSoundEffectsEnabled(true);
-	/* new mcpc/mcpe button */
+	/* new mcpc/mcpe button base64 */
 	var mcpeBg = "iVBORw0KGgoAAAANSUhEUgAAAX8AAABOCAYAAADIFRbbAAAGtklEQVR42u3dzW7iMBSG4d7eILEIUhYgdTFihRCLCs1qbmfEAqm9RaYJBGznHP8kAYr9Lh55OoU0cczhi3HTt7e3txMAoDh0AgBQ/AEA5RT/z+Pn6d/x37D2oLTHO7RfTjv0+TH/f0hsY/vnOPHjU8/TM8+f0La+7jD+DhNt797774xDa3uBcdm5y/kdO/4fPI4mqQ9Tvs6GjsPQ8xPPx3a3Pe0/9m0rFn9rILsDO/C1OQjdATlkezFfu+61vfZYjs6xHe0XnPm12D/HtP5IfXzU156BJB7P8b7nzy2cVpvwfKkAusczZjzfe/+tr7/C29Nea97zexh2frXtR43/Ef3/E+tD0vhJrA+p56u3/cDju8LftCR/kv+PSv5W4XvB5D96/6UriC/PFYW5f4dPkj/Jf1zyNwdu88D9HwDAK1tv1qdFtbgKJv/2nYKOA4CXtt1sz4W/9hR/d46IjgOATIo/yR8ACrLbt6l/Va/aNjznv6PTAODlk/93kO8Kv7f4k/wBIK/iH0z+5jIh5vwBIJM5/0vq9yf/A8kfAHL7wLdN/pUn+Xe/OUbyB4CSkj9z/gCQj+8gv1quWosl6/wBoJzVPpfi3yD5A0Ahyb9J/N7ib94djnX+AJDXOv+mlZP/4XZ7UJI/AGT0G77LwDp/ij8AlJb8mfMHgPzm/EPJn3v7AADJn44DgBKSv7nOn+IPACUm/w3FHwCKm/Mn+QNAKcnf+Kv3FH8AyKD4b7an2XzW3tGzab3Jn3v7AEA+xb8r/Prf8CX5A0C5yZ91/gDAOn8AwAsXf9b5AwDJn+QPALn7++dv4r19WO0DAFngL3kBQIGS5vxJ/gCQyQe+wXX+JH8AyMtun7jOn+QPANkk/8V8EZn8P0j+APDyPpjzBwDW+ZP8AYDk35/zp9MAIIvin5T8mfYBgBLn/Ok0ACgv+bPOHwBeH/f2AYBCtff1qbm3DwAUJTznfzgX/qYl+QNAJnP+UXf1PJD8ASCr1T7Lhb/4N4W/mfYh+QNAacmfOX8AyOr2Dt0yT/6GLwAUVvxZ5w8AJdntI5I/c/4AkFfy39ySv/eXvFjtAwCZFf/qkvwr1vkDAMmfOX8AKHidP/f2AYD8Vvuwzh8ACv4lr+YKQF/tc0HxB4BMkn/ofv5d4f88kPwBIKt1/qG7enaaJ9BxAFBA8mfOHwAyXO2T8jd8Kf4AQPIHAOSa/M11/hR/ACgx+W8o/gDAnD8AIM/k371LNK35TmG1xt3hGrP57PzviMe7bXujIefr2a/v7c0vrfl9bft3blvv/bY77qa1jiex37TW7J/1+7rdRtt+/+z173Nr7k/S8fgeZ56n1P4yBtisuh2Hdv5Tty+Nl6TtXPavN27rfv9Y5zvieK3/H3BexP10x38dGJ9m/7rbXSo/5/J4aTz7jss3bsXzu5RfT75x2B1/VJ15RCuMH6vfnPPSvW7V7UX2g1gvY16Hyvfl4v9h/DpwLQ9wS7WwT7j2+GrRf25tFzizUzviAT+6dQtCdzIr+/hD+2m6HtvcGdjm10a/XAt9V/h/X1pznyKORz0W7fwO6C9pbIjnfsj2K2XcxByvsX9WfxvP9/bPZRva8V6/73l+Sv9pL3jfz9P61TdOQufLO/7nC/l1IO3HMty/Wt0wz5d7LLH9OvZ10dsvQS84vNuF3dpfT3/0zqkw7qPGj9I+NPm7ic13BWAm/6hE/QOSf9Q78oDk3z1+yuQvJsA7JP/rcVazyZK/dsU4ZfIXE+qTkn9v/I9I/mqhfVDyN+8tk5x4C0/+4hXv1Mm/mRvqRCXh91tBin7HVBJb6B3LfYz0c1KTsLp/bgKXUpBQ6MSEVgdOqJYwlYSgpjUtuT34Skm8KlyukhKbdvzuVIC0/d4V1rx/JdXbTyHBRiXkmCtTzxWBeuVV+ZPzqGSbmBh7/SMdb+UZj3XC+BRmALqrs6mPN3amItT/UfUsoj6MveIOHpexD3Ly350/HHDvBaEljS6BNu2oOUzfXOUUiTSm1eYYzZ+rvFN3CVdMkoEEayWimIQQcQXhmyO+ezLS5uSX47cfNedvfn9+ewPQrkClK7heslKuaJI/k0pMvOqc+ZD+WyZccRj/H3WFK7wB9PqnCn+GYc0AGG/cD034visX6UrQV5fqhPrwwPr2sOQfO4eZkvy1Odip3vGlOeHY5K8eh5l4leTfS7z1anDyf9ZnJDHJP2oOXJrTHpD8rwnSk/ytD9lDn2ENSP5Rc95PTv5qIlUWIYxN/sHPdOYL69y9WvJXPyPwPe6ZyR8AUBQ6AQAo/gCA7P0HKE0xq69QyZIAAAAASUVORK5CYII=";
 	if (mcpetheme == true) button.setBackgroundDrawable(new android.graphics.drawable.BitmapDrawable(android.graphics.BitmapFactory.decodeByteArray(android.util.Base64.decode(mcpeBg, 0), 0, android.util.Base64.decode(mcpeBg, 0)
 		.length)));
@@ -2177,6 +2178,15 @@ function settings_menu() {
 					}
 				}));
 				settingsLayout.addView(allowY);
+				var dwseconds = new styleButton();
+				dwseconds.setText("Brute force seconds");
+				dwseconds.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						secondsEditor();
+						settings.dismiss();
+					}
+				}));
+				settingsLayout.addView(dwseconds);
 				/*
 	* todo fix base64
 	*
@@ -4022,6 +4032,53 @@ function selectView() {
 				var enti8 = new styleButton(); //shulker
 				var enti9 = new styleButton(); //snowball
 				var enti10 = new styleButton(); //witherskull
+				var s10k = new styleButton();
+				var s20k = new styleButton();
+				var s30k = new styleButton();
+				var s40k = new styleButton();
+				var s50k = new styleButton();
+				if(dbselect1){
+				s10k.setText("1st 10k passes");
+				s10k.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					select.dismiss();
+					showMenuBtn();
+					}
+				}));
+				selectLayout.addView(s10k);
+				s20k.setText("2nd 10k passes");
+				s20k.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					select.dismiss();
+					showMenuBtn();
+					}
+				}));
+				selectLayout.addView(s20k);
+				s30k.setText("3rd 10k passes");
+				s30k.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					select.dismiss();
+					showMenuBtn();
+					}
+				}));
+				selectLayout.addView(s30k);
+				s40k.setText("4th 10k passes");
+				s40k.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					select.dismiss();
+					showMenuBtn();
+					}
+				}));
+				selectLayout.addView(s40k);
+				s50k.setText("5th 10k passes");
+				s50k.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					select.dismiss();
+					showMenuBtn();
+					}
+				}));
+				selectLayout.addView(s50k);
+				}
 				if(entselect){
 				enti1.setText("Lightning");
 				enti1.setOnClickListener(new android.view.View.OnClickListener({
@@ -15930,6 +15987,41 @@ function checkLeAge(){
 						if(fp9x2_){
 						if(89 / 5 < resultty)fp9x2b();
 						}
+}
+
+function secondsEditor() {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				secondsD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(ctx);
+				var deseck = new styleInput();
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				Dialog.setTitle("Seconds per pw");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(deseck);
+				Layer.addView(Exit);
+				deseck.setText("");
+				deseck.setHint("Seconds...");
+				Exit.setText("Set");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						seconds = deseck.getText();
+						Dialog.dismiss();
+					}
+				});
+				secondsD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				secondsD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				secondsD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("seconds dialog:" + e);
+			}
+		}
+	});
 }
 
 function named() {
