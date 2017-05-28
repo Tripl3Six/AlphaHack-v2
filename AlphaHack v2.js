@@ -18908,6 +18908,7 @@ function unhashBroadcast(text) {
 function sendBroadcast() {
 var createHash = hashBroadcast(Player.getName(Player.getEntity())+"");
 Server.sendChat(createHash + " ok");
+clientMessage(createHash + " ok");
 }
 
 function chatHook(str) {
@@ -18918,6 +18919,11 @@ function chatHook(str) {
 let args = str.split(" ");
 if (args[1] == "ok") {
 var usrn = unhashBroadcast(args[0]);
+onusers.push(usrn);
+android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
+}
+if (args[2] == "ok") {
+var usrn = unhashBroadcast(args[1]);
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
 }
@@ -18985,6 +18991,11 @@ function serverMessageReceiveHook(str) {
 let args = str.split(" ");
 if (args[1] == "ok") {
 var usrn = unhashBroadcast(args[0]);
+onusers.push(usrn);
+android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
+}
+if (args[2] == "ok") {
+var usrn = unhashBroadcast(args[1]);
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
 }
