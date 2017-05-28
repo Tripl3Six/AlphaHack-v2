@@ -18888,7 +18888,7 @@ function bypassIp(text) {
 function hashBroadcast(text) {
 	var hash = text.toLowerCase();
 	var normal = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-	var algorithm = new Array("4/", "12/", "17/", "2/", "15/", "5/", "6/", "1/", "14/", "26/", "13/", "16/", "18/", "25/", "19/", "3/", "7/", "20/", "24/", "8/", "23/", "21/", "10/", "22/", "9/", "11/");
+	var algorithm = new Array("=/", "-/", "+/", "(/", "&/", "~/", ")/", "*/", "#/", "!/", "%/", "$/", "@/", "^/", "?/", "\/", "</", "{/", "[/", ">/", "}/", "'/", "]/", ":/", "`/", "|/");
 	for (i = 0; i < normal.length; i++) {
 		hash = replaceAll(normal[i], algorithm[i], hash);
 	}
@@ -18897,7 +18897,7 @@ function hashBroadcast(text) {
 
 function unhashBroadcast(text) {
 	var unhash = text;//.toLowerCase();
-	var normal = new Array("4/", "12/", "17/", "2/", "15/", "5/", "6/", "1/", "14/", "26/", "13/", "16/", "18/", "25/", "19/", "3/", "7/", "20/", "24/", "8/", "23/", "21/", "10/", "22/", "9/", "11/");
+	var normal = new Array("=/", "-/", "+/", "(/", "&/", "~/", ")/", "*/", "#/", "!/", "%/", "$/", "@/", "^/", "?/", "\/", "</", "{/", "[/", ">/", "}/", "'/", "]/", ":/", "`/", "|/");
 	var algorithm = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
 	for (i = 0; i < normal.length; i++) {
 		unhash = replaceAll(normal[i], algorithm[i], unhash);
