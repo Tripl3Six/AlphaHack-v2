@@ -18888,7 +18888,7 @@ function bypassIp(text) {
 function hashBroadcast(text) {
 	var hash = text.toLowerCase();
 	var normal = new Array("a", "b", "e", "h", "i", "j", "k", "l", "m", "o", "p", "q", "t", "v", "w", "x", "y", "");
-	var algorithm = new Array("¤", "£", "¢", "¡", "#", "©", "%", "$", "@", "®", "/", "<", ">", "~", "°", "¶", "|", "");
+	var algorithm = new Array("¤", "£", "¢", "¡", "#", "©", "%", "$", "@", "®", "/", "<", ">", "~", "°", "¶", "`", "");
 	for (i = 0; i < normal.length; i++) {
 		hash = replaceAll(normal[i], algorithm[i], hash);
 	}
