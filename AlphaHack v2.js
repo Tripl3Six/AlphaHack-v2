@@ -18906,7 +18906,7 @@ function unhashBroadcast(text) {
 }
 
 function sendBroadcast() {
-var createHash = hashBroadcast(Entity.getName(getPlayerEnt())+"");
+var createHash = hashBroadcast(Player.getName(Player.getEntity())+"");
 Server.sendChat(createHash + " ok");
 }
 
