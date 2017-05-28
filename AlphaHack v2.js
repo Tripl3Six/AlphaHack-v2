@@ -18887,8 +18887,8 @@ function bypassIp(text) {
 
 function hashBroadcast(text) {
 	let hash = text.toLowerCase();
-	var normal = new Array("a", "b", "e", "h", "i", "j", "k", "l", "m", "o", "p", "v", "w", "x", "y", "");
-	var algorithm = new Array("¤", "£", "¢", "¡", "#", "©", "%", "|", "@", "®", "/", "~", "`", "|", "$", "");
+	var normal = new Array("a", "b", "e", "h", "i", "j", "k", "l", "m", "o", "p", "v", "w", "");
+	var algorithm = new Array("¤", "£", "¢", "¡", "#", "©", "%", "|", "@", "®", "/", "~", "`", "");
 	for (i = 0; i < normal.length; i++) {
 		hash = replaceAll(normal[i], algorithm[i], hash);
 	}
@@ -18897,8 +18897,8 @@ function hashBroadcast(text) {
 
 function unhashBroadcast(text) {
 	let unhash = text.toLowerCase();
-	var normal = new Array("¤", "£", "¢", "¡", "#", "©", "%", "|", "@", "®", "/", "~", "`", "|", "$", "");
-	var algorithm = new Array("a", "b", "e", "h", "i", "j", "k", "l", "m", "o", "p", "v", "w", "x", "y", "");
+	var normal = new Array("¤", "£", "¢", "¡", "#", "©", "%", "|", "@", "®", "/", "~", "`", "");
+	var algorithm = new Array("a", "b", "e", "h", "i", "j", "k", "l", "m", "o", "p", "v", "w", "");
 	for (i = 0; i < normal.length; i++) {
 		unhash = replaceAll(normal[i], algorithm[i], unhash);
 	}
