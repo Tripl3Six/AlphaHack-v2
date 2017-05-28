@@ -57,6 +57,7 @@ var can = 1;
 var canGetHP = 1;
 var HP;
 var gravity = -0.07840000092983246;
+var onusers = [];
 /*S͎̹̦͔̰̪̻͎̈̈́͂̍ͬͅt̼̙͇̫͎̪̹̽̍̉̌͆̃̋ͬ̊ͦͅr̺͎̙̯̺̟̮̗̳̰̗̙͉̠̦̙͒̆ͥ̄ͭ͂ͨ̀̑ͧ̿ͥ̉̌ͥ̒̚i̲͓̫̭̫̫̰̥̖͎̲͎̫͕ͣ̎̄̐͂n̺̩̭̗̫̻̗͖̖̯̙̟̱͂ͭ̐͛ͪ̑ͣͣ̽̏̚g͎͚̣̘̭̣͚ͥͯ͐̉ͧ̓s̤͍̱͇̗̳̮͚̼̫̩̹̦̙͚͉̞͍̱̾̽ͯ͛ͪ̉͐̾̑͋ͣ̓̄ͮ͊͌͑*/
 var horseheart = "";
 var newage = "";
@@ -3308,6 +3309,14 @@ function misc_menu() {
 						}
 					}));
 				}
+				var sendcast = new styleButton(MainActivity);
+				sendcast.setText("Broadcast client");
+				sendcast.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					sendBroadcast();
+					}
+				}));
+				miscLayout.addView(sendcast);
 				var pass = new styleButton();
 				pass.setText("Brute force (Numbers)");
 				pass.setTextColor(android.graphics.Color.RED);
@@ -4483,6 +4492,65 @@ function selectView() {
 				selectLayout1.setPadding(20, 0, 20, 0);
 				select.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
 				select.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.CENTER | android.view.Gravity.TOP, 0, 0);
+			} catch (error) {
+				android.widget.Toast.makeText(MainActivity, "Error! : " + error, 1)
+					.show();
+			}
+		}
+	}));
+}
+
+function userView() {
+	MainActivity.runOnUiThread(new java.lang.Runnable({
+		run: function () {
+			try {
+				var userLayout = new android.widget.LinearLayout(MainActivity);
+				var userScroll = new android.widget.ScrollView(MainActivity);
+				var userLayout1 = new android.widget.LinearLayout(MainActivity);
+				userLayout.setOrientation(1);
+				userLayout1.setOrientation(1);
+				userScroll.addView(userLayout);
+				userLayout1.addView(userScroll);
+				var exit = new styleButton();
+				exit.setText("Exit");
+				exit.setTextColor(android.graphics.Color.RED);
+				exit.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						user.dismiss();
+						showMenuBtn();
+					}
+				}));
+				userLayout.addView(exit);
+				/*
+				*TODO handle the users array
+				*
+				for (var i = 0; i < onusers.length; i++){
+				var onusers[i] = new styleButton();
+				onusers[i].setText(onusers[i]);
+				onusers[i].setTextColor(android.graphics.Color.RED);
+				onusers[i].setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						user.dismiss();
+						showMenuBtn();
+					}
+				}));
+				userLayout.addView(onusers[i]);
+				}
+				*/
+				user = new android.widget.PopupWindow(userLayout1, dip2px(500), dip2px(500));
+				user = new android.widget.PopupWindow(userLayout1, MainActivity.getWindowManager()
+					.getDefaultDisplay()
+					.getWidth() / 2, MainActivity.getWindowManager()
+					.getDefaultDisplay()
+					.getHeight() / 1);
+				var bg = new android.graphics.drawable.GradientDrawable();
+				bg.setColor(android.graphics.Color.TRANSPARENT);
+				bg.setStroke(10, GUIStroke);
+				userLayout1.setBackgroundDrawable(bg);
+				userLayout1.setPadding(20, 0, 20, 0);
+				user.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
+				user.showAtLocation(MainActivity.getWindow()
 					.getDecorView(), android.view.Gravity.CENTER | android.view.Gravity.TOP, 0, 0);
 			} catch (error) {
 				android.widget.Toast.makeText(MainActivity, "Error! : " + error, 1)
@@ -17260,23 +17328,6 @@ function screenChangeHook(screenName) {
 		.show();
 }
 
-function serverMessageReceiveHook(str) {
-	ctx.runOnUiThread(new java.lang.Runnable() {
-		run: function () {
-			if (ttot) android.widget.Toast.makeText(ctx, str, 1)
-				.show();
-		}
-	});
-	if (chatind) {
-		clientMessage(client + str);
-		android.widget.Toast.makeText(ctx, str, 1)
-			.show();
-	}
-	if (autoply1 && str != null) {
-		if (Server.getPort() != "0") Server.sendChat("yee.");
-	}
-}
-
 function attackHook(attacker, victim) {
 	if (instakilled) {
 		Entity.setHealth(victim, 1);
@@ -18834,6 +18885,31 @@ function bypassIp(text) {
 	return end;
 }
 
+function hashBroadcast(text) {
+	var hash = text.toLowerCase();
+	var normal = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+	var algorithm = new Array("d", "l", "q", "b", "o", "e", "f", "a", "n", "z", "m", "p", "r", "y", "s", "c", "g", "t", "x", "h", "w", "u", "j", "v", "i", "k");
+	for (i = 0; i < normal.length; i++) {
+		hash = replaceAll(normal[i], algorithm[i], hash);
+	}
+	return hash;
+}
+
+function unhashBroadcast(text) {
+	var unhash = text.toLowerCase();
+	var normal = new Array("d", "l", "q", "b", "o", "e", "f", "a", "n", "z", "m", "p", "r", "y", "s", "c", "g", "t", "x", "h", "w", "u", "j", "v", "i", "k");
+	var algorithm = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+	for (i = 0; i < normal.length; i++) {
+		hash = replaceAll(normal[i], algorithm[i], unhash);
+	}
+	return unhash;
+}
+
+function sendBroadcast() {
+var createHash = hashBroadcast(Entity.getName(getPlayerEnt())+"");
+Server.sendChat(createHash + " ok");
+}
+
 function chatHook(str) {
 	if (str.charAt(0) != "." && str.charAt(0) != "/") {
 		if (alphatext) {
@@ -18887,6 +18963,35 @@ function chatHook(str) {
 		android.widget.Toast.makeText(ctx, str, 1)
 			.show();
 	}
+let args = str.split(" ");
+if (args[1] == "ok") {
+var usrn = unhashBroadcast(args[0]);
+onusers.push(usrn);
+android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
+}
+}
+
+function serverMessageReceiveHook(str) {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			if (ttot) android.widget.Toast.makeText(ctx, str, 1)
+				.show();
+		}
+	});
+	if (chatind) {
+		clientMessage(client + str);
+		android.widget.Toast.makeText(ctx, str, 1)
+			.show();
+	}
+	if (autoply1 && str != null) {
+		if (Server.getPort() != "0") Server.sendChat("yee.");
+	}
+let args = str.split(" ");
+if (args[1] == "ok") {
+var usrn = unhashBroadcast(args[0]);
+onusers.push(usrn);
+android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
+}
 }
 
 function adipEditor() {
