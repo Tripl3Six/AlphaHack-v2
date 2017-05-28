@@ -18888,7 +18888,7 @@ function bypassIp(text) {
 function hashBroadcast(text) {
 	var hash = text.toLowerCase();
 	var normal = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-	var algorithm = new Array("d", "l", "q", "b", "o", "e", "f", "a", "n", "z", "m", "p", "r", "y", "s", "c", "g", "t", "x", "h", "w", "u", "j", "v", "i", "k");
+	var algorithm = new Array("d/", "l/", "q/", "b/", "o/", "e/", "f/", "a/", "n/", "z/", "m/", "p/", "r/", "y/", "s/", "c/", "g/", "t/", "x/", "h/", "w/", "u/", "j/", "v/", "i/", "k/");
 	for (i = 0; i < normal.length; i++) {
 		hash = replaceAll(normal[i], algorithm[i], hash);
 	}
@@ -18897,7 +18897,7 @@ function hashBroadcast(text) {
 
 function unhashBroadcast(text) {
 	var unhash = text.toLowerCase();
-	var normal = new Array("d", "l", "q", "b", "o", "e", "f", "a", "n", "z", "m", "p", "r", "y", "s", "c", "g", "t", "x", "h", "w", "u", "j", "v", "i", "k");
+	var normal = new Array("d/", "l/", "q/", "b/", "o/", "e/", "f/", "a/", "n/", "z/", "m/", "p/", "r/", "y/", "s/", "c/", "g/", "t/", "x/", "h/", "w/", "u/", "j/", "v/", "i/", "k/");
 	var algorithm = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
 	for (i = 0; i < normal.length; i++) {
 		hash = replaceAll(normal[i], algorithm[i], unhash);
@@ -18911,6 +18911,18 @@ Server.sendChat(createHash + " ok");
 }
 
 function chatHook(str) {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			if (ttot) android.widget.Toast.makeText(ctx, str, 1)
+				.show();
+let args = str.split(" ");
+if (args[1] == "ok") {
+var usrn = unhashBroadcast(args[0]);
+onusers.push(usrn);
+android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
+}
+		}
+	});
 	if (str.charAt(0) != "." && str.charAt(0) != "/") {
 		if (alphatext) {
 			preventDefault();
@@ -18963,12 +18975,6 @@ function chatHook(str) {
 		android.widget.Toast.makeText(ctx, str, 1)
 			.show();
 	}
-let args = str.split(" ");
-if (args[1] == "ok") {
-var usrn = unhashBroadcast(args[0]);
-onusers.push(usrn);
-android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
-}
 }
 
 function serverMessageReceiveHook(str) {
@@ -18976,6 +18982,12 @@ function serverMessageReceiveHook(str) {
 		run: function () {
 			if (ttot) android.widget.Toast.makeText(ctx, str, 1)
 				.show();
+let args = str.split(" ");
+if (args[1] == "ok") {
+var usrn = unhashBroadcast(args[0]);
+onusers.push(usrn);
+android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
+}
 		}
 	});
 	if (chatind) {
@@ -18986,12 +18998,6 @@ function serverMessageReceiveHook(str) {
 	if (autoply1 && str != null) {
 		if (Server.getPort() != "0") Server.sendChat("yee.");
 	}
-let args = str.split(" ");
-if (args[1] == "ok") {
-var usrn = unhashBroadcast(args[0]);
-onusers.push(usrn);
-android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
-}
 }
 
 function adipEditor() {
