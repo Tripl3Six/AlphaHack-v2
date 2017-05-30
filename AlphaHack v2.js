@@ -18864,7 +18864,6 @@ function showRequestScreen(usrn) {
 				var accept = new styleButton(ctx);
 				var Dialog = new android.app.Dialog(ctx);
 				var Exit = new styleButton(ctx);
-				showMenuBtn()
 				Dialog.setTitle(usrn + "Team request");
 				Dialog.setContentView(Layer);
 				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
@@ -18984,28 +18983,36 @@ let args = str.split(" ");
 if (args[1] == "ok") {
 //let usrn = unhashBroadcast(args[0]);
 let usrn = args[0];
+if(usrn != Player.getName(Player.getEntity())){
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
 broadcasted = true;
+}
 }
 if (args[2] == "ok") {
 //let usrn = unhashBroadcast(args[1]);
 let usrn = args[1];
+if(usrn != Player.getName(Player.getEntity())){
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
 broadcasted = true;
 }
+}
 if (args[1] == "request") {
 //let usrn = unhashBroadcast(args[0]);
 let usrn = args[0];
+if(usrn != Player.getName(Player.getEntity())){
 android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
 showRequestScreen(usrn);
+}
 }
 if (args[2] == "request") {
 //let usrn = unhashBroadcast(args[1]);
 let usrn = args[1];
+if(usrn != Player.getName(Player.getEntity())){
 android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
 showRequestScreen(usrn);
+}
 }
 		}
 	});
@@ -19072,28 +19079,36 @@ let args = str.split(" ");
 if (args[1] == "ok") {
 //let usrn = unhashBroadcast(args[0]);
 let usrn = args[0];
+if(usrn != Player.getName(Player.getEntity())){
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
 broadcasted = true;
+}
 }
 if (args[2] == "ok") {
 //let usrn = unhashBroadcast(args[1]);
 let usrn = args[1];
+if(usrn != Player.getName(Player.getEntity())){
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
 broadcasted = true;
 }
+}
 if (args[1] == "request") {
 //let usrn = unhashBroadcast(args[0]);
 let usrn = args[0];
+if(usrn != Player.getName(Player.getEntity())){
 android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
 showRequestScreen(usrn);
+}
 }
 if (args[2] == "request") {
 //let usrn = unhashBroadcast(args[1]);
 let usrn = args[1];
+if(usrn != Player.getName(Player.getEntity())){
 android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
 showRequestScreen(usrn);
+}
 }
 		}
 	});
