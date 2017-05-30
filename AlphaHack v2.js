@@ -271,6 +271,7 @@ var tpasshack2 = false;
 var tpasshack3 = false;
 var tpasshack4 = false;
 var tpasshack5 = false;
+var requestAccepted = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -3309,14 +3310,15 @@ function misc_menu() {
 						}
 					}));
 				}
-				var sendcast = new styleButton(MainActivity);
-				sendcast.setText("Broadcast client");
-				sendcast.setOnClickListener(new android.view.View.OnClickListener({
+				var sendcast1 = new styleButton(MainActivity);
+				sendcast1.setText("Team hacking");
+				sendcast1.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
-					sendBroadcast();
+					userView();
+					misc.dismiss();
 					}
 				}));
-				miscLayout.addView(sendcast);
+				miscLayout.addView(sendcast1);
 				var pass = new styleButton();
 				pass.setText("Brute force (Numbers)");
 				pass.setTextColor(android.graphics.Color.RED);
@@ -4522,22 +4524,50 @@ function userView() {
 					}
 				}));
 				userLayout.addView(exit);
+				var refresh = new styleButton();
+				refresh.setText("Refresh");
+				refresh.setOnClickListener(new android.view.View.OnClickListener({
+				onClick: function (viewarg) {
+					userView.dismiss();
+					for (var t = 0; t < 5; t++) {
+						if (t == 1) userView();
+					}
+				 }
+				}));
+				userView.addView(refresh);
+				var sendcast = new styleButton(MainActivity);
+				sendcast.setText("Broadcast client");
+				sendcast.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+					sendBroadcast();
+					}
+				}));
+				userLayout.addView(sendcast);
 				/*
 				*TODO handle the users array
-				*
-				for (var i = 0; i < onusers.length; i++){
+				*/
+				for (var i = 0; i < onusers.length; i++) {
 				var onusers[i] = new styleButton();
-				onusers[i].setText(onusers[i]);
+				onusers[i].setText("send reuqest: "+onusers[i]);
 				onusers[i].setTextColor(android.graphics.Color.RED);
 				onusers[i].setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
-						user.dismiss();
-						showMenuBtn();
+						sendRequest(onusers[i]);
 					}
 				}));
 				userLayout.addView(onusers[i]);
 				}
-				*/
+				if(requestAccepted) {
+					/*
+					TODO add:
+					team spam,
+					team pvp,
+					team dos,
+					team kits,
+					team chat,
+					etc
+					*/
+				}
 				user = new android.widget.PopupWindow(userLayout1, dip2px(500), dip2px(500));
 				user = new android.widget.PopupWindow(userLayout1, MainActivity.getWindowManager()
 					.getDefaultDisplay()
@@ -18822,6 +18852,46 @@ function changeSpeedOnBlock() {
 	Block.setShape(30, null, null, null, null, null, null);
 }
 
+function showRequestScreen(usrn) {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				teamreD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(ctx);
+				var accept = new styleButton(ctx);
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				showMenuBtn()
+				Dialog.setTitle(usrn + "Team request");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(accept);
+				Layer.addView(Exit);
+				accept.setText("accept");
+				accept.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						Dialog.dismiss();
+						acceptRequest(usrn);
+					}
+				});
+				Exit.setText("fuck off");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						Dialog.dismiss();
+					}
+				});
+				teamreD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				teamreD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				teamreD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("teamre dialog:" + e);
+			}
+		}
+	});
+}
+
 function replaceAll(search, replacement, str) {
 /*Thanks to godsoft029 !*/
 	var target = str;
@@ -18885,30 +18955,21 @@ function bypassIp(text) {
 	return end;
 }
 
-function hashBroadcast(text) {
-	let hash = text.toLowerCase();
-	var normal = new Array("a", "b", "e", "h", "i", "j", "k", "l", "m", "o", "p", "v", "w", "");
-	var algorithm = new Array("¤", "£", "¢", "¡", "#", "©", "%", "|", "@", "®", "/", "~", "`", "");
-	for (i = 0; i < normal.length; i++) {
-		hash = replaceAll(normal[i], algorithm[i], hash);
-	}
-	return hash;
-}
-
-function unhashBroadcast(text) {
-	let unhash = text.toLowerCase();
-	var normal = new Array("¤", "£", "¢", "¡", "#", "©", "%", "|", "@", "®", "/", "~", "`", "");
-	var algorithm = new Array("a", "b", "e", "h", "i", "j", "k", "l", "m", "o", "p", "v", "w", "");
-	for (i = 0; i < normal.length; i++) {
-		unhash = replaceAll(normal[i], algorithm[i], unhash);
-	}
-	return unhash;
-}
-
 function sendBroadcast() {
-var createHash = hashBroadcast(Player.getName(Player.getEntity())+"");
-Server.sendChat(createHash + " ok");
-clientMessage(createHash + " ok");
+//var createHash = hashBroadcast(Player.getName(Player.getEntity())+"");
+Server.sendChat(Player.getName(Player.getEntity()) + " ok");
+clientMessage(Player.getName(Player.getEntity()) + " ok");
+}
+
+function sendRequest(user) {
+Server.sendChat(Player.getName(Player.getEntity()) + " request");
+clientMessage(Player.getName(Player.getEntity()) + " request");
+}
+
+function acceptRequest(user) {
+Server.sendChat(Player.getName(Player.getEntity()) + " accept");
+clientMessage(Player.getName(Player.getEntity()) + " accept");
+requestAccepted = true;
 }
 
 function chatHook(str) {
@@ -18918,14 +18979,28 @@ function chatHook(str) {
 				.show();
 let args = str.split(" ");
 if (args[1] == "ok") {
-let usrn = unhashBroadcast(args[0]);
+//let usrn = unhashBroadcast(args[0]);
+let usrn = args[0];
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
 }
 if (args[2] == "ok") {
-let usrn = unhashBroadcast(args[1]);
+//let usrn = unhashBroadcast(args[1]);
+let usrn = args[1];
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
+}
+if (args[1] == "request") {
+//let usrn = unhashBroadcast(args[0]);
+let usrn = args[0];
+android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
+showRequestScreen(usrn);
+}
+if (args[2] == "request") {
+//let usrn = unhashBroadcast(args[1]);
+let usrn = args[1];
+android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
+showRequestScreen(usrn);
 }
 		}
 	});
@@ -18990,14 +19065,28 @@ function serverMessageReceiveHook(str) {
 				.show();
 let args = str.split(" ");
 if (args[1] == "ok") {
-let usrn = unhashBroadcast(args[0]);
+//let usrn = unhashBroadcast(args[0]);
+let usrn = args[0];
 onusers.push(usrn);
-android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
+android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
 }
 if (args[2] == "ok") {
-let usrn = unhashBroadcast(args[1]);
+//let usrn = unhashBroadcast(args[1]);
+let usrn = args[1];
 onusers.push(usrn);
-android.widget.Toast.makeText(ctx, usrn + " Is using AlphaHack v2", 1).show();
+android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
+}
+if (args[1] == "request") {
+//let usrn = unhashBroadcast(args[0]);
+let usrn = args[0];
+android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
+showRequestScreen(usrn);
+}
+if (args[2] == "request") {
+//let usrn = unhashBroadcast(args[1]);
+let usrn = args[1];
+android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
+showRequestScreen(usrn);
 }
 		}
 	});
