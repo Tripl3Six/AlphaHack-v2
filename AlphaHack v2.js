@@ -4534,7 +4534,7 @@ function userView() {
 					}
 				 }
 				}));
-				userView.addView(refresh);
+				userLayout.addView(refresh);
 				var sendcast = new styleButton(MainActivity);
 				sendcast.setText("Broadcast client");
 				sendcast.setOnClickListener(new android.view.View.OnClickListener({
