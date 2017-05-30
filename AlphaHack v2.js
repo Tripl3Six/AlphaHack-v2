@@ -272,6 +272,7 @@ var tpasshack3 = false;
 var tpasshack4 = false;
 var tpasshack5 = false;
 var requestAccepted = false;
+var broadcasted = false;
 //ParticleType.angryVillager;
 var particle1 = false;
 //ParticleType.bubble;
@@ -4546,7 +4547,8 @@ function userView() {
 				/*
 				*TODO handle the users array
 				*/
-				for (var i = 0; i < onusers.length; i++) {
+				if(broadcasted) {
+				/*for (var i = 0; i < onusers.length; i++) {
 				var onusers[i] = new styleButton();
 				onusers[i].setText("send reuqest: "+onusers[i]);
 				onusers[i].setTextColor(android.graphics.Color.RED);
@@ -4556,7 +4558,8 @@ function userView() {
 					}
 				}));
 				userLayout.addView(onusers[i]);
-				}
+				}*/
+			}
 				if(requestAccepted) {
 					/*
 					TODO add:
@@ -18983,12 +18986,14 @@ if (args[1] == "ok") {
 let usrn = args[0];
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
+broadcasted = true;
 }
 if (args[2] == "ok") {
 //let usrn = unhashBroadcast(args[1]);
 let usrn = args[1];
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
+broadcasted = true;
 }
 if (args[1] == "request") {
 //let usrn = unhashBroadcast(args[0]);
@@ -19069,12 +19074,14 @@ if (args[1] == "ok") {
 let usrn = args[0];
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
+broadcasted = true;
 }
 if (args[2] == "ok") {
 //let usrn = unhashBroadcast(args[1]);
 let usrn = args[1];
 onusers.push(usrn);
 android.widget.Toast.makeText(ctx, usrn + " using AlphaHack v2", 1).show();
+broadcasted = true;
 }
 if (args[1] == "request") {
 //let usrn = unhashBroadcast(args[0]);
