@@ -7,9 +7,9 @@ Förtrolla - enchant menu
 Få saker - give menu
 Morph meny - morph menu
 Atombomb - nuke menu
-Partikel meny - particle menu
+Partikelmeny - particle menu
 Skapameny - spawn menu
-Hastighet - speed menu
-Teleportera - teleport menu
+Hastighetsmenu - speed menu
+Teleportmeny - teleport menu
 Tidsmeny - time menu
 Vädermeny - weather menu
