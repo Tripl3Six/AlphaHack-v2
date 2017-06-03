@@ -9,7 +9,7 @@ Morph meny - morph menu
 Atombomb - nuke menu
 Partikelmeny - particle menu
 Skapameny - spawn menu
-Hastighetsmenu - speed menu
+Hastighetsmeny - speed menu
 Teleportmeny - teleport menu
 Tidsmeny - time menu
 Vädermeny - weather menu
