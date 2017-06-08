@@ -1,17 +1,17 @@
 # AlphaHack-v2
 ALPHAHack v2 is a remake of AlphaHack 0.8.1
 <br>
-[Download](https://arceusmatt.github.io/AlphaHack)
+[Download](https://sulfuricbliss3.github.io/AlphaHack)
 <br>
 # Info
 --------------------<br>
-[AlphαHαck by: ArceusMαtt (c) 2016 - 2017];<br>
+[AlphαHαck by: SulfuricBliss3 (c) 2016 - 2017];<br>
 --------------------<br>
 [Free to use mod menu for MCPE under MIT license];<br>
 Anyone modifying, gaining money, copying without permission,<br>
 will be confronted & will be asked to change<br>
 or delete their mistakes by the creator of this program.<br>
-To share it the link most be https://arceusmatt.github.io/alphahack<br>
+To share it the link most be https://sulfuricbliss3.github.io/alphahack<br>
 --------------------<br>
 [Pleαse contαct the developers of eαch code for permission to copy.];<br>
 My permission to use dragop code 1 http://imgur.com/6xCQAyT<br>
