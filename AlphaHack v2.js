@@ -18980,7 +18980,7 @@ function chatHook(str) {
 			if (ttot) android.widget.Toast.makeText(ctx, str, 1)
 				.show();
 let args = str.split(" ");
-if (args[1] == "ok") {
+/*if (args[1] == "ok") {
 //let usrn = unhashBroadcast(args[0]);
 let usrn = args[0];
 if(usrn != Player.getName(Player.getEntity())){
@@ -19013,7 +19013,7 @@ if(usrn != Player.getName(Player.getEntity())){
 android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
 showRequestScreen(usrn);
 }
-}
+}*/
 		}
 	});
 	if (str.charAt(0) != "." && str.charAt(0) != "/") {
@@ -19076,7 +19076,7 @@ function serverMessageReceiveHook(str) {
 			if (ttot) android.widget.Toast.makeText(ctx, str, 1)
 				.show();
 let args = str.split(" ");
-if (args[1] == "ok") {
+/*if (args[1] == "ok") {
 //let usrn = unhashBroadcast(args[0]);
 let usrn = args[0];
 if(usrn != Player.getName(Player.getEntity())){
@@ -19109,7 +19109,7 @@ if(usrn != Player.getName(Player.getEntity())){
 android.widget.Toast.makeText(ctx, usrn + " Sent a team request!", 1).show();
 showRequestScreen(usrn);
 }
-}
+}*/
 		}
 	});
 	if (chatind) {
