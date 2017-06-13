@@ -48,8 +48,6 @@ var numhack = 0;
 var client = '§f<§9AlphαHαck§f> ';
 var copyright = '©';
 var trademark = 'AlphαHαckPE™';
-var modpeFolder = ctx.getDir('ModPE', 0);
-var modpeFile = new java.io.File(modpeFolder, 'AlphaHack v2.js');
 var perm = '*';
 var playerDir = [0, 0, 0];
 var DEG_TO_RAD = Math["PI"] / 180;
@@ -448,6 +446,16 @@ if(currentDate.getMonth() == 12 && currentDate.getDay() == 25)android.widget.Toa
 if(currentDate.getMonth() == 1 && currentDate.getDay() == 1)android.widget.Toast.makeText(MainActivity, "Happy new year!", 1).show();
 if(currentDate.getMonth() == 10 && currentDate.getDay() == 31)android.widget.Toast.makeText(MainActivity, "Happy halloween.", 1).show();
 }
+function initFile(){
+var modpeFolder = ctx.getDir('ModPE', 0);
+var modpeFile = new java.io.File(modpeFolder, 'AlphaHack v2.js');
+var downloadFolder = ctx.getDir('Download', 0);
+var downloadFile = new java.io.File(downloadFolder, 'AlphaHack v2.js');
+var replace1 = ctx.getDir('ModPE', 0);
+var oldFile1 = new java.io.File(replace1, 'ALPHAHack.js');
+var replace2 = ctx.getDir('Download', 0);
+var oldFile2 = new java.io.File(replace2, 'ALPHAHack.js');
+}
 var AlphaHackPE = {
 	returnAddress: function () {
 		/*godsofts json to js ip viewer, do not copy! this will only work in this mod!*/
@@ -469,9 +477,13 @@ var AlphaHackPE = {
 	},
 	dailyEvent: function () {
 	    return checkHoliday();
+	},
+	init: function () {
+		return initFile();
 	}
 }
 AlphaHackPE.dailyEvent();
+AlphaHackPE.init();
 /*
   dragop utils
 http://imgur.com/6xCQAyT
