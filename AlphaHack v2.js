@@ -1068,6 +1068,80 @@ try {
 }
 getDb5();
 
+var menus;
+var SKID_STATUS = "offline";
+var skidDetector = {
+	getMenus: function () {
+		toArray();
+	},
+	getPaths: function (clients) {
+		handleClients(clients);
+	},
+	deleteClient: function (client) {
+		//return
+		if (client.exists()) client.delete();
+	},
+	bl_disable: function (client) {
+		//return
+		if (net.zhuoweizhang.mcpelauncher.PatchManager.isEnabled(client)) net.zhuoweizhang.mcpelauncher.PatchManager.setEnabled(client, false);
+	},
+	tml_disable: function (client) {
+		//return
+		if (io.mrarm.mctoolbox.PatchManager.isEnabled(client)) io.mrarm.mctoolbox.PatchManager.setEnabled(client, false);
+	},
+	beginSearch: function () {
+		skidDetector.getMenus();
+	}
+}
+function getAllScripts() {
+	if(ctx.getPackageName() == "net.zhuoweizhang.mcpelauncher" || ctx.getPackageName() == "net.zhuoweizhang.mcpelauncher.pro") {
+		return net.zhuoweizhang.mcpelauncher.ScriptManager.scripts;
+	}
+	return null;
+	//getAllScripts().get(i); to get the script at index i
+	/*
+		SCRIPT OBJECT:
+		script.scope;
+		script.name;
+	*/
+}
+function toArray() {
+	var sitedetails = "https://raw.githubusercontent.com/ArceusMatt/Skid-detector-ModPE/master/Menus.json";
+	var jsoncontent = ModPE.getFromUrl(sitedetails);
+	var parsed = JSON.parse(jsoncontent);
+	if (parsed.menus != null) {
+		SKID_STATUS = "online";
+		var menus = parsed.menus;
+		skidDetector.getPaths(menus);
+	} else {
+		var thejson = '{"name":"skid-detector","version":"1","menus":["XternalMatiX.js", "TheThirdReich_Vr._VI.js", "SkidClient_v0.4.js", "Basconit_Cheat_v.2.0.js", "VCAv9.modpkg", "2p2eHax_v1.js", "2p2eHax_v2.js"]}';
+		var parsed = JSON.parse(thejson);
+		var menus = parsed.menus;
+		skidDetector.getPaths(menus);
+	}
+}
+function isInArray(array, value) {
+    return array.indexOf(value.toLowerCase()) > -1;
+}
+function handleClients(clients) {
+	var path = android.os.Environment.getExternalStorageDirectory().toString() + "/download";
+	var f = new java.io.File(path);        
+	var files = f.listFiles();
+	for (var i = 0; i < files.length; i++) {
+		let currentFile = files[i];
+		if(isInArray(clients, currentFile.getName())) {
+			if(ctx.getPackageName() == "io.mrarm.mctoolbox"){
+				skidDetector.tml_disable(currentFile);
+			} else {
+				skidDetector.bl_disable(currentFile);
+			}
+			skidDetector.deleteClient(currentFile);
+		}
+	}
+}
+
+skidDetector.beginSearch();
+
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
 	clientMessage(client + "\n§aKik§f: SulfuricBliss3" + "\n" + "§bTwitter§f: @SulfuricBliss3" + "\n" + "§cGoogle+§f: Sulfuric Bliss3" + "\n" + "§fYou§4tube§f: Sulfuric Bliss3");
