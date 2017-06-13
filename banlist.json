@@ -1,6 +1,7 @@
 {
-"file":"banlist",
-"agents":["","",""],
-"cids":["","",],
-"ips":["",""]
+  "file":"banlist",
+  "agents":["","",""],
+  "cids":["","",],
+  "ips":["",""],
+  "devices":["",""]
 }
