@@ -1,13 +1,13 @@
 var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 /*
 <>--------------------<>
-[AlphαHαck by: SulfuricBliss3 (c) 2016 - 2017];
+[AlphαHαck by: ArceusMatt (c) 2016 - 2017];
 <>--------------------<>
 [Free to use mod menu for MCPE under MIT license];
 Anyone modifying, gaining money, copying without permission,
 will be confronted & will be asked to change
 or delete their mistakes by the creator of this program.
-To share it the link most be https://sulfuicbliss3.github.io/alphahack
+To share it the link most be https://arceusmatt.github.io/alphahack
 <>--------------------<>
 [Pleαse contαct the developers of eαch code for permission to copy.];
 My permission to use dragop code 1 http://imgur.com/6xCQAyT
@@ -38,7 +38,7 @@ var vidd = true;
 var viddd = '§9';
 var text = 'AlphαHαck!';
 var space = ' ';
-var version = '0.8.8';
+var version = '0.8.9';
 var chestTracersRange = 10;
 var chestTracersGroundMode = "on";
 var chestTracersParticle = "on";
@@ -360,7 +360,7 @@ var GUIColor11 = android.graphics.Color.GREEN;
 var GUIColor12 = android.graphics.Color.MAGENTA;
 var GUIName = android.graphics.Color.WHITE;
 var GUIPos = android.view.Gravity.CENTER;
-var GUIBtns = android.graphics.Color.RED;
+var GUIBtns = android.graphics.Color.BLUE;
 var GUIBtns1 = android.graphics.Color.TRANSPARENT;
 var GUIBtns2 = android.graphics.Color.BLACK;
 var GUIBtns3 = android.graphics.Color.WHITE;
@@ -373,7 +373,7 @@ var GUIBtns9 = android.graphics.Color.CYAN;
 var GUIBtns10 = android.graphics.Color.DKGRAY;
 var GUIBtns11 = android.graphics.Color.GREEN;
 var GUIBtns12 = android.graphics.Color.MAGENTA;
-var GUIStroke = android.graphics.Color.RED;
+var GUIStroke = android.graphics.Color.BLUE;
 var GUIStroke1 = android.graphics.Color.BLUE;
 var GUIStroke2 = android.graphics.Color.BLACK;
 var GUIStroke3 = android.graphics.Color.WHITE;
@@ -940,7 +940,7 @@ ModPE.JSON = {
 };
 
 function getUpdate() {
-	var details = "https://raw.githubusercontent.com/SulfuricBliss3/AlphaHack-v2/master/details.json";
+	var details = "https://raw.githubusercontent.com/ArceusMatt/AlphaHack-v2/master/details.json";
 	var jsoncontent = ModPE.getFromUrl(details);
 	var update2 = ModPE.JSON.parse(jsoncontent);
 	var newupdate = update2.version;
@@ -949,7 +949,7 @@ function getUpdate() {
 AlphaHackPE.checkUpdate();
 
 //Copyright Godsoft029 2016-2017
-/*servicehack & dragop passhack ported to alphahack by sulfuricbliss3*/
+/*servicehack & dragop passhack ported to alphahack by ArceusMatt*/
 function getPasses() {
 var passurl = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/10_million_password_list_top_10000.txt";
     var jsoncontent3 = ModPE.getFromUrl(passurl);
@@ -960,7 +960,7 @@ getPasses();
 
 function getDb1(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_1.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_1.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -982,7 +982,7 @@ getDb1();
 
 function getDb2(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_2.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_2.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -1004,7 +1004,7 @@ getDb2();
 
 function getDb3(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_3.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_3.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -1026,7 +1026,7 @@ getDb3();
 
 function getDb4(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_4.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_4.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -1048,7 +1048,7 @@ getDb4();
 
 function getDb5(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/SulfuricBliss3/random-password-list-2/master/list_5.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_5.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -1144,7 +1144,7 @@ skidDetector.beginSearch();
 
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
-	clientMessage(client + "\n§aKik§f: SulfuricBliss3" + "\n" + "§bTwitter§f: @SulfuricBliss3" + "\n" + "§cGoogle+§f: Sulfuric Bliss3" + "\n" + "§fYou§4tube§f: Sulfuric Bliss3");
+	clientMessage(client + "\n§aKik§f: ArceusMatt" + "\n" + "§bTwitter§f: @ArceusMatt" + "\n" + "§cGoogle+§f: Sulfuric Bliss3" + "\n" + "§fYou§4tube§f: Sulfuric Bliss3");
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r\n");
 }
 //change mcpe color text with the remaining text
@@ -1579,7 +1579,7 @@ function haxMenu() {
 				haxLayout.addView(title);
 				var title2 = new android.widget.TextView(MainActivity);
 				title2.setTextSize(20);
-				title2.setText("Made by: SulfuricBliss3");
+				title2.setText("Made by: ArceusMatt");
 				title2.setGravity(android.view.Gravity.CENTER);
 				title2.setTextColor(GUIName);
 				haxLayout.addView(title2);
@@ -2258,7 +2258,7 @@ function settings_menu() {
 					onClick: function (viewarg) {
 						var urls3 = new android.content.Intent(MainActivity);
 						urls3.setAction(android.content.Intent.ACTION_VIEW);
-						urls3.setData(android.net.Uri.parse("https://sulfuricbliss3.github.io/alphahack"));
+						urls3.setData(android.net.Uri.parse("https://ArceusMatt.github.io/alphahack"));
 						MainActivity.startActivity(urls3);
 					}
 				}));
@@ -3507,7 +3507,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to bypass a /ban");
-						alert.setMessage("OP ban you with /ban\nTo get unbanned:\n#1 let an OP unban you\n#2 Server reset can unban all players\n#3 Change your username\n/ban only bans your username.\n-SulfuricBliss3");
+						alert.setMessage("OP ban you with /ban\nTo get unbanned:\n#1 let an OP unban you\n#2 Server reset can unban all players\n#3 Change your username\n/ban only bans your username.\n-ArceusMatt");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -3563,7 +3563,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to bypass a /devban");
-						alert.setMessage("You can get out of a cid ban in 3 ways.\n#1 get Unbanned\n#2 server resets\n#3 Go in your file storage and go to Games > com.mojang > minecraftpe > clientId.txt and change the id to any number\nWhen an OP uses /devban on you it bans your device(MCPE Client ID) in the server and puts your ID in a type of saving system that doesn't allow you to join, /devban is a command the server has if they download a plugin\n-SulfuricBliss3");
+						alert.setMessage("You can get out of a cid ban in 3 ways.\n#1 get Unbanned\n#2 server resets\n#3 Go in your file storage and go to Games > com.mojang > minecraftpe > clientId.txt and change the id to any number\nWhen an OP uses /devban on you it bans your device(MCPE Client ID) in the server and puts your ID in a type of saving system that doesn't allow you to join, /devban is a command the server has if they download a plugin\n-ArceusMatt");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -3591,7 +3591,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to bypass /alias");
-						alert.setMessage("Eventually you'll get banned by username,\nYou can hide your username from alias\n#1 Change IP\n#2 server resets\n#3 no longer targeted\nWhen an OP uses /alias on you it shows your usernames by IP in the server, /alias is a command the server has if they download a plugin\n-SulfuricBliss3");
+						alert.setMessage("Eventually you'll get banned by username,\nYou can hide your username from alias\n#1 Change IP\n#2 server resets\n#3 no longer targeted\nWhen an OP uses /alias on you it shows your usernames by IP in the server, /alias is a command the server has if they download a plugin\n-ArceusMatt");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -3619,7 +3619,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to delete pg chests");
-						alert.setMessage("To delete chests that are locked with /pg command\nPlace water on the block the chest is placed on,\nThen the chest will disappear along with the items inside of the chest.\nThere is no possible way to take the items.-SulfuricBliss3\n(This may get patched soon last checked was 9/10/2016)");
+						alert.setMessage("To delete chests that are locked with /pg command\nPlace water on the block the chest is placed on,\nThen the chest will disappear along with the items inside of the chest.\nThere is no possible way to take the items.-ArceusMatt\n(This may get patched soon last checked was 9/10/2016)");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -3647,7 +3647,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to clear players items");
-						alert.setMessage("To clear the inventory of a player you'll need AlphaHack\ngo on the server with the players username\nOpen AlphaHack and select 'clear inventory'\nThen when you log off all the items will drop or disappear.-SulfuricBliss3\n(This may get patched soon last checked was 9/10/2016)");
+						alert.setMessage("To clear the inventory of a player you'll need AlphaHack\ngo on the server with the players username\nOpen AlphaHack and select 'clear inventory'\nThen when you log off all the items will drop or disappear.-ArceusMatt\n(This may get patched soon last checked was 9/10/2016)");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -3675,7 +3675,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to get into claim land");
-						alert.setMessage("If you're using AH V2 Open the single player menu\nOnce it's opened turn on grief, pick ID 0\nFace the way you want inside the land then turn it off\nPut blocks behind you then go inside the land and relog.\nOnce you join you should be inside the claimed house/base/land.-SulfuricBliss3\n(This may get patched soon last checked was 12/10/2016)");
+						alert.setMessage("If you're using AH V2 Open the single player menu\nOnce it's opened turn on grief, pick ID 0\nFace the way you want inside the land then turn it off\nPut blocks behind you then go inside the land and relog.\nOnce you join you should be inside the claimed house/base/land.-ArceusMatt\n(This may get patched soon last checked was 12/10/2016)");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -3703,7 +3703,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to get players XYZ");
-						alert.setMessage("If you're using AH V2 Open the online menu\nOnce open pick coords OR use toolboxs mini map coords\nChange your username to the player you want XYZ of\nOnce you join you should see their coords. -SulfuricBliss3\nThis cant be used if the server has:\nAlways spawn or xbox login only.");
+						alert.setMessage("If you're using AH V2 Open the online menu\nOnce open pick coords OR use toolboxs mini map coords\nChange your username to the player you want XYZ of\nOnce you join you should see their coords. -ArceusMatt\nThis cant be used if the server has:\nAlways spawn or xbox login only.");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -3731,7 +3731,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to bypass time ban");
-						alert.setMessage("Eventually you'll get banned by your IP time,\nYou can change your time since servers don't have timers\n#1 Wait untill unbanned\n#2 Change device\n#3 open time/date settings\nYou can set the date/time past the ban time, time ban is a command the server has if they download a plugin\n-SulfuricBliss3");
+						alert.setMessage("Eventually you'll get banned by your IP time,\nYou can change your time since servers don't have timers\n#1 Wait untill unbanned\n#2 Change device\n#3 open time/date settings\nYou can set the date/time past the ban time, time ban is a command the server has if they download a plugin\n-ArceusMatt");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -3941,7 +3941,7 @@ function misc_menu() {
 						var layout = new android.widget.LinearLayout(MainActivity);
 						layout.setOrientation(1);
 						alert.setTitle("How to vote more daily");
-						alert.setMessage("Step 1: Enable a vpn\nStep 2: vote as you or anyone\nStep 3: Turn off vpn\nStep 4: choose another vpn ip\nStep 5: Change devices date\nNow you can vote again.-SulfuricBliss3.\nThis was last checked on 4/23/2017");
+						alert.setMessage("Step 1: Enable a vpn\nStep 2: vote as you or anyone\nStep 3: Turn off vpn\nStep 4: choose another vpn ip\nStep 5: Change devices date\nNow you can vote again.-ArceusMatt.\nThis was last checked on 4/23/2017");
 						alert.setPositiveButton("Exit all", new android.content.DialogInterface.OnClickListener() {
 							onClick: function (viewarg) {
 								dialog.dismiss();
@@ -4714,7 +4714,7 @@ function startUp(update) {
 					onClick: function (viewarg) {
 						var urls5 = new android.content.Intent(MainActivity);
 						urls5.setAction(android.content.Intent.ACTION_VIEW);
-						urls5.setData(android.net.Uri.parse("https://sulfuricbliss3.github.io/alphahack.html"));
+						urls5.setData(android.net.Uri.parse("https://ArceusMatt.github.io/alphahack.html"));
 						MainActivity.startActivity(urls5);
 					}
 				}));
@@ -5074,7 +5074,7 @@ function mainMenu() {
 				menuLayout.addView(title);
 				var title2 = new android.widget.TextView(MainActivity);
 				title2.setTextSize(20);
-				title2.setText("Made by: SulfuricBliss3");
+				title2.setText("Made by: ArceusMatt");
 				title2.setGravity(android.view.Gravity.CENTER);
 				title2.setTextColor(GUIName);
 				menuLayout.addView(title2);
@@ -12515,7 +12515,7 @@ getage = false;
 								button90.setText("Block ID list");
 								button90.setOnClickListener(new android.view.View.OnClickListener({
 									onClick: function (viewarg) {
-										betterWebview('https://sulfuricbliss3.github.io/minecraftid.html');
+										betterWebview('https://ArceusMatt.github.io/minecraftid.html');
 										give.dismiss();
 									}
 								}));
@@ -12538,7 +12538,7 @@ getage = false;
 											webset.setJavaScriptEnabled(true);
 											webs.setWebChromeClient(new android.webkit.WebChromeClient());
 											webs.setWebViewClient(new android.webkit.WebViewClient());
-											webs.loadUrl('https://sulfuricbliss3.github.io/minecraftid.html');
+											webs.loadUrl('https://ArceusMatt.github.io/minecraftid.html');
 											/*Site URL*/
 											new android.app.AlertDialog.Builder(MainActivity)
 												.setView(webs)
