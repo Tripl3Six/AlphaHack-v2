@@ -1144,7 +1144,7 @@ skidDetector.beginSearch();
 
 function newLevel() {
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r");
-	clientMessage(client + "\n§aKik§f: ArceusMatt" + "\n" + "§bTwitter§f: @ArceusMatt" + "\n" + "§cGoogle+§f: Sulfuric Bliss3" + "\n" + "§fYou§4tube§f: Sulfuric Bliss3");
+	clientMessage(client + "\n§aKik§f: ArceusMatt" + "\n" + "§bTwitter§f: @ArceusMatt" + "\n" + "§cGoogle+§f: Arceus Matt" + "\n" + "§fYou§4tube§f: Arceus Matt");
 	clientMessage("§2≡≡=======»§a>§9 §a§kAlpha§r §a<§2«======≡≡§f§r\n");
 }
 //change mcpe color text with the remaining text
