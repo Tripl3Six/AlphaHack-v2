@@ -1605,14 +1605,14 @@ function haxMenu() {
 				}));
 				haxLayout.addView(exit);
 				var group = new styleButton();
-				group.setText("Community");
+				group.setText("(new) Community");
 				group.setTextColor(GUIText);
 				group.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
 				group.setOnClickListener(new android.view.View.OnClickListener() {
 					onClick: function (v) {
 						var urls4 = new android.content.Intent(MainActivity);
 						urls4.setAction(android.content.Intent.ACTION_VIEW);
-						urls4.setData(android.net.Uri.parse("https://plus.google.com/communities/103695355587842948163"));
+						urls4.setData(android.net.Uri.parse(groupL));
 						MainActivity.startActivity(urls4);
 					}
 				});
@@ -2274,7 +2274,7 @@ function settings_menu() {
 				}));
 				settingsLayout.addView(link);
 				var link2 = new styleButton();
-				link2.setText("Google+ group");
+				link2.setText("Old community");
 				link2.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						/*var urlgs = new android.content.Intent(MainActivity);
