@@ -4713,8 +4713,7 @@ function startUp(update) {
 						urls5.setAction(android.content.Intent.ACTION_VIEW);
 						urls5.setData(android.net.Uri.parse(siteL));
 						MainActivity.startActivity(urls5);*/
-						var Intent = new android.content.Intent(MainActivity);
-						MainActivity.startActivity(new Intent(Intent.ACTION_VIEW, android.net.Uri.parse(siteL)));
+						betterWebview(siteL);
 					}
 				}));
 				updiaLayout.addView(updateButton);
