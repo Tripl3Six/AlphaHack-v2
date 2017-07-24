@@ -50,6 +50,7 @@ var client = '§f<§9AlphαHαck§f> ';
 var copyright = '©';
 var trademark = 'AlphαHαckPE™';
 var groupL = 'https://discord.gg/cvh6Mht';
+var group2L = 'https://plus.google.com/u/0/communities/103695355587842948163';
 var siteL = 'https://arceusmatt.github.io/alphahack.html';
 var perm = '*';
 var playerDir = [0, 0, 0];
@@ -2272,6 +2273,30 @@ function settings_menu() {
 					}
 				}));
 				settingsLayout.addView(link);
+				var link2 = new styleButton();
+				link2.setText("Google+ group");
+				link2.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						/*var urlgs = new android.content.Intent(MainActivity);
+						urlgs.setAction(android.content.Intent.ACTION_VIEW);
+						urlgs.setData(android.net.Uri.parse(group2L));
+						MainActivity.startActivity(urlgs);*/
+						betterWebview(group2L);
+					}
+				}));
+				settingsLayout.addView(link2);
+				var link3 = new styleButton();
+				link3.setText("Discord group");
+				link3.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						/*var urlds = new android.content.Intent(MainActivity);
+						urlds.setAction(android.content.Intent.ACTION_VIEW);
+						urlds.setData(android.net.Uri.parse(groupL));
+						MainActivity.startActivity(urlds);*/
+						betterWebview(groupL);
+					}
+				}));
+				settingsLayout.addView(link3);
 				var checkme = new styleButton();
 				checkme.setText("Check update");
 				checkme.setOnClickListener(new android.view.View.OnClickListener({
