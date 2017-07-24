@@ -960,7 +960,7 @@ getPasses();
 
 function getDb1(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_1.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/sulfuricbliss3/random-password-list-2/master/list_1.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -982,7 +982,7 @@ getDb1();
 
 function getDb2(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_2.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/sulfuricbliss3/random-password-list-2/master/list_2.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -1004,7 +1004,7 @@ getDb2();
 
 function getDb3(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_3.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/sulfuricbliss3/random-password-list-2/master/list_3.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -1026,7 +1026,7 @@ getDb3();
 
 function getDb4(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_4.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/sulfuricbliss3/random-password-list-2/master/list_4.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
@@ -1048,7 +1048,7 @@ getDb4();
 
 function getDb5(){
 try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/random-password-list-2/master/list_5.txt");
+        var url = new java.net.URL("https://raw.githubusercontent.com/sulfuricbliss3/random-password-list-2/master/list_5.txt");
         var connection = url.openConnection();
         var inputStream = connection.getInputStream();
         
