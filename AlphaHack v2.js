@@ -8,6 +8,7 @@ Anyone modifying, gaining money, copying without permission,
 will be confronted & will be asked to change
 or delete their mistakes by the creator of this program.
 To share it the link most be https://arceusmatt.github.io/alphahack
+If you'd like to chat with us we have a discord group: https://discord.gg/cvh6Mht
 <>--------------------<>
 [Pleαse contαct the developers of eαch code for permission to copy.];
 My permission to use dragop code 1 http://imgur.com/6xCQAyT
@@ -48,6 +49,8 @@ var numhack = 0;
 var client = '§f<§9AlphαHαck§f> ';
 var copyright = '©';
 var trademark = 'AlphαHαckPE™';
+var groupL = 'https://discord.gg/cvh6Mht';
+var siteL = 'https://arceusmatt.github.io/alphahack.html';
 var perm = '*';
 var playerDir = [0, 0, 0];
 var DEG_TO_RAD = Math["PI"] / 180;
@@ -346,6 +349,7 @@ var mcpetheme = false;
 var defaultbtnc = true;
 var btnPos = android.view.Gravity.RIGHT;
 var activePos = android.view.Gravity.LEFT;
+
 var GUIColor1 = android.graphics.Color.TRANSPARENT;
 var GUIColor2 = android.graphics.Color.BLACK;
 var GUIColor3 = android.graphics.Color.WHITE;
@@ -358,9 +362,11 @@ var GUIColor9 = android.graphics.Color.CYAN;
 var GUIColor10 = android.graphics.Color.DKGRAY;
 var GUIColor11 = android.graphics.Color.GREEN;
 var GUIColor12 = android.graphics.Color.MAGENTA;
+
 var GUIName = android.graphics.Color.WHITE;
 var GUIPos = android.view.Gravity.CENTER;
 var GUIBtns = android.graphics.Color.BLUE;
+
 var GUIBtns1 = android.graphics.Color.TRANSPARENT;
 var GUIBtns2 = android.graphics.Color.BLACK;
 var GUIBtns3 = android.graphics.Color.WHITE;
@@ -373,7 +379,8 @@ var GUIBtns9 = android.graphics.Color.CYAN;
 var GUIBtns10 = android.graphics.Color.DKGRAY;
 var GUIBtns11 = android.graphics.Color.GREEN;
 var GUIBtns12 = android.graphics.Color.MAGENTA;
-var GUIStroke = android.graphics.Color.BLUE;
+
+var GUIStroke = android.graphics.Color.MAGENTA;
 var GUIStroke1 = android.graphics.Color.BLUE;
 var GUIStroke2 = android.graphics.Color.BLACK;
 var GUIStroke3 = android.graphics.Color.WHITE;
@@ -386,6 +393,7 @@ var GUIStroke9 = android.graphics.Color.CYAN;
 var GUIStroke10 = android.graphics.Color.DKGRAY;
 var GUIStroke11 = android.graphics.Color.GREEN;
 var GUIStroke12 = android.graphics.Color.MAGENTA;
+
 var GUISize = "2";
 var GUIText = android.graphics.Color.WHITE;
 var GUIText2 = android.graphics.Color.BLACK;
@@ -2258,7 +2266,7 @@ function settings_menu() {
 					onClick: function (viewarg) {
 						var urls3 = new android.content.Intent(MainActivity);
 						urls3.setAction(android.content.Intent.ACTION_VIEW);
-						urls3.setData(android.net.Uri.parse("https://ArceusMatt.github.io/alphahack"));
+						urls3.setData(android.net.Uri.parse(siteL));
 						MainActivity.startActivity(urls3);
 					}
 				}));
@@ -4690,36 +4698,35 @@ function startUp(update) {
 				updiaLayout1.setOrientation(1);
 				updiaScroll.addView(updiaLayout);
 				updiaLayout1.addView(updiaScroll);
-				var text1 = new android.widget.TextView(MainActivity);
-				text1.setText("\n\n\nA new update is available.\nBug fixes, less crashes, new features & more!\nWould you like to update AlphaHack v2?\nCurrent version: " + version + "\nNew version: " + update + "\n");
-				text1.setTextColor(android.graphics.Color.WHITE);
-				text1.setPadding(10, 20, 130, 20);
-				updiaLayout.addView(text1);
-				var doubleLayout = new android.widget.LinearLayout(MainActivity);
-				textView1 = new styleButton();
-				textView1.setText("Later");
-				textView1.setTextColor(android.graphics.Color.BLUE);
-				textView1.setPadding(185, 10, 185, 10);
-				textView1.setOnClickListener(new android.view.View.OnClickListener({
+				
+				var uptext1 = new android.widget.TextView(MainActivity);
+				uptext1.setText("\n\n\nA new update is available.\nBug fixes, less crashes, new features & more!\nWould you like to update AlphaHack v2?\nCurrent version: " + version + "\nNew version: " + update + "\n");
+				uptext1.setTextColor(android.graphics.Color.WHITE);
+				updiaLayout.addView(uptext1);
+				
+				updateButton = new styleButton();
+				updateButton.setText("Update");
+				updateButton.setTextColor(android.graphics.Color.BLUE);
+				updateButton.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function (viewarg) {
+						var urls5 = new android.content.Intent(MainActivity);
+						urls5.setAction(android.content.Intent.ACTION_VIEW);
+						urls5.setData(android.net.Uri.parse(siteL));
+						MainActivity.startActivity(urls5);
+					}
+				}));
+				updiaLayout.addView(updateButton);
+				
+				laterButton = new styleButton();
+				laterButton.setText("Later");
+				laterButton.setTextColor(android.graphics.Color.BLUE);
+				laterButton.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						updia.dismiss();
 					}
 				}));
-				doubleLayout.addView(textView1);
-				textView2 = new styleButton();
-				textView2.setText("Update");
-				textView2.setTextColor(android.graphics.Color.BLUE);
-				textView2.setPadding(185, 10, 185, 10);
-				textView2.setOnClickListener(new android.view.View.OnClickListener({
-					onClick: function (viewarg) {
-						var urls5 = new android.content.Intent(MainActivity);
-						urls5.setAction(android.content.Intent.ACTION_VIEW);
-						urls5.setData(android.net.Uri.parse("https://ArceusMatt.github.io/alphahack.html"));
-						MainActivity.startActivity(urls5);
-					}
-				}));
-				doubleLayout.addView(textView2);
-				updiaLayout.addView(doubleLayout);
+				updiaLayout.addView(laterButton);
+				
 				updia = new android.widget.PopupWindow(updiaLayout1, MainActivity.getWindowManager()
 					.getDefaultDisplay()
 					.getWidth() / 1.01, MainActivity.getWindowManager()
@@ -4733,7 +4740,7 @@ function startUp(update) {
 				updia.showAtLocation(MainActivity.getWindow()
 					.getDecorView(), android.view.Gravity.CENTER | android.view.Gravity.CENTER, 0, 0);
 			} catch (error) {
-				android.widget.Toast.makeText(MainActivity, "Update updia, Error: " + error, 1)
+				android.widget.Toast.makeText(MainActivity, "updia, Error: " + error, 1)
 					.show();
 			}
 		}
