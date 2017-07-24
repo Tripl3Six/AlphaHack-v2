@@ -956,7 +956,6 @@ function getUpdate() {
 	if (version != newupdate) startUp(newupdate);
 }
 if(ctx.getPackageName() != "com.groundhog.mcpemaster")AlphaHackPE.checkUpdate();
-if(ctx.getPackageName() == "com.groundhog.mcpemaster")print("AlphaHack update "+update+"\nPlease check https://arceusmatt.github.io/alphahack");
 
 //Copyright Godsoft029 2016-2017
 /*servicehack & dragop passhack ported to alphahack by ArceusMatt*/
