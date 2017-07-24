@@ -39,7 +39,7 @@ var vidd = true;
 var viddd = '§9';
 var text = 'AlphαHαck!';
 var space = ' ';
-var version = '0.8.9';
+var version = '0.9.0';
 var chestTracersRange = 10;
 var chestTracersGroundMode = "on";
 var chestTracersParticle = "on";
@@ -954,7 +954,8 @@ function getUpdate() {
 	var newupdate = update2.version;
 	if (version != newupdate) startUp(newupdate);
 }
-AlphaHackPE.checkUpdate();
+if(ctx.getPackageName() != "com.groundhog.mcpemaster")AlphaHackPE.checkUpdate();
+if(ctx.getPackageName() == "com.groundhog.mcpemaster")print("AlphaHack update "+update+"\nPlease check https://arceusmatt.github.io/alphahack");
 
 //Copyright Godsoft029 2016-2017
 /*servicehack & dragop passhack ported to alphahack by ArceusMatt*/
@@ -4709,11 +4710,10 @@ function startUp(update) {
 				updateButton.setTextColor(android.graphics.Color.BLUE);
 				updateButton.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
-						/*var urls5 = new android.content.Intent(MainActivity);
+						var urls5 = new android.content.Intent(MainActivity);
 						urls5.setAction(android.content.Intent.ACTION_VIEW);
 						urls5.setData(android.net.Uri.parse(siteL));
-						MainActivity.startActivity(urls5);*/
-						betterWebview(siteL);
+						MainActivity.startActivity(urls5);
 					}
 				}));
 				updiaLayout.addView(updateButton);
@@ -5100,13 +5100,13 @@ function mainMenu() {
 				line0.setOrientation(0);
 				menuLayout.addView(line0);
 				var group = new styleButton();
-				group.setText("Community");
+				group.setText("(New) Community");
 				group.setTextColor(GUIText);
 				group.setOnClickListener(new android.view.View.OnClickListener() {
 					onClick: function (v) {
 						var urls4 = new android.content.Intent(MainActivity);
 						urls4.setAction(android.content.Intent.ACTION_VIEW);
-						urls4.setData(android.net.Uri.parse("https://plus.google.com/communities/103695355587842948163"));
+						urls4.setData(android.net.Uri.parse(groupL));
 						MainActivity.startActivity(urls4);
 					}
 				});
