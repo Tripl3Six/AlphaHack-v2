@@ -4710,7 +4710,7 @@ function startUp(update) {
 				updateButton.setOnClickListener(new android.view.View.OnClickListener({
 					onClick: function (viewarg) {
 						var urls5 = new android.content.Intent(MainActivity);
-						urls5.setAction(android.content.Intent.ACTION_VIEW);
+						//urls5.setAction(android.content.Intent.ACTION_VIEW);
 						urls5.setData(android.net.Uri.parse(siteL));
 						MainActivity.startActivity(urls5);
 					}
