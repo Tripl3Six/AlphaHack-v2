@@ -1079,6 +1079,15 @@ getDb5();
 
 var menus;
 var SKID_STATUS = "offline";
+var Launcher = {
+	isBlockLauncher: function() {
+		return (ctx.getPackageName() == "net.zhuoweizhang.mcpelauncher" || ctx.getPackageName() == "net.zhuoweizhang.mcpelauncher.pro");
+	},
+	isToolbox: function() {
+		return ctx.getPackageName() == "io.mrarm.mctoolbox";
+	}
+};
+
 var skidDetector = {
 	getMenus: function () {
 		toArray();
@@ -1088,7 +1097,10 @@ var skidDetector = {
 	},
 	deleteClient: function (client) {
 		//return
-		if (client.exists()) client.delete();
+		if (client.exists()) {
+			net.zhuoweizhang.mcpelauncher.ScriptManager.removeScript(client.getName());
+			client.delete();
+		}
 	},
 	bl_disable: function (client) {
 		//return
@@ -1102,8 +1114,9 @@ var skidDetector = {
 		skidDetector.getMenus();
 	}
 }
+
 function getAllScripts() {
-	if(ctx.getPackageName() == "net.zhuoweizhang.mcpelauncher" || ctx.getPackageName() == "net.zhuoweizhang.mcpelauncher.pro") {
+	if(Launcher.isBlockLauncher()) {
 		return net.zhuoweizhang.mcpelauncher.ScriptManager.scripts;
 	}
 	return null;
@@ -1114,6 +1127,7 @@ function getAllScripts() {
 		script.name;
 	*/
 }
+
 function toArray() {
 	var sitedetails = "https://raw.githubusercontent.com/ArceusMatt/Skid-detector-ModPE/master/Menus.json";
 	var jsoncontent = ModPE.getFromUrl(sitedetails);
@@ -1129,9 +1143,11 @@ function toArray() {
 		skidDetector.getPaths(menus);
 	}
 }
+
 function isInArray(array, value) {
     return array.indexOf(value.toLowerCase()) > -1;
 }
+
 function handleClients(clients) {
 	var path = android.os.Environment.getExternalStorageDirectory().toString() + "/download";
 	var f = new java.io.File(path);        
@@ -1139,7 +1155,7 @@ function handleClients(clients) {
 	for (var i = 0; i < files.length; i++) {
 		let currentFile = files[i];
 		if(isInArray(clients, currentFile.getName())) {
-			if(ctx.getPackageName() == "io.mrarm.mctoolbox"){
+			if(Launcher.isToolbox()){
 				skidDetector.tml_disable(currentFile);
 			} else {
 				skidDetector.bl_disable(currentFile);
@@ -1148,7 +1164,6 @@ function handleClients(clients) {
 		}
 	}
 }
-
 skidDetector.beginSearch();
 
 function newLevel() {
