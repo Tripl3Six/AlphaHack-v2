@@ -3,7 +3,7 @@ ALPHAHack v2 is a remake of AlphaHack 0.8.1
 <br>
 [Download](https://sulfuricbliss3.github.io/AlphaHack)
 <br>
-# Info
+# About
 --------------------<br>
 [AlphαHαck by: SulfuricBliss3 (c) 2016 - 2017];<br>
 --------------------<br>
@@ -12,6 +12,7 @@ Anyone modifying, gaining money, copying without permission,<br>
 will be confronted & will be asked to change<br>
 or delete their mistakes by the creator of this program.<br>
 To share it the link most be https://sulfuricbliss3.github.io/alphahack<br>
+If you'd like to chat with us we have a discord group: https://discord.gg/cvh6Mht<br>
 --------------------<br>
 [Pleαse contαct the developers of eαch code for permission to copy.];<br>
 My permission to use dragop code 1 http://imgur.com/6xCQAyT<br>
@@ -56,3 +57,7 @@ Contributor means they have decided to make a commit to the mod.<br>
 - [x] Chat fonts
 - [x] No knockback
 - [x] Unban features
+# How to install
+Go to https://arceusmatt.github.io/alphahack.html<br>
+Pick a download option, Download then go into a MCPE launcher and import the downloaded file.<br>
+If you choose from github then take AlphaHack v2.js out of the zip folder then import the file into the launcher.<br>
