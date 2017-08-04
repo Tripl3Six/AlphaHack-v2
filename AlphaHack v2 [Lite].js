@@ -9953,3 +9953,696 @@ function mainMenu() {
 	}));
 }
 /*dialogs*/
+function scc() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				sccD = new android.widget.PopupWindow();
+				var Layer5 = new android.widget.LinearLayout(MainActivity);
+				var sc1 = new styleInput();
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				Dialog.setTitle("Enter website");
+				Dialog.setContentView(Layer5);
+				Layer5.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer5.addView(sc1);
+				Layer5.addView(Exit);
+				sc1.setText("");
+				sc1.setHint("https://example.com");
+				Exit.setText("View code");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						sc2 = sc1.getText();
+						Dialog.dismiss();
+						betterWebview('view-source:' + sc2);
+						print("Loading web page");
+					}
+				});
+				sccD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				sccD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				sccD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("html dialog:" + e);
+			}
+		}
+	});
+}
+
+function iplu() {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				ipluD = new android.widget.PopupWindow();
+				var Layer4 = new android.widget.LinearLayout(ctx);
+				var ip1 = new styleInput();
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				Dialog.setTitle("Enter IP to trace");
+				Dialog.setContentView(Layer4);
+				Layer4.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer4.addView(ip1);
+				Layer4.addView(Exit);
+				ip1.setText("");
+				ip1.setHint("IP address, domain, blank for your IP");
+				Exit.setText("Trace");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						ip = ip1.getText();
+						Dialog.dismiss();
+						betterWebview("http://ip-api.com/json/" + ip);
+						/*var daurl1 = "http://ip-api.com/json/" + ip;
+						var dajson1 = ModPE.getFromUrl(daurl1);
+						var iperesult = ModPE.JSON.parse(dajson1);
+						isIpJson = true;
+						jresultView(iperesult);*/
+					}
+				});
+				ipluD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				ipluD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				ipluD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("trace dialog:" + e);
+			}
+		}
+	});
+}
+
+function pip() {
+	ctx.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				pipD = new android.widget.PopupWindow();
+				var Layer4 = new android.widget.LinearLayout(ctx);
+				var ddip = new styleInput();
+				var ddip2 = new styleInput();
+				var Dialog = new android.app.Dialog(ctx);
+				var Exit = new styleButton(ctx);
+				Dialog.setTitle("Enter server");
+				Dialog.setContentView(Layer4);
+				Layer4.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer4.addView(ddip);
+				Layer4.addView(ddip2);
+				Layer4.addView(Exit);
+				ddip.setText("");
+				ddip.setHint("IP");
+				ddip2.setText("");
+				ddip2.setHint("Port");
+				Exit.setText("View players");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						ply = ddip.getText();
+						poy = ddip2.getText();
+						Dialog.dismiss();
+						betterWebview("http://mcapi.ca/query/"+ply+":"+poy+"/list");
+						/*var daurl2 = "http://mcapi.ca/query/"+ply+":"+poy+"/list";
+						var dajson2 = ModPE.getFromUrl(daurl2);
+						var servresult = ModPE.JSON.parse(dajson2);
+						isServerJson = true;
+						jresultView(servresult);*/
+					}
+				});
+				pipD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				pipD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				pipD.showAtLocation(ctx.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("query Dialog:" + e);
+			}
+		}
+	});
+}
+
+function XGive() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				expD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(MainActivity);
+				var XP = new styleInput();
+				XP.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				showMenuBtn();
+				Dialog.setTitle("Enter XP Amount");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(XP);
+				Layer.addView(Exit);
+				XP.setText("");
+				XP.setHint("EXP");
+				Exit.setText("GET exp");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						L = XP.getText();
+						Dialog.dismiss();
+						XG();
+					}
+				});
+				expD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				expD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				expD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("xp dialog:" + e);
+			}
+		}
+	});
+}
+
+function XG() {
+	Server.getPort();
+	Player.setLevel(Math.round(L));
+}
+
+function Give() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				giveD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(MainActivity);
+				var ID = new styleInput();
+				ID.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Amount = new styleInput();
+				Amount.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Damage = new styleInput();
+				Damage.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				showMenuBtn();
+				Dialog.setTitle("Enter ID,Amt,Dmg");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(ID);
+				Layer.addView(Amount);
+				Layer.addView(Damage);
+				Layer.addView(Exit);
+				ID.setText("");
+				ID.setHint("Item ID");
+				Amount.setText("");
+				Amount.setHint("Item Amount");
+				Damage.setText("");
+				Damage.setHint("Item Damage");
+				Exit.setText("Give items");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						I = ID.getText();
+						A = Amount.getText();
+						D = Damage.getText();
+						Dialog.dismiss();
+						give2();
+					}
+				});
+				giveD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				giveD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				giveD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("give dialog:" + e);
+			}
+		}
+	});
+}
+
+function give2() {
+	Player.addItemInventory(I, A, D);
+}
+
+function newn() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				nukeD = new android.widget.PopupWindow();
+				var Layerb5 = new android.widget.LinearLayout(MainActivity);
+				var nNuke = new styleInput();
+				nNuke.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				showMenuBtn();
+				Dialog.setTitle("Enter nuke amount");
+				Dialog.setContentView(Layerb5);
+				Layerb5.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layerb5.addView(nNuke);
+				Layerb5.addView(Exit);
+				nNuke.setText("");
+				nNuke.setHint("Amount");
+				Exit.setText("Nuke");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						lenuke = nNuke.getText();
+						Dialog.dismiss();
+						setNuke();
+					}
+				});
+				nukeD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				nukeD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				nukeD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("nuke dialog:" + e);
+			}
+		}
+	});
+}
+
+function setNuke() {
+	explode(getPlayerX(), getPlayerY(), getPlayerZ(), lenuke);
+}
+
+function newspeed() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				speedD = new android.widget.PopupWindow();
+				var Layer8 = new android.widget.LinearLayout(MainActivity);
+				var vspee = new styleInput();
+				vspee.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				showMenuBtn();
+				Dialog.setTitle("Enter custom speed");
+				Dialog.setContentView(Layer8);
+				Layer8.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer8.addView(vspee);
+				Layer8.addView(Exit);
+				vspee.setText("");
+				vspee.setHint("numbers here");
+				Exit.setText("done");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						nspee = vspee.getText();
+						Dialog.dismiss();
+						setspeed();
+					}
+				});
+				speedD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				speedD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				speedD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("speed dialog:" + e);
+			}
+		}
+	});
+}
+
+function setspeed() {
+	ModPE.setGameSpeed(nspee);
+}
+
+function Tsele() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				teleportD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(MainActivity);
+				var X = new styleInput();
+				var Y = new styleInput();
+				var Z = new styleInput();
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				showMenuBtn();
+				Dialog.setTitle("Type coords to teleport");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(X);
+				Layer.addView(Y);
+				Layer.addView(Z);
+				Layer.addView(Exit);
+				X.setText("");
+				X.setHint("X");
+				Y.setText("");
+				Y.setHint("Y");
+				Z.setText("");
+				Z.setHint("Z");
+				Exit.setText("Teleport");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						px = X.getText();
+						py = Y.getText();
+						pz = Z.getText();
+						Dialog.dismiss();
+						setTp();
+					}
+				});
+				teleportD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				teleportD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				teleportD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("teleport dialog:" + e);
+			}
+		}
+	});
+}
+
+function setTp() {
+	Entity.setPosition(Player.getEntity(), px, py, pz);
+}
+
+function setDialogW() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				weatherD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(MainActivity);
+				var w = new styleInput();
+				w.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var w2 = new styleInput();
+				w2.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				showMenuBtn();
+				Dialog.setTitle("Set Weather");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(w);
+				Layer.addView(w2);
+				Layer.addView(Exit);
+				w.setText("");
+				w.setHint("rain/snow = 1");
+				w2.setText("");
+				w2.setHint("lightning = 1");
+				Exit.setText("Set weather");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						v = w.getText();
+						v2 = w2.getText();
+						Dialog.dismiss();
+						setWeather();
+					}
+				});
+				weatherD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				weatherD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				weatherD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("weather dialog:" + e);
+			}
+		}
+	});
+}
+
+function setWeather() {
+	Level.setRainLevel(v);
+	Level.setLightningLevel(v2);
+}
+
+function itementer() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				rainD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(MainActivity);
+				var item = new styleInput();
+				item.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				showMenuBtn();
+				Dialog.setTitle("Item ID");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(item);
+				Layer.addView(Exit);
+				item.setText("");
+				item.setHint("Item id...");
+				Exit.setText("Rain");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						rainId = item.getText();
+						Dialog.dismiss();
+						rainitem = true;
+					}
+				});
+				rainD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				rainD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				rainD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("item rain dialog:" + e);
+			}
+		}
+	});
+}
+
+function custime() {
+	MainActivity.runOnUiThread(new java.lang.Runnable() {
+		run: function () {
+			try {
+				timeD = new android.widget.PopupWindow();
+				var Layer = new android.widget.LinearLayout(MainActivity);
+				var time = new styleInput();
+				time.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+				var Dialog = new android.app.Dialog(MainActivity);
+				var Exit = new styleButton();
+				showMenuBtn();
+				Dialog.setTitle("Custom time");
+				Dialog.setContentView(Layer);
+				Layer.setOrientation(android.widget.LinearLayout.VERTICAL);
+				Dialog.show();
+				Layer.addView(time);
+				Layer.addView(Exit);
+				time.setText("");
+				time.setHint("Time...");
+				Exit.setText("Done");
+				Exit.setOnClickListener(new android.view.View.OnClickListener() {
+					onClick: function (view) {
+						newtime = time.getText();
+						settime1();
+						Dialog.dismiss();
+					}
+				});
+				timeD.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				timeD.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				timeD.showAtLocation(MainActivity.getWindow()
+					.getDecorView(), android.view.Gravity.TOP, 0, 0);
+			} catch (e) {
+				print("time dialog:" + e);
+			}
+		}
+	});
+}
+
+function settime1() {
+	Level.setTime(newtime);
+}
+
+/*the code*/
+function attackHook(attacker, victim) {
+	if (hitparticles) {
+		var x = Entity.getX(victim) - getPlayerX();
+		var y = Entity.getY(victim) - getPlayerY();
+		var z = Entity.getZ(victim) - getPlayerZ();
+		if (particle1) Level.addParticle(ParticleType.angryVillager, x, y, z, 0, 0, 0, 5);
+		if (particle2) Level.addParticle(ParticleType.bubble, x, y, z, 0, 0, 0, 150);
+		if (particle3) Level.addParticle(ParticleType.cloud, x, y, z, 0, 0, 0, 150);
+		if (particle4) Level.addParticle(ParticleType.crit, x, y, z, 0, 0, 0, 50);
+		if (particle5) Level.addParticle(ParticleType.dripLava, x, y, z, 0, 0, 0, 150);
+		if (particle6) Level.addParticle(ParticleType.dripWater, x, y, z, 0, 0, 0, 150);
+		if (particle7) Level.addParticle(ParticleType.enchantmenttable, x, y, z, 0, 0, 0, 150);
+		if (particle8) Level.addParticle(ParticleType.fallingDust, x, y, z, 0, 0, 0, 150);
+		if (particle9) Level.addParticle(ParticleType.flame, x, y, z, 0, 0, 0, 150);
+		if (particle10) Level.addParticle(ParticleType.happyVillager, x, y, z, 0, 0, 0, 50);
+		if (particle11) Level.addParticle(ParticleType.heart, x, y, z, 0, 0, 0, 5);
+		if (particle12) Level.addParticle(ParticleType.hugeexplosion, x, y, z, 0, 0, 0, 150);
+		if (particle13) Level.addParticle(ParticleType.hugeexplosionSeed, x, y, z, 0, 0, 0, 10);
+		if (particle14) Level.addParticle(ParticleType.ink, x, y, z, 0, 0, 0, 150);
+		if (particle15) Level.addParticle(ParticleType.itemBreak, x, y, z, 0, 0, 0, 150);
+		if (particle16) Level.addParticle(ParticleType.lava, x, y, z, 0, 0, 0, 150);
+		if (particle17) Level.addParticle(ParticleType.mobFlame, x, y, z, 0, 0, 0, 150);
+		if (particle18) Level.addParticle(ParticleType.note, x, y, z, 0, 0, 0, 150);
+		if (particle19) Level.addParticle(ParticleType.portal, x, y, z, 0, 0, 0, 150);
+		if (particle20) Level.addParticle(ParticleType.rainSplash, x, y, z, 0, 0, 0, 150);
+		if (particle21) Level.addParticle(ParticleType.redstone, x, y, z, 0, 0, 0, 10);
+		if (particle22) Level.addParticle(ParticleType.slime, x, y, z, 0, 0, 0, 150);
+		if (particle23) Level.addParticle(ParticleType.smoke, x, y, z, 0, 0, 0, 150);
+		if (particle24) Level.addParticle(ParticleType.snowballpoof, x, y, z, 0, 0, 0, 150);
+		if (particle25) Level.addParticle(ParticleType.spell, x, y, z, 0, 0, 0, 150);
+		if (particle26) Level.addParticle(ParticleType.splash, x, y, z, 0, 0, 0, 150);
+		if (particle27) Level.addParticle(ParticleType.suspendedTown, x, y, z, 0, 0, 0, 150);
+		if (particle28) Level.addParticle(ParticleType.terrain, x, y, z, 0, 0, 0, 150);
+		if (particle29) Level.addParticle(ParticleType.waterWake, x, y, z, 0, 0, 0, 150);
+		if (particle30) Level.addParticle(ParticleType.largeexplode, x, y, z, 0, 0, 0, 150);
+		if (particle31) Level.addParticle(ParticleType.spell2, x, y, z, 0, 0, 0, 150);
+		if (particle32) Level.addParticle(ParticleType.spell3, x, y, z, 0, 0, 0, 150);
+		if (particle33) Level.addParticle(ParticleType.carrotboost, x, y, z, 0, 0, 0, 150);
+		if (particle34) Level.addParticle(ParticleType.witchspell, x, y, z, 0, 0, 0, 150);
+	}
+	if (hitmorph) Entity.setRenderType(Player.getEntity(), Entity.getRenderType(victim));
+	if (hitrmef) Entity.removeAllEffects(victim);
+}
+
+function useItem(x, y, z, itemId, blockId, side, itemDamage, blockDamage) {
+	if (taptp) {
+		Entity.setPosition(Player.getEntity(), x, y + 2.62, z);
+	}
+	if (tapnuke) explode(x, y, z, 5);
+	if (tapParti) {
+		if (tapParti) {
+			if (particle1) Level.addParticle(ParticleType.angryVillager, x, y + 1, z, 0, 0, 0, 5);
+			if (particle2) Level.addParticle(ParticleType.bubble, x, y + 1, z, 0, 0, 0, 150);
+			if (particle3) Level.addParticle(ParticleType.cloud, x, y + 1, z, 0, 0, 0, 150);
+			if (particle4) Level.addParticle(ParticleType.crit, x, y + 1, z, 0, 0, 0, 50);
+			if (particle5) Level.addParticle(ParticleType.dripLava, x, y + 1, z, 0, 0, 0, 150);
+			if (particle6) Level.addParticle(ParticleType.dripWater, x, y + 1, z, 0, 0, 0, 150);
+			if (particle7) Level.addParticle(ParticleType.enchantmenttable, x, y + 1, z, 0, 0, 0, 150);
+			if (particle8) Level.addParticle(ParticleType.fallingDust, x, y + 1, z, 0, 0, 0, 150);
+			if (particle9) Level.addParticle(ParticleType.flame, x, y + 1, z, 0, 0, 0, 150);
+			if (particle10) Level.addParticle(ParticleType.happyVillager, x, y + 1, z, 0, 0, 0, 50);
+			if (particle11) Level.addParticle(ParticleType.heart, x, y + 1, z, 0, 0, 0, 5);
+			if (particle12) Level.addParticle(ParticleType.hugeexplosion, x, y + 1, z, 0, 0, 0, 150);
+			if (particle13) Level.addParticle(ParticleType.hugeexplosionSeed, x, y + 1, z, 0, 0, 0, 10);
+			if (particle14) Level.addParticle(ParticleType.ink, x, y + 1, z, 0, 0, 0, 150);
+			if (particle15) Level.addParticle(ParticleType.itemBreak, x, y + 1, z, 0, 0, 0, 150);
+			if (particle16) Level.addParticle(ParticleType.lava, x, y + 1, z, 0, 0, 0, 150);
+			if (particle17) Level.addParticle(ParticleType.mobFlame, x, y + 1, z, 0, 0, 0, 150);
+			if (particle18) Level.addParticle(ParticleType.note, x, y + 1, z, 0, 0, 0, 150);
+			if (particle19) Level.addParticle(ParticleType.portal, x, y + 1, z, 0, 0, 0, 150);
+			if (particle20) Level.addParticle(ParticleType.rainSplash, x, y + 1, z, 0, 0, 0, 150);
+			if (particle21) Level.addParticle(ParticleType.redstone, x, y + 1, z, 0, 0, 0, 10);
+			if (particle22) Level.addParticle(ParticleType.slime, x, y + 1, z, 0, 0, 0, 150);
+			if (particle23) Level.addParticle(ParticleType.smoke, x, y + 1, z, 0, 0, 0, 150);
+			if (particle24) Level.addParticle(ParticleType.snowballpoof, x, y + 1, z, 0, 0, 0, 150);
+			if (particle25) Level.addParticle(ParticleType.spell, x, y + 1, z, 0, 0, 0, 150);
+			if (particle26) Level.addParticle(ParticleType.splash, x, y + 1, z, 0, 0, 0, 150);
+			if (particle27) Level.addParticle(ParticleType.suspendedTown, x, y + 1, z, 0, 0, 0, 150);
+			if (particle28) Level.addParticle(ParticleType.terrain, x, y + 1, z, 0, 0, 0, 150);
+			if (particle29) Level.addParticle(ParticleType.waterWake, x, y + 1, z, 0, 0, 0, 150);
+			if (particle30) Level.addParticle(ParticleType.largeexplode, x, y + 1, z, 0, 0, 0, 150);
+			if (particle31) Level.addParticle(ParticleType.spell2, x, y + 1, z, 0, 0, 0, 150);
+			if (particle32) Level.addParticle(ParticleType.spell3, x, y + 1, z, 0, 0, 0, 150);
+			if (particle33) Level.addParticle(ParticleType.carrotboost, x, y + 1, z, 0, 0, 0, 150);
+			if (particle34) Level.addParticle(ParticleType.witchspell, x, y + 1, z, 0, 0, 0, 150);
+		}
+	}
+}
+
+function modTick() {
+	if (particle1) Level.addParticle(ParticleType.angryVillager, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 5);
+	if (particle2) Level.addParticle(ParticleType.bubble, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle3) Level.addParticle(ParticleType.cloud, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle4) Level.addParticle(ParticleType.crit, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 50);
+	if (particle5) Level.addParticle(ParticleType.dripLava, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle6) Level.addParticle(ParticleType.dripWater, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle7) Level.addParticle(ParticleType.enchantmenttable, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle8) Level.addParticle(ParticleType.fallingDust, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle9) Level.addParticle(ParticleType.flame, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle10) Level.addParticle(ParticleType.happyVillager, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 50);
+	if (particle11) Level.addParticle(ParticleType.heart, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 5);
+	if (particle12) Level.addParticle(ParticleType.hugeexplosion, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle13) Level.addParticle(ParticleType.hugeexplosionSeed, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 10);
+	if (particle14) Level.addParticle(ParticleType.ink, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle15) Level.addParticle(ParticleType.itemBreak, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle16) Level.addParticle(ParticleType.lava, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle17) Level.addParticle(ParticleType.mobFlame, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle18) Level.addParticle(ParticleType.note, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle19) Level.addParticle(ParticleType.portal, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle20) Level.addParticle(ParticleType.rainSplash, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle21) Level.addParticle(ParticleType.redstone, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 10);
+	if (particle22) Level.addParticle(ParticleType.slime, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle23) Level.addParticle(ParticleType.smoke, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle24) Level.addParticle(ParticleType.snowballpoof, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle25) Level.addParticle(ParticleType.spell, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle26) Level.addParticle(ParticleType.splash, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle27) Level.addParticle(ParticleType.suspendedTown, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle28) Level.addParticle(ParticleType.terrain, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle29) Level.addParticle(ParticleType.waterWake, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle30) Level.addParticle(ParticleType.largeexplode, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle31) Level.addParticle(ParticleType.spell2, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle32) Level.addParticle(ParticleType.spell3, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle33) Level.addParticle(ParticleType.carrotboost, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (particle34) Level.addParticle(ParticleType.witchspell, getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, 0, 150);
+	if (onlynight) Level.setTime(15000);
+	if (onlyday) Level.setTime(0);
+	if (autonuke) explode(getPlayerX(), getPlayerY(), getPlayerZ(), 5);
+	if (rainitem == true) {
+		Level.dropItem(getPlayerX() + 3, getPlayerY() + 11, getPlayerZ(), 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 7, getPlayerY() + 11, getPlayerZ(), 0, rainId, 1);
+		Level.dropItem(getPlayerX(), getPlayerY() + 11, getPlayerZ() + 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX(), getPlayerY() + 11, getPlayerZ() + 7, 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 3, getPlayerY() + 11, getPlayerZ() + 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 7, getPlayerY() + 11, getPlayerZ() + 7, 0, rainId, 1);
+		Level.dropItem(getPlayerX() - 3, getPlayerY() + 11, getPlayerZ() - 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX() - 7, getPlayerY() + 11, getPlayerZ() - 7, 0, rainId, 1);
+		Level.dropItem(getPlayerX() - 3, getPlayerY() + 11, getPlayerZ() + 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX() - 7, getPlayerY() + 11, getPlayerZ() + 7, 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 3, getPlayerY() + 11, getPlayerZ() - 3, 0, rainId, 1);
+		Level.dropItem(getPlayerX() + 7, getPlayerY() + 11, getPlayerZ() - 7, 0, rainId, 1);
+	}
+}
+
+function save() {
+	var file = new java.io.File(android.os.Environment.getExternalStorageDirectory()
+		.getAbsolutePath() + "/AlphaHackPE/homes/", "home " + Level.getWorldDir() + ".txt/");
+	var path = android.os.Environment.getExternalStorageDirectory()
+		.getAbsolutePath() + "/AlphaHackPE/homes/";
+	java.io.File(path)
+		.mkdirs();
+	file.createNewFile();
+	var write = new java.io.OutputStreamWriter(new java.io.FileOutputStream(file));
+	var string = "";
+	write.append(xhome.toString());
+	write.append("," + yhome.toString());
+	write.append("," + zhome.toString());
+	write.close();
+}
+
+function load() {
+	var line, string = "";
+	var file = new java.io.File(android.os.Environment.getExternalStorageDirectory()
+		.getAbsolutePath() + "/AlphaHackPE/homes/", "home " + Level.getWorldDir() + ".txt/");
+	var path = android.os.Environment.getExternalStorageDirectory()
+		.getAbsolutePath() + "/AlphaHackPE/homes/";
+	if (!file.exists()) {
+		clientMessage(client + "The home doesn't exist");
+		java.io.File(path)
+			.mkdirs();
+	} else {
+		var readfile = new java.io.BufferedReader(new java.io.FileReader(file));
+		while ((line = readfile.readLine()) != null) {
+			var t1 = line + java.lang.System.getProperty("line.seperator");
+			string += t1.substring(0, t1.length - 4);
+			var t2 = line;
+			if ((line = readfile.readLine()) != null) string += "\n";
+			line = t2;
+		}
+		xhome = parseInt(string.split(",")[0]);
+		yhome = parseInt(string.split(",")[1]);
+		zhome = parseInt(string.split(",")[2]);
+		Entity.setPosition(Player.getEntity(), xhome, yhome, zhome);
+	}
+}
+
+function rptask() {
+	ctx.runOnUiThread(new java.lang.Runnable({
+		run: function () {
+			new android.os.Handler()
+				.postDelayed(new java.lang.Runnable({
+					run: function () {
+						if (Debug == null || Debug.isShowing() == false) {
+							net.zhuoweizhang.mcpelauncher.ScriptManager.isRemote = true;
+							net.zhuoweizhang.mcpelauncher.ScriptManager.setLevelFakeCallback(true, false);
+							enableMod();
+							showMenuBtn();
+						}
+						nx = getPlayerX();
+						ny = getPlayerY();
+						nz = getPlayerZ();
+						eval(rptask())
+					}
+				}), 1000 / 70)
+		}
+	}))
+}
+rptask()
