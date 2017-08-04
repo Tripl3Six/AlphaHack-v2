@@ -464,6 +464,10 @@ var replace1 = ctx.getDir('ModPE', 0);
 var oldFile1 = new java.io.File(replace1, 'ALPHAHack.js');
 var replace2 = ctx.getDir('Download', 0);
 var oldFile2 = new java.io.File(replace2, 'ALPHAHack.js');
+var oldpath1 = ctx.getDir('ModPE', 0);
+var replac1 = new java.io.File(oldpath1, 'Alpha-Hack-Mod.js');
+var oldpath2 = ctx.getDir('Download', 0);
+var replac2 = new java.io.File(oldpath2, 'Alpha-Hack-Mod.js');
 }
 var AlphaHackPE = {
 	returnAddress: function () {
