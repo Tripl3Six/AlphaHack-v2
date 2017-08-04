@@ -61,3 +61,5 @@ Contributor means they have decided to make a commit to the mod.<br>
 Go to https://arceusmatt.github.io/alphahack.html<br>
 Pick a download option, Download then go into a MCPE launcher and import the downloaded file.<br>
 If you choose from github then take AlphaHack v2.js out of the zip folder then import the file into the launcher.<br>
+# About AlphaHack v2 [Lite]
+Lite is a AlphaHack v2 based off 0.9.0 except there is no online features, no laggy features/code, no code running in the background, no hacks, just the original menus. This means there won't be any websites or server enablers or auto updaters making you lag while playing. Thus a smoother gameplay for stuff like single-player & realms.
